@@ -4,14 +4,13 @@
 Рассчитаны основные статистики для вещественных и категориальных признаков.
 Рассмотрено каких заболеваний в датасете больше всего, ниже приведено топ-5 заболеваний:
 
-disease_name short_disease_name count
-
-t wave abnormal TAb 2306
-nonspecific st t abnormality NSSTTA 1883
-sinus rhythm SNR 1752
-sinus bradycardia SB 1677
-prolonged qt interval LQT 1391
-
+| disease_name              | short_disease_name | count |
+| :---------------- | :---------------- | :---------------- |
+| t wave abnormal       | TAb   | 2306 |
+| nonspecific st t abnormality           | NSSTTA   | 1883 |
+| sinus rhythm       | SNR   | 1752 |
+| sinus bradycardia           | SB   | 1677 |
+| prolonged qt interval    | LQT   |   1391 |
 
 Построена гистограмма распределения количества заболеваний на одного пациента, на ней видно что у большинства пациентов(6500 пациентов) не более 1-2 заболеваний и у остальных пациентов от 3х заболеваний, максимум число заболеваний может достигать 10. 
 Определили количество женщин и мужчин в датасете. Мужчин больше.
