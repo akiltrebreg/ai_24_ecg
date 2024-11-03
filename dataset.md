@@ -1,3 +1,4 @@
+### Описание данных 
 Набор данных ЭКГ был получен из датасета для соревнования PhysioNet 2020 года. 
 https://drive.google.com/drive/folders/1EI8XNLSLe8Hs2_HM0K_aQ5C5h2focnC5?usp=sharing
 Представленные анализы принадлежат жителям штата Джорджия, США. 
