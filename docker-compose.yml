@@ -12,6 +12,8 @@ services:
       - ./backend/experiments:/app/experiments
     environment:
       - LOG_LEVEL=INFO
+    depends_on:
+      - logstash
 
   frontend:
     build: ./frontend
@@ -20,3 +22,11 @@ services:
       - "8501:8501"
     depends_on:
       - backend
+  logstash:
+    build: ./logstash
+    container_name: logstash_container
+    volumes:
+      - ./backend/logs:/backend_logs
+      - ./processed_logs:/processed_logs
+    ports:
+      - "5000:5000"

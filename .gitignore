@@ -2,3 +2,4 @@
 /backend/data
 /backend/experiments
 /backend/logs/backend.log
+processed_logs/

@@ -1,0 +1,4 @@
+2024-12-21 01:49:57,574 - backend_logger - INFO - Файл ecg_df_fin.csv успешно загружен
+2024-12-24 21:53:38,683 - backend_logger - INFO - Файл cars_test.csv успешно загружен
+2024-12-24 22:16:10,104 - backend_logger - INFO - Файл train.csv успешно загружен
+2024-12-24 22:20:59,740 - backend_logger - INFO - Файл train.csv успешно загружен
