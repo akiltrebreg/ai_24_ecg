@@ -12,6 +12,8 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import accuracy_score, f1_score
 import logging
 import warnings
+from datetime import datetime
+
 warnings.filterwarnings("ignore")
 
 RAND = 42
@@ -92,7 +94,9 @@ def train_model(model_type: str, params: dict, dataset_name: str):
 
     mean_train_scores = np.mean(train_scores, axis=1).tolist()
     mean_val_scores = np.mean(val_scores, axis=1).tolist()
-    experiment_id = str(uuid.uuid4())[:8]
+    formatted_time = datetime.now().strftime("%H_%M_%d_%m_%Y")
+    short_id = str(uuid.uuid4())[:8]
+    experiment_id = f"{formatted_time}_{short_id}"
     exp_dir = os.path.join("experiments", experiment_id)
     os.makedirs(exp_dir, exist_ok=True)
     joblib.dump(model, os.path.join(exp_dir, "model.joblib"))
