@@ -2,3 +2,266 @@
 2024-12-24 21:53:38,683 - backend_logger - INFO - Р¤Р°Р№Р» cars_test.csv СѓСЃРїРµС€РЅРѕ Р·Р°РіСЂСѓР¶РµРЅ
 2024-12-24 22:16:10,104 - backend_logger - INFO - Р¤Р°Р№Р» train.csv СѓСЃРїРµС€РЅРѕ Р·Р°РіСЂСѓР¶РµРЅ
 2024-12-24 22:20:59,740 - backend_logger - INFO - Р¤Р°Р№Р» train.csv СѓСЃРїРµС€РЅРѕ Р·Р°РіСЂСѓР¶РµРЅ
+2024-12-25 18:31:10,394 - backend_logger - INFO - Р¤Р°Р№Р» Georgia.zip СѓСЃРїРµС€РЅРѕ Р·Р°РіСЂСѓР¶РµРЅ
+2024-12-25 18:31:10,394 - backend_logger - INFO - Р¤Р°Р№Р» Georgia.zip СѓСЃРїРµС€РЅРѕ Р·Р°РіСЂСѓР¶РµРЅ
+2024-12-25 18:31:38,423 - backend_logger - INFO - Unzipping...
+2024-12-25 18:31:38,423 - backend_logger - INFO - Unzipping...
+2024-12-25 18:31:38,426 - backend_logger - ERROR - РћС€РёР±РєР° РѕР±СѓС‡РµРЅРёСЏ РјРѕРґРµР»Рё: Georgia.zip is not a zip file
+2024-12-25 18:31:38,426 - backend_logger - ERROR - РћС€РёР±РєР° РѕР±СѓС‡РµРЅРёСЏ РјРѕРґРµР»Рё: Georgia.zip is not a zip file
+2024-12-25 18:36:51,874 - backend_logger - INFO - Р¤Р°Р№Р» Georgia.zip СѓСЃРїРµС€РЅРѕ Р·Р°РіСЂСѓР¶РµРЅ
+2024-12-25 18:36:51,874 - backend_logger - INFO - Р¤Р°Р№Р» Georgia.zip СѓСЃРїРµС€РЅРѕ Р·Р°РіСЂСѓР¶РµРЅ
+2024-12-25 18:36:51,874 - backend_logger - INFO - Р¤Р°Р№Р» Georgia.zip СѓСЃРїРµС€РЅРѕ Р·Р°РіСЂСѓР¶РµРЅ
+2024-12-25 18:37:00,739 - backend_logger - INFO - Unzipping...
+2024-12-25 18:37:00,739 - backend_logger - INFO - Unzipping...
+2024-12-25 18:37:00,739 - backend_logger - INFO - Unzipping...
+2024-12-25 18:37:00,746 - backend_logger - INFO - Georgia.zip|Georgia
+2024-12-25 18:37:00,746 - backend_logger - INFO - Georgia.zip|Georgia
+2024-12-25 18:37:00,746 - backend_logger - INFO - Georgia.zip|Georgia
+2024-12-25 18:37:00,754 - backend_logger - ERROR - РћС€РёР±РєР° РѕР±СѓС‡РµРЅРёСЏ РјРѕРґРµР»Рё: Georgia.zip is not a zip file
+2024-12-25 18:37:00,754 - backend_logger - ERROR - РћС€РёР±РєР° РѕР±СѓС‡РµРЅРёСЏ РјРѕРґРµР»Рё: Georgia.zip is not a zip file
+2024-12-25 18:37:00,754 - backend_logger - ERROR - РћС€РёР±РєР° РѕР±СѓС‡РµРЅРёСЏ РјРѕРґРµР»Рё: Georgia.zip is not a zip file
+2024-12-25 18:46:35,679 - backend_logger - INFO - Р¤Р°Р№Р» Georgia.zip СѓСЃРїРµС€РЅРѕ Р·Р°РіСЂСѓР¶РµРЅ
+2024-12-25 18:46:35,679 - backend_logger - INFO - Р¤Р°Р№Р» Georgia.zip СѓСЃРїРµС€РЅРѕ Р·Р°РіСЂСѓР¶РµРЅ
+2024-12-25 18:46:35,679 - backend_logger - INFO - Р¤Р°Р№Р» Georgia.zip СѓСЃРїРµС€РЅРѕ Р·Р°РіСЂСѓР¶РµРЅ
+2024-12-25 18:46:43,307 - backend_logger - INFO - Unzipping...
+2024-12-25 18:46:43,307 - backend_logger - INFO - Unzipping...
+2024-12-25 18:46:43,307 - backend_logger - INFO - Unzipping...
+2024-12-25 18:46:43,313 - backend_logger - INFO - /app/data/Georgia.zip|/app/data/Georgia
+2024-12-25 18:46:43,313 - backend_logger - INFO - /app/data/Georgia.zip|/app/data/Georgia
+2024-12-25 18:46:43,313 - backend_logger - INFO - /app/data/Georgia.zip|/app/data/Georgia
+2024-12-25 18:47:33,613 - backend_logger - INFO - Preprocess is started
+2024-12-25 18:47:33,613 - backend_logger - INFO - Preprocess is started
+2024-12-25 18:47:33,613 - backend_logger - INFO - Preprocess is started
+2024-12-25 18:47:33,622 - backend_logger - ERROR - РћС€РёР±РєР° РѕР±СѓС‡РµРЅРёСЏ РјРѕРґРµР»Рё: EOF when reading a line
+2024-12-25 18:47:33,622 - backend_logger - ERROR - РћС€РёР±РєР° РѕР±СѓС‡РµРЅРёСЏ РјРѕРґРµР»Рё: EOF when reading a line
+2024-12-25 18:47:33,622 - backend_logger - ERROR - РћС€РёР±РєР° РѕР±СѓС‡РµРЅРёСЏ РјРѕРґРµР»Рё: EOF when reading a line
+2024-12-25 22:01:33,389 - backend_logger - INFO - C:\Users\nikza\Desktop\магистратура\Учёба\Годовой проект\ai24_ecg\backend\data\Georgia.zip|C:\Users\nikza\Desktop\магистратура\Учёба\Годовой проект\ai24_ecg\backend\data\Georgia
+2024-12-25 22:05:14,893 - backend_logger - INFO - C:\Users\nikza\Desktop\магистратура\Учёба\Годовой проект\ai24_ecg\backend\data\Georgia.zip|C:\Users\nikza\Desktop\магистратура\Учёба\Годовой проект\ai24_ecg\backend\data\Georgia
+2024-12-25 22:12:11,521 - backend_logger - INFO - C:\Users\nikza\Desktop\магистратура\Учёба\Годовой проект\ai24_ecg\backend\data\Georgia.zip|C:\Users\nikza\Desktop\магистратура\Учёба\Годовой проект\ai24_ecg\backend\data\Georgia
+2024-12-25 22:13:50,484 - backend_logger - INFO - C:\Users\nikza\Desktop\магистратура\Учёба\Годовой проект\ai24_ecg\backend\data\Georgia.zip|C:\Users\nikza\Desktop\магистратура\Учёба\Годовой проект\ai24_ecg\backend\data\Georgia
+2024-12-25 22:14:44,750 - backend_logger - INFO - C:\Users\nikza\Desktop\магистратура\Учёба\Годовой проект\ai24_ecg\backend\data\Georgia.zip|C:\Users\nikza\Desktop\магистратура\Учёба\Годовой проект\ai24_ecg\backend\data\Georgia
+2024-12-25 22:16:00,408 - backend_logger - INFO - C:\Users\nikza\Desktop\магистратура\Учёба\Годовой проект\ai24_ecg\backend\data\Georgia.zip|C:\Users\nikza\Desktop\магистратура\Учёба\Годовой проект\ai24_ecg\backend\data\Georgia
+2024-12-25 22:29:44,798 - backend_logger - INFO - C:\Users\nikza\Desktop\магистратура\Учёба\Годовой проект\ai24_ecg\backend\data\Georgia.zip|C:\Users\nikza\Desktop\магистратура\Учёба\Годовой проект\ai24_ecg\backend\data\Georgia
+2024-12-25 22:36:34,784 - backend_logger - INFO - C:\Users\nikza\Desktop\магистратура\Учёба\Годовой проект\ai24_ecg\backend\data\Georgia.zip|C:\Users\nikza\Desktop\магистратура\Учёба\Годовой проект\ai24_ecg\backend\data\Georgia
+2024-12-25 22:40:48,160 - backend_logger - INFO - C:\Users\nikza\Desktop\магистратура\Учёба\Годовой проект\ai24_ecg\backend\data\Georgia.zip|C:\Users\nikza\Desktop\магистратура\Учёба\Годовой проект\ai24_ecg\backend\data\Georgia
+2024-12-25 23:39:11,587 - backend_logger - INFO - C:\Users\nikza\Desktop\магистратура\Учёба\Годовой проект\ai24_ecg\backend\data\Georgia.zip|C:\Users\nikza\Desktop\магистратура\Учёба\Годовой проект\ai24_ecg\backend\data\Georgia
+2024-12-25 23:45:18,832 - backend_logger - INFO - C:\Users\nikza\Desktop\магистратура\Учёба\Годовой проект\ai24_ecg\backend\data\Georgia.zip|C:\Users\nikza\Desktop\магистратура\Учёба\Годовой проект\ai24_ecg\backend\data\Georgia
+2024-12-25 23:49:50,305 - backend_logger - INFO - C:\Users\nikza\Desktop\магистратура\Учёба\Годовой проект\ai24_ecg\backend\data\Georgia.zip|C:\Users\nikza\Desktop\магистратура\Учёба\Годовой проект\ai24_ecg\backend\data\Georgia
+2024-12-26 00:03:07,667 - backend_logger - INFO - C:\Users\nikza\Desktop\магистратура\Учёба\Годовой проект\ai24_ecg\backend\data\Georgia.zip|C:\Users\nikza\Desktop\магистратура\Учёба\Годовой проект\ai24_ecg\backend\data\Georgia
+2024-12-25 21:08:46,179 - backend_logger - INFO - Р¤Р°Р№Р» Georgia.zip СѓСЃРїРµС€РЅРѕ Р·Р°РіСЂСѓР¶РµРЅ
+2024-12-25 21:08:46,179 - backend_logger - INFO - Р¤Р°Р№Р» Georgia.zip СѓСЃРїРµС€РЅРѕ Р·Р°РіСЂСѓР¶РµРЅ
+2024-12-25 21:08:46,179 - backend_logger - INFO - Р¤Р°Р№Р» Georgia.zip СѓСЃРїРµС€РЅРѕ Р·Р°РіСЂСѓР¶РµРЅ
+2024-12-25 21:08:57,204 - backend_logger - INFO - Unzipping...
+2024-12-25 21:08:57,204 - backend_logger - INFO - Unzipping...
+2024-12-25 21:08:57,204 - backend_logger - INFO - Unzipping...
+2024-12-25 21:09:06,676 - backend_logger - INFO - /app/data/Georgia.zip|/app/data/Georgia
+2024-12-25 21:09:06,676 - backend_logger - INFO - /app/data/Georgia.zip|/app/data/Georgia
+2024-12-25 21:09:06,676 - backend_logger - INFO - /app/data/Georgia.zip|/app/data/Georgia
+2024-12-25 21:10:05,488 - backend_logger - INFO - Preprocess is started
+2024-12-25 21:10:05,488 - backend_logger - INFO - Preprocess is started
+2024-12-25 21:10:05,488 - backend_logger - INFO - Preprocess is started
+2024-12-25 21:12:39,335 - backend_logger - ERROR - РћС€РёР±РєР° РѕР±СѓС‡РµРЅРёСЏ РјРѕРґРµР»Рё: could not convert string to float: 'np.float64(58.96208966123394)'
+2024-12-25 21:12:39,335 - backend_logger - ERROR - РћС€РёР±РєР° РѕР±СѓС‡РµРЅРёСЏ РјРѕРґРµР»Рё: could not convert string to float: 'np.float64(58.96208966123394)'
+2024-12-25 21:12:39,335 - backend_logger - ERROR - РћС€РёР±РєР° РѕР±СѓС‡РµРЅРёСЏ РјРѕРґРµР»Рё: could not convert string to float: 'np.float64(58.96208966123394)'
+2024-12-26 00:18:30,611 - backend_logger - INFO - C:\Users\nikza\Desktop\магистратура\Учёба\Годовой проект\ai24_ecg\backend\data\Georgia.zip|C:\Users\nikza\Desktop\магистратура\Учёба\Годовой проект\ai24_ecg\backend\data\Georgia
+2024-12-26 00:20:08,883 - backend_logger - INFO - C:\Users\nikza\Desktop\магистратура\Учёба\Годовой проект\ai24_ecg\backend\data\Georgia.zip|C:\Users\nikza\Desktop\магистратура\Учёба\Годовой проект\ai24_ecg\backend\data\Georgia
+2024-12-25 21:26:32,418 - backend_logger - INFO - Р¤Р°Р№Р» Georgia.zip СѓСЃРїРµС€РЅРѕ Р·Р°РіСЂСѓР¶РµРЅ
+2024-12-25 21:26:32,418 - backend_logger - INFO - Р¤Р°Р№Р» Georgia.zip СѓСЃРїРµС€РЅРѕ Р·Р°РіСЂСѓР¶РµРЅ
+2024-12-25 21:26:32,418 - backend_logger - INFO - Р¤Р°Р№Р» Georgia.zip СѓСЃРїРµС€РЅРѕ Р·Р°РіСЂСѓР¶РµРЅ
+2024-12-25 21:26:49,977 - backend_logger - INFO - Unzipping...
+2024-12-25 21:26:49,977 - backend_logger - INFO - Unzipping...
+2024-12-25 21:26:49,977 - backend_logger - INFO - Unzipping...
+2024-12-25 21:26:55,934 - backend_logger - INFO - /app/data/Georgia.zip|/app/data/Georgia
+2024-12-25 21:26:55,934 - backend_logger - INFO - /app/data/Georgia.zip|/app/data/Georgia
+2024-12-25 21:26:55,934 - backend_logger - INFO - /app/data/Georgia.zip|/app/data/Georgia
+2024-12-25 21:27:46,379 - backend_logger - INFO - Preprocess is started
+2024-12-25 21:27:46,379 - backend_logger - INFO - Preprocess is started
+2024-12-25 21:27:46,379 - backend_logger - INFO - Preprocess is started
+2024-12-26 00:29:02,754 - backend_logger - INFO - C:\Users\nikza\Desktop\магистратура\Учёба\Годовой проект\ai24_ecg\backend\data\Georgia.zip|C:\Users\nikza\Desktop\магистратура\Учёба\Годовой проект\ai24_ecg\backend\data\Georgia
+2024-12-25 21:29:31,909 - backend_logger - INFO - Р¤Р°Р№Р» Georgia.zip СѓСЃРїРµС€РЅРѕ Р·Р°РіСЂСѓР¶РµРЅ
+2024-12-25 21:29:31,909 - backend_logger - INFO - Р¤Р°Р№Р» Georgia.zip СѓСЃРїРµС€РЅРѕ Р·Р°РіСЂСѓР¶РµРЅ
+2024-12-25 21:29:31,909 - backend_logger - INFO - Р¤Р°Р№Р» Georgia.zip СѓСЃРїРµС€РЅРѕ Р·Р°РіСЂСѓР¶РµРЅ
+2024-12-25 21:29:43,506 - backend_logger - INFO - Unzipping...
+2024-12-25 21:29:43,506 - backend_logger - INFO - Unzipping...
+2024-12-25 21:29:43,506 - backend_logger - INFO - Unzipping...
+2024-12-25 21:29:51,959 - backend_logger - INFO - /app/data/Georgia.zip|/app/data/Georgia
+2024-12-25 21:29:51,959 - backend_logger - INFO - /app/data/Georgia.zip|/app/data/Georgia
+2024-12-25 21:29:51,959 - backend_logger - INFO - /app/data/Georgia.zip|/app/data/Georgia
+2024-12-25 21:30:56,944 - backend_logger - INFO - Preprocess is started
+2024-12-25 21:30:56,944 - backend_logger - INFO - Preprocess is started
+2024-12-25 21:30:56,944 - backend_logger - INFO - Preprocess is started
+2024-12-25 21:33:49,597 - backend_logger - ERROR - РћС€РёР±РєР° РѕР±СѓС‡РµРЅРёСЏ РјРѕРґРµР»Рё: could not convert string to float: 'np.float64(58.96208966123394)'
+2024-12-25 21:33:49,597 - backend_logger - ERROR - РћС€РёР±РєР° РѕР±СѓС‡РµРЅРёСЏ РјРѕРґРµР»Рё: could not convert string to float: 'np.float64(58.96208966123394)'
+2024-12-25 21:33:49,597 - backend_logger - ERROR - РћС€РёР±РєР° РѕР±СѓС‡РµРЅРёСЏ РјРѕРґРµР»Рё: could not convert string to float: 'np.float64(58.96208966123394)'
+2024-12-25 21:41:23,206 - backend_logger - INFO - Р¤Р°Р№Р» Georgia.zip СѓСЃРїРµС€РЅРѕ Р·Р°РіСЂСѓР¶РµРЅ
+2024-12-25 21:41:23,206 - backend_logger - INFO - Р¤Р°Р№Р» Georgia.zip СѓСЃРїРµС€РЅРѕ Р·Р°РіСЂСѓР¶РµРЅ
+2024-12-25 21:41:23,206 - backend_logger - INFO - Р¤Р°Р№Р» Georgia.zip СѓСЃРїРµС€РЅРѕ Р·Р°РіСЂСѓР¶РµРЅ
+2024-12-25 21:41:33,134 - backend_logger - INFO - Unzipping...
+2024-12-25 21:41:33,134 - backend_logger - INFO - Unzipping...
+2024-12-25 21:41:33,134 - backend_logger - INFO - Unzipping...
+2024-12-25 21:41:38,706 - backend_logger - INFO - /app/data/Georgia.zip|/app/data/Georgia
+2024-12-25 21:41:38,706 - backend_logger - INFO - /app/data/Georgia.zip|/app/data/Georgia
+2024-12-25 21:41:38,706 - backend_logger - INFO - /app/data/Georgia.zip|/app/data/Georgia
+2024-12-25 21:42:24,190 - backend_logger - INFO - Preprocess is started
+2024-12-25 21:42:24,190 - backend_logger - INFO - Preprocess is started
+2024-12-25 21:42:24,190 - backend_logger - INFO - Preprocess is started
+2024-12-25 21:42:24,194 - backend_logger - INFO - POINT 0
+2024-12-25 21:42:24,194 - backend_logger - INFO - POINT 0
+2024-12-25 21:42:24,194 - backend_logger - INFO - POINT 0
+2024-12-25 21:42:24,200 - backend_logger - INFO - POINT 1
+2024-12-25 21:42:24,200 - backend_logger - INFO - POINT 1
+2024-12-25 21:42:24,200 - backend_logger - INFO - POINT 1
+2024-12-25 21:42:24,233 - backend_logger - INFO - POINT 2
+2024-12-25 21:42:24,233 - backend_logger - INFO - POINT 2
+2024-12-25 21:42:24,233 - backend_logger - INFO - POINT 2
+2024-12-25 21:42:24,243 - backend_logger - INFO - POINT 3
+2024-12-25 21:42:24,243 - backend_logger - INFO - POINT 3
+2024-12-25 21:42:24,243 - backend_logger - INFO - POINT 3
+2024-12-25 21:42:24,388 - backend_logger - INFO - POINT 4
+2024-12-25 21:42:24,388 - backend_logger - INFO - POINT 4
+2024-12-25 21:42:24,388 - backend_logger - INFO - POINT 4
+2024-12-25 21:42:24,405 - backend_logger - INFO - POINT 5
+2024-12-25 21:42:24,405 - backend_logger - INFO - POINT 5
+2024-12-25 21:42:24,405 - backend_logger - INFO - POINT 5
+2024-12-25 21:42:24,430 - backend_logger - INFO - POINT 6
+2024-12-25 21:42:24,430 - backend_logger - INFO - POINT 6
+2024-12-25 21:42:24,430 - backend_logger - INFO - POINT 6
+2024-12-25 21:42:24,452 - backend_logger - INFO - POINT 7
+2024-12-25 21:42:24,452 - backend_logger - INFO - POINT 7
+2024-12-25 21:42:24,452 - backend_logger - INFO - POINT 7
+2024-12-25 21:42:24,480 - backend_logger - INFO - POINT 8
+2024-12-25 21:42:24,480 - backend_logger - INFO - POINT 8
+2024-12-25 21:42:24,480 - backend_logger - INFO - POINT 8
+2024-12-25 21:42:24,498 - backend_logger - INFO - POINT 9
+2024-12-25 21:42:24,498 - backend_logger - INFO - POINT 9
+2024-12-25 21:42:24,498 - backend_logger - INFO - POINT 9
+2024-12-25 21:42:32,729 - backend_logger - INFO - POINT 10
+2024-12-25 21:42:32,729 - backend_logger - INFO - POINT 10
+2024-12-25 21:42:32,729 - backend_logger - INFO - POINT 10
+2024-12-25 21:44:44,621 - backend_logger - INFO - POINT 11
+2024-12-25 21:44:44,621 - backend_logger - INFO - POINT 11
+2024-12-25 21:44:44,621 - backend_logger - INFO - POINT 11
+2024-12-25 21:44:44,626 - backend_logger - INFO - POINT 12
+2024-12-25 21:44:44,626 - backend_logger - INFO - POINT 12
+2024-12-25 21:44:44,626 - backend_logger - INFO - POINT 12
+2024-12-25 21:44:44,714 - backend_logger - ERROR - РћС€РёР±РєР° РѕР±СѓС‡РµРЅРёСЏ РјРѕРґРµР»Рё: could not convert string to float: 'np.float64(58.96208966123394)'
+2024-12-25 21:44:44,714 - backend_logger - ERROR - РћС€РёР±РєР° РѕР±СѓС‡РµРЅРёСЏ РјРѕРґРµР»Рё: could not convert string to float: 'np.float64(58.96208966123394)'
+2024-12-25 21:44:44,714 - backend_logger - ERROR - РћС€РёР±РєР° РѕР±СѓС‡РµРЅРёСЏ РјРѕРґРµР»Рё: could not convert string to float: 'np.float64(58.96208966123394)'
+2024-12-26 00:53:09,328 - backend_logger - INFO - C:\Users\nikza\Desktop\магистратура\Учёба\Годовой проект\ai24_ecg\backend\data\Georgia.zip|C:\Users\nikza\Desktop\магистратура\Учёба\Годовой проект\ai24_ecg\backend\data\Georgia
+2024-12-26 00:54:11,172 - backend_logger - INFO - C:\Users\nikza\Desktop\магистратура\Учёба\Годовой проект\ai24_ecg\backend\data\Georgia.zip|C:\Users\nikza\Desktop\магистратура\Учёба\Годовой проект\ai24_ecg\backend\data\Georgia
+2024-12-26 00:54:52,133 - backend_logger - INFO - POINT 0
+2024-12-26 00:54:52,143 - backend_logger - INFO - POINT 1
+2024-12-26 00:54:52,170 - backend_logger - INFO - POINT 2
+2024-12-26 00:54:52,178 - backend_logger - INFO - POINT 3
+2024-12-26 00:54:52,182 - backend_logger - INFO - POINT 4
+2024-12-26 00:54:52,210 - backend_logger - INFO - POINT 5
+2024-12-26 00:54:52,226 - backend_logger - INFO - POINT 6
+2024-12-26 00:54:52,237 - backend_logger - INFO - POINT 7
+2024-12-26 00:54:52,243 - backend_logger - INFO - POINT 8
+2024-12-26 00:54:52,251 - backend_logger - INFO - POINT 9
+2024-12-26 00:54:59,017 - backend_logger - INFO - POINT 10
+2024-12-26 00:57:24,393 - backend_logger - INFO - POINT 11
+2024-12-26 00:57:24,400 - backend_logger - INFO - POINT 12
+2024-12-26 01:00:23,104 - backend_logger - INFO - C:\Users\nikza\Desktop\магистратура\Учёба\Годовой проект\ai24_ecg\backend\data\Georgia.zip|C:\Users\nikza\Desktop\магистратура\Учёба\Годовой проект\ai24_ecg\backend\data\Georgia
+2024-12-26 01:01:04,606 - backend_logger - INFO - POINT 0
+2024-12-26 01:01:04,626 - backend_logger - INFO - POINT 1
+2024-12-26 01:01:04,655 - backend_logger - INFO - POINT 2
+2024-12-26 01:01:04,664 - backend_logger - INFO - POINT 3
+2024-12-26 01:01:04,667 - backend_logger - INFO - POINT 4
+2024-12-26 01:01:04,727 - backend_logger - INFO - POINT 5
+2024-12-26 01:01:04,745 - backend_logger - INFO - POINT 6
+2024-12-26 01:01:04,761 - backend_logger - INFO - POINT 7
+2024-12-26 01:01:04,766 - backend_logger - INFO - POINT 8
+2024-12-26 01:01:04,785 - backend_logger - INFO - POINT 9
+2024-12-26 01:01:12,001 - backend_logger - INFO - POINT 10
+2024-12-26 01:03:40,761 - backend_logger - INFO - POINT 11
+2024-12-26 01:03:40,765 - backend_logger - INFO - POINT 12
+2024-12-26 01:03:43,778 - backend_logger - INFO - POINT 13
+2024-12-26 01:03:43,859 - backend_logger - INFO - POINT 14
+2024-12-26 01:03:43,877 - backend_logger - INFO - POINT 15
+2024-12-26 01:03:43,898 - backend_logger - INFO - POINT 16
+2024-12-25 22:06:45,553 - backend_logger - INFO - Р¤Р°Р№Р» Georgia.zip СѓСЃРїРµС€РЅРѕ Р·Р°РіСЂСѓР¶РµРЅ
+2024-12-25 22:06:45,553 - backend_logger - INFO - Р¤Р°Р№Р» Georgia.zip СѓСЃРїРµС€РЅРѕ Р·Р°РіСЂСѓР¶РµРЅ
+2024-12-25 22:06:45,553 - backend_logger - INFO - Р¤Р°Р№Р» Georgia.zip СѓСЃРїРµС€РЅРѕ Р·Р°РіСЂСѓР¶РµРЅ
+2024-12-25 22:06:59,688 - backend_logger - INFO - Unzipping...
+2024-12-25 22:06:59,688 - backend_logger - INFO - Unzipping...
+2024-12-25 22:06:59,688 - backend_logger - INFO - Unzipping...
+2024-12-25 22:07:06,341 - backend_logger - INFO - /app/data/Georgia.zip|/app/data/Georgia
+2024-12-25 22:07:06,341 - backend_logger - INFO - /app/data/Georgia.zip|/app/data/Georgia
+2024-12-25 22:07:06,341 - backend_logger - INFO - /app/data/Georgia.zip|/app/data/Georgia
+2024-12-25 22:08:04,870 - backend_logger - INFO - Preprocess is started
+2024-12-25 22:08:04,870 - backend_logger - INFO - Preprocess is started
+2024-12-25 22:08:04,870 - backend_logger - INFO - Preprocess is started
+2024-12-25 22:08:04,876 - backend_logger - INFO - POINT 0
+2024-12-25 22:08:04,876 - backend_logger - INFO - POINT 0
+2024-12-25 22:08:04,876 - backend_logger - INFO - POINT 0
+2024-12-25 22:08:04,885 - backend_logger - INFO - POINT 1
+2024-12-25 22:08:04,885 - backend_logger - INFO - POINT 1
+2024-12-25 22:08:04,885 - backend_logger - INFO - POINT 1
+2024-12-25 22:08:04,934 - backend_logger - INFO - POINT 2
+2024-12-25 22:08:04,934 - backend_logger - INFO - POINT 2
+2024-12-25 22:08:04,934 - backend_logger - INFO - POINT 2
+2024-12-25 22:08:04,946 - backend_logger - INFO - POINT 3
+2024-12-25 22:08:04,946 - backend_logger - INFO - POINT 3
+2024-12-25 22:08:04,946 - backend_logger - INFO - POINT 3
+2024-12-25 22:08:05,132 - backend_logger - INFO - POINT 4
+2024-12-25 22:08:05,132 - backend_logger - INFO - POINT 4
+2024-12-25 22:08:05,132 - backend_logger - INFO - POINT 4
+2024-12-25 22:08:05,164 - backend_logger - INFO - POINT 5
+2024-12-25 22:08:05,164 - backend_logger - INFO - POINT 5
+2024-12-25 22:08:05,164 - backend_logger - INFO - POINT 5
+2024-12-25 22:08:05,199 - backend_logger - INFO - POINT 6
+2024-12-25 22:08:05,199 - backend_logger - INFO - POINT 6
+2024-12-25 22:08:05,199 - backend_logger - INFO - POINT 6
+2024-12-25 22:08:05,218 - backend_logger - INFO - POINT 7
+2024-12-25 22:08:05,218 - backend_logger - INFO - POINT 7
+2024-12-25 22:08:05,218 - backend_logger - INFO - POINT 7
+2024-12-25 22:08:05,236 - backend_logger - INFO - POINT 8
+2024-12-25 22:08:05,236 - backend_logger - INFO - POINT 8
+2024-12-25 22:08:05,236 - backend_logger - INFO - POINT 8
+2024-12-25 22:08:05,261 - backend_logger - INFO - POINT 9
+2024-12-25 22:08:05,261 - backend_logger - INFO - POINT 9
+2024-12-25 22:08:05,261 - backend_logger - INFO - POINT 9
+2024-12-25 22:08:14,122 - backend_logger - INFO - POINT 10
+2024-12-25 22:08:14,122 - backend_logger - INFO - POINT 10
+2024-12-25 22:08:14,122 - backend_logger - INFO - POINT 10
+2024-12-25 22:10:27,470 - backend_logger - INFO - POINT 11
+2024-12-25 22:10:27,470 - backend_logger - INFO - POINT 11
+2024-12-25 22:10:27,470 - backend_logger - INFO - POINT 11
+2024-12-25 22:10:27,474 - backend_logger - INFO - POINT 12
+2024-12-25 22:10:27,474 - backend_logger - INFO - POINT 12
+2024-12-25 22:10:27,474 - backend_logger - INFO - POINT 12
+2024-12-25 22:10:30,412 - backend_logger - INFO - POINT 13
+2024-12-25 22:10:30,412 - backend_logger - INFO - POINT 13
+2024-12-25 22:10:30,412 - backend_logger - INFO - POINT 13
+2024-12-25 22:10:30,464 - backend_logger - INFO - POINT 14
+2024-12-25 22:10:30,464 - backend_logger - INFO - POINT 14
+2024-12-25 22:10:30,464 - backend_logger - INFO - POINT 14
+2024-12-25 22:10:30,482 - backend_logger - INFO - POINT 15
+2024-12-25 22:10:30,482 - backend_logger - INFO - POINT 15
+2024-12-25 22:10:30,482 - backend_logger - INFO - POINT 15
+2024-12-25 22:10:30,493 - backend_logger - INFO - POINT 16
+2024-12-25 22:10:30,493 - backend_logger - INFO - POINT 16
+2024-12-25 22:10:30,493 - backend_logger - INFO - POINT 16
+2024-12-25 22:10:30,529 - backend_logger - INFO - Preprocess is finished. Start fitting
+2024-12-25 22:10:30,529 - backend_logger - INFO - Preprocess is finished. Start fitting
+2024-12-25 22:10:30,529 - backend_logger - INFO - Preprocess is finished. Start fitting
+2024-12-25 22:11:51,544 - backend_logger - INFO - Fitting is finished. Start predicting
+2024-12-25 22:11:51,544 - backend_logger - INFO - Fitting is finished. Start predicting
+2024-12-25 22:11:51,544 - backend_logger - INFO - Fitting is finished. Start predicting
+2024-12-25 22:11:51,555 - backend_logger - INFO - Predicting is finished. Start count metrics
+2024-12-25 22:11:51,555 - backend_logger - INFO - Predicting is finished. Start count metrics
+2024-12-25 22:11:51,555 - backend_logger - INFO - Predicting is finished. Start count metrics
+2024-12-25 22:18:09,550 - backend_logger - INFO - РњРѕРґРµР»СЊ Logistic Regression СѓСЃРїРµС€РЅРѕ РѕР±СѓС‡РµРЅР°. Р­РєСЃРїРµСЂРёРјРµРЅС‚: 5749a134
+2024-12-25 22:18:09,550 - backend_logger - INFO - РњРѕРґРµР»СЊ Logistic Regression СѓСЃРїРµС€РЅРѕ РѕР±СѓС‡РµРЅР°. Р­РєСЃРїРµСЂРёРјРµРЅС‚: 5749a134
+2024-12-25 22:18:09,550 - backend_logger - INFO - РњРѕРґРµР»СЊ Logistic Regression СѓСЃРїРµС€РЅРѕ РѕР±СѓС‡РµРЅР°. Р­РєСЃРїРµСЂРёРјРµРЅС‚: 5749a134
+2024-12-25 22:18:09,574 - backend_logger - INFO - Р—Р°РїСЂРѕС€РµРЅ СЃРїРёСЃРѕРє СЌРєСЃРїРµСЂРёРјРµРЅС‚РѕРІ
+2024-12-25 22:18:09,574 - backend_logger - INFO - Р—Р°РїСЂРѕС€РµРЅ СЃРїРёСЃРѕРє СЌРєСЃРїРµСЂРёРјРµРЅС‚РѕРІ
+2024-12-25 22:18:09,574 - backend_logger - INFO - Р—Р°РїСЂРѕС€РµРЅ СЃРїРёСЃРѕРє СЌРєСЃРїРµСЂРёРјРµРЅС‚РѕРІ
+2024-12-26 01:47:35,059 - backend_logger - INFO - C:\Users\nikza\Desktop\магистратура\Учёба\Годовой проект\ai24_ecg\backend\data\Georgia.zip|C:\Users\nikza\Desktop\магистратура\Учёба\Годовой проект\ai24_ecg\backend\data\Georgia
+2024-12-26 01:49:06,463 - backend_logger - INFO - C:\Users\nikza\Desktop\магистратура\Учёба\Годовой проект\ai24_ecg\backend\data\Georgia.zip|C:\Users\nikza\Desktop\магистратура\Учёба\Годовой проект\ai24_ecg\backend\data\Georgia
+2024-12-26 01:52:57,497 - backend_logger - INFO - C:\Users\nikza\Desktop\магистратура\Учёба\Годовой проект\ai24_ecg\backend\data\Georgia.zip|C:\Users\nikza\Desktop\магистратура\Учёба\Годовой проект\ai24_ecg\backend\data\Georgia
+2024-12-26 02:04:15,220 - backend_logger - INFO - C:\Users\nikza\Desktop\магистратура\Учёба\Годовой проект\ai24_ecg\backend\data\Georgia.zip|C:\Users\nikza\Desktop\магистратура\Учёба\Годовой проект\ai24_ecg\backend\data\Georgia
+2024-12-26 02:05:39,969 - backend_logger - INFO - C:\Users\nikza\Desktop\магистратура\Учёба\Годовой проект\ai24_ecg\backend\data\Georgia.zip|C:\Users\nikza\Desktop\магистратура\Учёба\Годовой проект\ai24_ecg\backend\data\Georgia
+2024-12-26 02:07:38,496 - backend_logger - INFO - C:\Users\nikza\Desktop\магистратура\Учёба\Годовой проект\ai24_ecg\backend\data\Georgia.zip|C:\Users\nikza\Desktop\магистратура\Учёба\Годовой проект\ai24_ecg\backend\data\Georgia
+2024-12-26 02:14:54,826 - backend_logger - INFO - C:\Users\nikza\Desktop\магистратура\Учёба\Годовой проект\ai24_ecg\backend\data\Georgia.zip|C:\Users\nikza\Desktop\магистратура\Учёба\Годовой проект\ai24_ecg\backend\data\Georgia

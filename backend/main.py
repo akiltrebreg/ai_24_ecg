@@ -5,9 +5,10 @@ from typing import List
 from fastapi import FastAPI, UploadFile, File, HTTPException, Form
 from pydantic import BaseModel
 from typing_extensions import Annotated
-from training import train_model, list_experiments, get_experiment_metrics, get_experiment_curves
+from training import train_model, list_experiments, get_experiment_metrics, get_experiment_curves, get_eda_info
 from utils import ALLOWED_EXTENSIONS
 import warnings
+
 warnings.filterwarnings("ignore")
 
 log_path = os.path.join("logs", "backend.log")
@@ -22,6 +23,7 @@ handler.setFormatter(formatter)
 logger.addHandler(handler)
 
 app = FastAPI()
+
 
 @app.post("/upload_dataset")
 async def upload_dataset(file: Annotated[UploadFile, File(...)]):
@@ -41,10 +43,12 @@ async def upload_dataset(file: Annotated[UploadFile, File(...)]):
     logger.info(f"Файл {filename} успешно загружен")
     return {"message": "Файл успешно загружен", "filepath": file_path}
 
+
 class TrainRequest(BaseModel):
     model_type: str
     params: dict
     dataset_name: str
+
 
 @app.post("/train_model")
 def train_model_endpoint(req: TrainRequest):
@@ -56,18 +60,27 @@ def train_model_endpoint(req: TrainRequest):
         logger.error(f"Ошибка обучения модели: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
+
 @app.get("/experiments")
 def get_experiments():
     exps = list_experiments()
     logger.info("Запрошен список экспериментов")
     return {"experiments": exps}
 
+
 @app.get("/experiment_metrics")
 def experiment_metrics(name: Annotated[str, Form(...)]):
     metrics = get_experiment_metrics(name)
     return metrics
 
+
 @app.get("/experiment_curves")
 def experiment_curves(names: Annotated[List[str], Form(...)]):
     curves = get_experiment_curves(names)
     return curves
+
+
+@app.get("/get_eda_info")
+def get_eda_info(dataset_name: Annotated[str, Form(...)]):
+    eda_info = get_eda_info(dataset_name)
+    return eda_info

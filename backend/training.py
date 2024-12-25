@@ -1,4 +1,6 @@
 import os
+from logging.handlers import RotatingFileHandler
+import utils
 import pandas as pd
 import joblib
 import uuid
@@ -13,7 +15,16 @@ import warnings
 warnings.filterwarnings("ignore")
 
 RAND = 42
-logger = logging.getLogger("main_logger")
+
+log_path = os.path.join("logs", "backend.log")
+if not os.path.exists("logs"):
+    os.makedirs("logs", exist_ok=True)
+logger = logging.getLogger("backend_logger")
+logger.setLevel(logging.INFO)
+handler = RotatingFileHandler(log_path, maxBytes=5_000_000, backupCount=5)
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+handler.setFormatter(formatter)
+logger.addHandler(handler)
 
 
 def preprocess_dataset(path: str):
@@ -45,12 +56,15 @@ def preprocess_dataset(path: str):
     X_test_std = sc.transform(X_test)
     return X_train_std, X_test_std, y_train, y_test, sc, X_train_std.shape[0], X_test_std.shape[0]
 
+
 def train_model(model_type: str, params: dict, dataset_name: str):
     data_path = os.path.join("data", dataset_name)
     if not os.path.exists(data_path):
         raise ValueError("Датасет не найден")
+    logger.info("Unzipping...")
+    df = utils.make_df_from_mat_files(dataset_name)
     logger.info("Preprocess is started")
-    X_train_std, X_test_std, y_train, y_test, sc, n_train, n_test = preprocess_dataset(data_path)
+    X_train_std, X_test_std, y_train, y_test, sc, n_train, n_test = utils.preprocess_dataset(df, dataset_name)
     logger.info("Preprocess is finished. Start fitting")
     if model_type == "Logistic Regression":
         model = LogisticRegression(multi_class='ovr', random_state=RAND, max_iter=1000, **params)
@@ -92,11 +106,13 @@ def train_model(model_type: str, params: dict, dataset_name: str):
     curves.to_csv(os.path.join(exp_dir, "curves.csv"), index=False)
     return experiment_id
 
+
 def list_experiments():
     exp_dir = "experiments"
     if not os.path.exists(exp_dir):
         return []
     return [d for d in os.listdir(exp_dir) if os.path.isdir(os.path.join(exp_dir, d))]
+
 
 def get_experiment_metrics(name: str):
     exp_dir = os.path.join("experiments", name)
@@ -105,6 +121,7 @@ def get_experiment_metrics(name: str):
     metrics_path = os.path.join(exp_dir, "metrics.csv")
     df = pd.read_csv(metrics_path)
     return df.to_dict(orient="records")[0]
+
 
 def get_experiment_curves(names: list):
     curves_data = {}
@@ -120,3 +137,7 @@ def get_experiment_curves(names: list):
             "validation_scores": df["validation_scores"].tolist()
         }
     return curves_data
+
+
+def get_eda_info(dataset_name: str):
+    return utils.get_eda_info(dataset_name)

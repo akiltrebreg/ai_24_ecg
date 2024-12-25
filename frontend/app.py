@@ -13,7 +13,7 @@ if "dataset_name" not in st.session_state:
     st.session_state["dataset_name"] = None
 
 # Шаг 1: Загрузка файла
-uploaded_file = st.file_uploader("Загрузите CSV файл для обучения", type=["csv"])
+uploaded_file = st.file_uploader("Загрузите zip файл для обучения", type=["zip"])
 if uploaded_file is not None and st.session_state["dataset_name"] is None:
     # Отправляем файл на сервер только один раз
     files = {"file": (uploaded_file.name, uploaded_file.read(), "text/csv")}
