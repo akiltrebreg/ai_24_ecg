@@ -36,13 +36,15 @@ async def upload_dataset(file: Annotated[UploadFile, File(...)]):
         f.write(content)
     logger.info(f"Файл {filename} успешно загружен")
 
-    folder_path = os.path.splitext(file_path)[0]
+    folder_path = file_path[:file_path.rfind(".")]
     print(folder_path)
     if os.path.exists(folder_path):
         shutil.rmtree(folder_path)
     logger.info(file_path + "|" + folder_path)
     shutil.unpack_archive(file_path, folder_path)
+    logger.info("EDA...")
     utils.create_eda(folder_path)
+    logger.info("...EDA")
     logger.info(f"Файл {filename} успешно разархивирован")
     return {"message": "Файл успешно загружен", "filepath": file_path}
 
@@ -87,8 +89,8 @@ def experiment_curves(names: Annotated[List[str], Form(...)]):
 def get_eda_info(dataset_name: Annotated[str, Form(...)]):
     df3, df_exploded, top_diseases, top_2_diseases = training.get_eda_info(dataset_name)
     return {
-            "df3":df3,
-            "df_exploded":df_exploded,
-            "top_diseases":top_diseases,
-            "top_2_diseases":top_2_diseases
+            "df3": df3,
+            "df_exploded": df_exploded,
+            "top_diseases": top_diseases,
+            "top_2_diseases": top_2_diseases
             }

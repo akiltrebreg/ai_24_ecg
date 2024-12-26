@@ -181,10 +181,10 @@ def make_df_from_mat_files(path: str):
             header_data = f.readlines()
         return data, header_data
 
-    path = os.path.join(DATA_PATH, path)
-    folder_path = os.path.splitext(path)[0]
+    # path = os.path.join(DATA_PATH, path)
+    # folder_path = os.path.splitext(path)[0]
     signal, id, time, prefix, one, two, three, aVR, aVL, aVF, V1, V2, V3, V4, V5, V6, gender, age, labels, ecg_filenames, r, h, x = import_key_data(
-        folder_path)
+        path)
 
     df = pd.DataFrame(
         {
@@ -217,11 +217,13 @@ def make_df_from_mat_files(path: str):
 
 
 def create_eda(folder_path: str):
-    eda_path = folder_path.replace(".zip", "") + "_eda"
+    logger.info(f"EDA is_starting. path = {folder_path}")
+    eda_path = folder_path + "_eda"
     if os.path.exists(eda_path):
         shutil.rmtree(eda_path)
     os.mkdir(eda_path)
     df = make_df_from_mat_files(folder_path)
+    logger.info(f"shape = {df.shape}")
     df2 = df.drop(['time', 'prefix'], axis=1)
     col_names = ['one', 'two', 'three', 'aVR', 'aVL', 'aVF', 'V1', 'V2', 'V3', 'V4', 'V5', 'V6']
     for col_name in col_names:
@@ -253,15 +255,20 @@ def create_eda(folder_path: str):
                                                                                                    ascending=False)
     df3 = df2
     df3['len_disease'] = df3['labels'].apply(lambda x: len(x))
-    df3.drop('signal', axis=1).to_csv(os.path.join(eda_path, "df3.csv"), index=False)
-    df_exploded.drop('signal', axis=1).to_csv(os.path.join(eda_path, "df_exploded.csv"), index=False)
 
+    logger.info("EDA PART 1")
+    df3.drop('signal', axis=1).to_csv(os.path.join(eda_path, "df3.csv"), index=False)
+    logger.info("EDA PART 2")
+    df_exploded.drop('signal', axis=1).to_csv(os.path.join(eda_path, "df_exploded.csv"), index=False)
+    logger.info("EDA PART 3")
     df = df_exploded
     top = 20
     top_2 = 15
     top_diseases = df.groupby('labels').id.count().sort_values(ascending=False)[:top].reset_index().labels.tolist()
     list_top_diseases = pd.DataFrame({'ListValues': top_diseases})
+    logger.info("EDA PART 4")
     list_top_diseases.to_csv(os.path.join(eda_path, "top_diseases.csv"), index=False)
+    logger.info("EDA PART 5")
     df_preprocessed = df.drop(['id'], axis=1)
     df_preprocessed['gender'] = df_preprocessed['gender'].replace({'Female': 1, 'Male': 0})
     df_preprocessed = df_preprocessed.dropna()
@@ -276,13 +283,15 @@ def create_eda(folder_path: str):
     top_2_diseases = df_cropped_2.groupby('labels').one.count().sort_values(ascending=False)[
                      :top_2].reset_index().labels.tolist()
     list_top_2_diseases = pd.DataFrame({'ListValues': top_2_diseases})
+    logger.info("EDA PART 6")
     list_top_2_diseases.to_csv(os.path.join(eda_path, "top_2_diseases.csv"), index=False)
+    logger.info("EDA ended")
 
 def preprocess_dataset(df: pd.DataFrame, dataset_name: str):
-    eda_path = os.path.join(DATA_PATH, dataset_name + '_eda')
-    if os.path.exists(eda_path):
-        shutil.rmtree(eda_path)
-    os.mkdir(eda_path)
+    # eda_path = os.path.join(DATA_PATH, dataset_name + '_eda')
+    # if os.path.exists(eda_path):
+    #     shutil.rmtree(eda_path)
+    # os.mkdir(eda_path)
     df2 = df.drop(['time', 'prefix'], axis=1)
     col_names = ['one', 'two', 'three', 'aVR', 'aVL', 'aVF', 'V1', 'V2', 'V3', 'V4', 'V5', 'V6']
     for col_name in col_names:
@@ -320,8 +329,8 @@ def preprocess_dataset(df: pd.DataFrame, dataset_name: str):
     # print(type(df_exploded.signal[0][0]))
     df3['len_disease'] = df3['labels'].apply(lambda x: len(x))
     # df3.to_hdf(eda_path, key='df3', mode='w')
-    df3.drop('signal', axis = 1).to_csv(os.path.join(eda_path, "df3.csv"), index=False)
-    df_exploded.drop('signal', axis = 1).to_csv(os.path.join(eda_path, "df_exploded.csv"), index=False)
+    # df3.drop('signal', axis = 1).to_csv(os.path.join(eda_path, "df3.csv"), index=False)
+    # df_exploded.drop('signal', axis = 1).to_csv(os.path.join(eda_path, "df_exploded.csv"), index=False)
 
     # df3.to_parquet(os.path.join(eda_path, "df3.parquet"), engine='pyarrow', compression='snappy')
     # df_exploded.to_hdf(eda_path, key='df_exploded', mode='a')
@@ -384,8 +393,7 @@ def preprocess_dataset(df: pd.DataFrame, dataset_name: str):
     # top_diseases.to_hdf(eda_path, key='top_diseases', mode='a')
     list_top_diseases = pd.DataFrame({'ListValues': top_diseases})
     # list_top_diseases.to_parquet(os.path.join(eda_path, "top_diseases.parquet"), engine='pyarrow', compression='snappy')
-
-    list_top_diseases.to_csv(os.path.join(eda_path, "top_diseases.csv"), index=False)
+    # list_top_diseases.to_csv(os.path.join(eda_path, "top_diseases.csv"), index=False)
     df_preprocessed = df.drop(['id'], axis=1)
     df_preprocessed['gender'] = df_preprocessed['gender'].replace({'Female': 1, 'Male': 0})
     df_preprocessed = df_preprocessed.dropna()
@@ -399,8 +407,8 @@ def preprocess_dataset(df: pd.DataFrame, dataset_name: str):
     df_cropped_2 = df_cropped.drop_duplicates(subset=subset, keep='first')
     top_2_diseases = df_cropped_2.groupby('labels').one.count().sort_values(ascending=False)[:top_2].reset_index().labels.tolist()
     # top_2_diseases.to_hdf(eda_path, key='top_2_diseases', mode='a')
-    list_top_2_diseases = pd.DataFrame({'ListValues': top_2_diseases})
-    list_top_2_diseases.to_csv(os.path.join(eda_path, "top_2_diseases.csv"), index=False)
+    # list_top_2_diseases = pd.DataFrame({'ListValues': top_2_diseases})
+    # list_top_2_diseases.to_csv(os.path.join(eda_path, "top_2_diseases.csv"), index=False)
     # list_top_2_diseases.to_parquet(os.path.join(eda_path, "top_2_diseases.parquet"), engine='pyarrow', compression='snappy')
     X = df_cropped_2[df_cropped_2.labels.isin(top_2_diseases)].drop(['labels', 'signal', 'disease_name', 'short_disease_name'], axis=1)
     y = df_cropped_2[df_cropped_2.labels.isin(top_2_diseases)]['labels']
@@ -418,7 +426,9 @@ def preprocess_dataset(df: pd.DataFrame, dataset_name: str):
 
 
 def get_eda_info(dataset_name: str):
-    path = os.path.join(DATA_PATH, dataset_name + "_eda")
+    # path = os.path.join(DATA_PATH, dataset_name + "_eda")
+    path = dataset_name + "_eda"
+    logger.info("FIND_EDA... PATH =", path)
     df3 = pd.read_csv(path + '/df3.csv')
     df_exploded = pd.read_csv(path + '/df_exploded.csv')
     top_diseases = pd.read_csv(path + '/top_diseases.csv')['ListValues'].tolist()
