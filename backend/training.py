@@ -12,12 +12,14 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import accuracy_score, f1_score
 import logging
 import warnings
-from datetime import datetime
+from datetime import datetime, timedelta
+from logger_config import logger
 
 warnings.filterwarnings("ignore")
 
 RAND = 42
 
+"""
 log_path = os.path.join("logs", "backend.log")
 if not os.path.exists("logs"):
     os.makedirs("logs", exist_ok=True)
@@ -27,43 +29,13 @@ handler = RotatingFileHandler(log_path, maxBytes=5_000_000, backupCount=5)
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 handler.setFormatter(formatter)
 logger.addHandler(handler)
-
-
-def preprocess_dataset(path: str):
-    df = pd.read_csv(path)
-    top = 20
-    top_2 = 15
-    top_diseases = df.groupby('labels').id.count().sort_values(ascending=False)[:top].reset_index().labels.tolist()
-    df_preprocessed = df.drop(['id'], axis=1)
-    df_preprocessed['gender'] = df_preprocessed['gender'].replace({'Female': 1, 'Male': 0})
-    df_preprocessed = df_preprocessed.dropna()
-    df_final = df_preprocessed[df_preprocessed.labels.isin(top_diseases)]
-    df_cropped = df_final[df_final.labels.isin(top_diseases)]
-    subset = list(df_cropped.columns)
-    subset.remove('labels')
-    subset.remove('short_disease_name')
-    subset.remove('signal')
-    subset.remove('disease_name')
-    df_cropped_2 = df_cropped.drop_duplicates(subset=subset, keep='first')
-    top_2_diseases = df_cropped_2.groupby('labels').one.count().sort_values(ascending=False)[:top_2].reset_index().labels.tolist()
-    X = df_cropped_2[df_cropped_2.labels.isin(top_2_diseases)].drop(['labels', 'signal', 'disease_name', 'short_disease_name'], axis=1)
-    y = df_cropped_2[df_cropped_2.labels.isin(top_2_diseases)]['labels']
-    X_train, X_test, y_train, y_test = train_test_split(X,
-                                                        y,
-                                                        test_size=0.25,
-                                                        stratify=y,
-                                                        random_state=RAND)
-    sc = StandardScaler()
-    X_train_std = sc.fit_transform(X_train)
-    X_test_std = sc.transform(X_test)
-    return X_train_std, X_test_std, y_train, y_test, sc, X_train_std.shape[0], X_test_std.shape[0]
-
+"""
 
 def train_model(model_type: str, params: dict, dataset_name: str):
     data_path = os.path.join("data", dataset_name)
     if not os.path.exists(data_path):
         raise ValueError("Датасет не найден")
-    logger.info("Unzipping...")
+    logger.info("Converting_mat_files_to_df...")
     df = utils.make_df_from_mat_files(dataset_name)
     logger.info("Preprocess is started")
     X_train_std, X_test_std, y_train, y_test, sc, n_train, n_test = utils.preprocess_dataset(df, dataset_name)
@@ -94,7 +66,7 @@ def train_model(model_type: str, params: dict, dataset_name: str):
 
     mean_train_scores = np.mean(train_scores, axis=1).tolist()
     mean_val_scores = np.mean(val_scores, axis=1).tolist()
-    formatted_time = datetime.now().strftime("%H_%M_%d_%m_%Y")
+    formatted_time = (datetime.now() + timedelta(hours=3)).strftime("%H_%M_%d_%m_%Y")
     short_id = str(uuid.uuid4())[:8]
     experiment_id = f"{formatted_time}_{short_id}"
     exp_dir = os.path.join("experiments", experiment_id)

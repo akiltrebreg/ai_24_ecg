@@ -1,26 +1,20 @@
 import os
 import logging
+import shutil
 from logging.handlers import RotatingFileHandler
 from typing import List
 from fastapi import FastAPI, UploadFile, File, HTTPException, Form
 from pydantic import BaseModel
 from typing_extensions import Annotated
+import utils
 from training import train_model, list_experiments, get_experiment_metrics, get_experiment_curves, get_eda_info
 from utils import ALLOWED_EXTENSIONS
 import warnings
+from logger_config import logger
+import training
 
 warnings.filterwarnings("ignore")
 
-log_path = os.path.join("logs", "backend.log")
-if not os.path.exists("logs"):
-    os.makedirs("logs", exist_ok=True)
-
-logger = logging.getLogger("backend_logger")
-logger.setLevel(logging.INFO)
-handler = RotatingFileHandler(log_path, maxBytes=5_000_000, backupCount=5)
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-handler.setFormatter(formatter)
-logger.addHandler(handler)
 
 app = FastAPI()
 
@@ -41,6 +35,15 @@ async def upload_dataset(file: Annotated[UploadFile, File(...)]):
     with open(file_path, "wb") as f:
         f.write(content)
     logger.info(f"Файл {filename} успешно загружен")
+
+    folder_path = os.path.splitext(file_path)[0]
+    print(folder_path)
+    if os.path.exists(folder_path):
+        shutil.rmtree(folder_path)
+    logger.info(file_path + "|" + folder_path)
+    shutil.unpack_archive(file_path, folder_path)
+    utils.create_eda(folder_path)
+    logger.info(f"Файл {filename} успешно разархивирован")
     return {"message": "Файл успешно загружен", "filepath": file_path}
 
 
@@ -82,5 +85,5 @@ def experiment_curves(names: Annotated[List[str], Form(...)]):
 
 @app.get("/get_eda_info")
 def get_eda_info(dataset_name: Annotated[str, Form(...)]):
-    eda_info = get_eda_info(dataset_name)
-    return eda_info
+    df3, df_exploded, top_diseases, top_2_diseases = training.get_eda_info(dataset_name)
+    return [df3, df_exploded, top_diseases, top_2_diseases]
