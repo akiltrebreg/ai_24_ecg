@@ -86,4 +86,9 @@ def experiment_curves(names: Annotated[List[str], Form(...)]):
 @app.get("/get_eda_info")
 def get_eda_info(dataset_name: Annotated[str, Form(...)]):
     df3, df_exploded, top_diseases, top_2_diseases = training.get_eda_info(dataset_name)
-    return [df3, df_exploded, top_diseases, top_2_diseases]
+    return {
+            "df3":df3,
+            "df_exploded":df_exploded,
+            "top_diseases":top_diseases,
+            "top_2_diseases":top_2_diseases
+            }
