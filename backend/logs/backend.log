@@ -875,3 +875,4 @@
 2024-12-27 13:18:35,269 - backend_logger - INFO - Preprocess is started
 2024-12-27 13:18:35,313 - backend_logger - ERROR - Ошибка обучения модели: 0
 2024-12-27 13:18:35,317 - backend_logger - INFO - Запрошен список экспериментов
+2024-12-27 13:19:27,509 - backend_logger - INFO - Запрошен список экспериментов
