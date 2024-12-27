@@ -89,8 +89,6 @@ def experiment_curves(names: Annotated[List[str], Form(...)]):
 @app.get("/get_eda_info")
 def get_eda_info(dataset_name: Annotated[str, Form(...)]):
     df3, df_exploded, top_diseases, top_2_diseases = training.get_eda_info(dataset_name)
-    print(df3.isna().sum())
-    print(df_exploded.isna().sum())
     return {
     "df3": df3.to_dict(orient="records"),  # DataFrame -> Сериализуемый список словарей
     "df_exploded": df_exploded.to_dict(orient="records"),  # Аналогично
