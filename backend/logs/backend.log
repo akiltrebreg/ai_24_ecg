@@ -714,3 +714,164 @@
 2024-12-27 11:13:41,721 - backend_logger - INFO - Preprocess is started
 2024-12-27 11:13:41,756 - backend_logger - ERROR - Ошибка обучения модели: 0
 2024-12-27 11:13:41,760 - backend_logger - INFO - Запрошен список экспериментов
+2024-12-27 11:18:59,372 - backend_logger - INFO - Запрошен список экспериментов
+2024-12-27 11:19:02,740 - backend_logger - INFO - Файл Georgia.zip успешно загружен
+2024-12-27 11:19:02,817 - backend_logger - INFO - data/Georgia.zip|data/Georgia
+2024-12-27 11:19:04,421 - backend_logger - INFO - EDA...
+2024-12-27 11:19:04,421 - backend_logger - INFO - EDA is_starting. path = data/Georgia
+2024-12-27 11:19:05,002 - backend_logger - INFO - shape = (1538, 23)
+2024-12-27 11:19:05,093 - backend_logger - INFO - EDA PART 1
+2024-12-27 11:19:05,102 - backend_logger - INFO - EDA PART 2
+2024-12-27 11:19:05,119 - backend_logger - INFO - EDA PART 3
+2024-12-27 11:19:05,121 - backend_logger - INFO - EDA PART 4
+2024-12-27 11:19:05,122 - backend_logger - INFO - EDA PART 5
+2024-12-27 11:19:05,129 - backend_logger - INFO - EDA PART 6
+2024-12-27 11:19:05,129 - backend_logger - INFO - EDA ended
+2024-12-27 11:19:05,130 - backend_logger - INFO - ...EDA
+2024-12-27 11:19:05,131 - backend_logger - INFO - Файл Georgia.zip успешно разархивирован
+2024-12-27 11:19:05,154 - backend_logger - INFO - Запрошен список экспериментов
+2024-12-27 11:19:09,910 - backend_logger - INFO - Запрошен список экспериментов
+2024-12-27 11:19:11,985 - backend_logger - INFO - Converting_mat_files_to_df...
+2024-12-27 11:19:11,986 - backend_logger - INFO - Preprocess is started
+2024-12-27 11:19:12,026 - backend_logger - ERROR - Ошибка обучения модели: 0
+2024-12-27 11:19:12,032 - backend_logger - INFO - Запрошен список экспериментов
+2024-12-27 11:41:05,013 - backend_logger - INFO - Converting_mat_files_to_df...
+2024-12-27 11:41:05,013 - backend_logger - INFO - Preprocess is started
+2024-12-27 11:41:05,047 - backend_logger - ERROR - Ошибка обучения модели: 0
+2024-12-27 11:41:05,053 - backend_logger - INFO - Запрошен список экспериментов
+2024-12-27 11:41:05,519 - backend_logger - INFO - Converting_mat_files_to_df...
+2024-12-27 11:41:05,520 - backend_logger - INFO - Preprocess is started
+2024-12-27 11:41:05,552 - backend_logger - ERROR - Ошибка обучения модели: 0
+2024-12-27 11:41:05,558 - backend_logger - INFO - Запрошен список экспериментов
+2024-12-27 11:41:05,706 - backend_logger - INFO - Converting_mat_files_to_df...
+2024-12-27 11:41:05,707 - backend_logger - INFO - Preprocess is started
+2024-12-27 11:41:05,739 - backend_logger - ERROR - Ошибка обучения модели: 0
+2024-12-27 11:41:05,744 - backend_logger - INFO - Запрошен список экспериментов
+2024-12-27 12:25:52,513 - backend_logger - INFO - Файл Georgia.zip успешно загружен
+2024-12-27 12:25:52,593 - backend_logger - INFO - data/Georgia.zip|data/Georgia
+2024-12-27 12:25:54,200 - backend_logger - INFO - EDA...
+2024-12-27 12:25:54,200 - backend_logger - INFO - EDA is_starting. path = data/Georgia
+2024-12-27 12:25:54,782 - backend_logger - INFO - shape = (1538, 23)
+2024-12-27 12:25:54,874 - backend_logger - INFO - EDA PART 1
+2024-12-27 12:25:54,893 - backend_logger - INFO - EDA PART 2
+2024-12-27 12:25:54,910 - backend_logger - INFO - EDA PART 3
+2024-12-27 12:25:54,912 - backend_logger - INFO - EDA PART 4
+2024-12-27 12:25:54,913 - backend_logger - INFO - EDA PART 5
+2024-12-27 12:25:54,920 - backend_logger - INFO - EDA PART 6
+2024-12-27 12:25:54,921 - backend_logger - INFO - EDA ended
+2024-12-27 12:25:54,924 - backend_logger - INFO - ...EDA
+2024-12-27 12:25:54,925 - backend_logger - INFO - Файл Georgia.zip успешно разархивирован
+2024-12-27 12:25:54,945 - backend_logger - INFO - Запрошен список экспериментов
+2024-12-27 12:34:43,795 - backend_logger - INFO - Файл Georgia.zip успешно загружен
+2024-12-27 12:34:43,845 - backend_logger - INFO - data/Georgia.zip|data/Georgia
+2024-12-27 12:34:45,453 - backend_logger - INFO - EDA...
+2024-12-27 12:34:45,453 - backend_logger - INFO - EDA is_starting. path = data/Georgia
+2024-12-27 12:34:46,026 - backend_logger - INFO - shape = (1538, 23)
+2024-12-27 12:34:46,120 - backend_logger - INFO - EDA PART 1
+2024-12-27 12:34:46,139 - backend_logger - INFO - EDA PART 2
+2024-12-27 12:34:46,156 - backend_logger - INFO - EDA PART 3
+2024-12-27 12:34:46,158 - backend_logger - INFO - EDA PART 4
+2024-12-27 12:34:46,158 - backend_logger - INFO - EDA PART 5
+2024-12-27 12:34:46,166 - backend_logger - INFO - EDA PART 6
+2024-12-27 12:34:46,166 - backend_logger - INFO - EDA ended
+2024-12-27 12:34:46,197 - backend_logger - INFO - ...EDA
+2024-12-27 12:34:46,197 - backend_logger - INFO - Файл Georgia.zip успешно разархивирован
+2024-12-27 12:34:46,220 - backend_logger - INFO - Запрошен список экспериментов
+2024-12-27 12:39:46,881 - backend_logger - INFO - Запрошен список экспериментов
+2024-12-27 12:39:55,623 - backend_logger - INFO - Файл Georgia.zip успешно загружен
+2024-12-27 12:39:55,680 - backend_logger - INFO - data/Georgia.zip|data/Georgia
+2024-12-27 12:39:57,280 - backend_logger - INFO - EDA...
+2024-12-27 12:39:57,280 - backend_logger - INFO - EDA is_starting. path = data/Georgia
+2024-12-27 12:39:57,854 - backend_logger - INFO - shape = (1538, 23)
+2024-12-27 12:39:57,948 - backend_logger - INFO - EDA PART 1
+2024-12-27 12:39:57,966 - backend_logger - INFO - EDA PART 2
+2024-12-27 12:39:57,983 - backend_logger - INFO - EDA PART 3
+2024-12-27 12:39:57,986 - backend_logger - INFO - EDA PART 4
+2024-12-27 12:39:57,986 - backend_logger - INFO - EDA PART 5
+2024-12-27 12:39:57,994 - backend_logger - INFO - EDA PART 6
+2024-12-27 12:39:57,994 - backend_logger - INFO - EDA ended
+2024-12-27 12:39:58,017 - backend_logger - INFO - ...EDA
+2024-12-27 12:39:58,017 - backend_logger - INFO - Файл Georgia.zip успешно разархивирован
+2024-12-27 12:39:58,038 - backend_logger - INFO - Запрошен список экспериментов
+2024-12-27 12:40:05,954 - backend_logger - INFO - Запрошен список экспериментов
+2024-12-27 12:40:09,996 - backend_logger - INFO - Запрошен список экспериментов
+2024-12-27 12:40:20,715 - backend_logger - INFO - Запрошен список экспериментов
+2024-12-27 12:43:04,472 - backend_logger - INFO - Запрошен список экспериментов
+2024-12-27 12:43:09,093 - backend_logger - INFO - Файл Georgia.zip успешно загружен
+2024-12-27 12:43:09,143 - backend_logger - INFO - data/Georgia.zip|data/Georgia
+2024-12-27 12:43:10,758 - backend_logger - INFO - EDA...
+2024-12-27 12:43:10,758 - backend_logger - INFO - EDA is_starting. path = data/Georgia
+2024-12-27 12:43:11,346 - backend_logger - INFO - shape = (1538, 23)
+2024-12-27 12:43:11,440 - backend_logger - INFO - EDA PART 1
+2024-12-27 12:43:11,458 - backend_logger - INFO - EDA PART 2
+2024-12-27 12:43:11,475 - backend_logger - INFO - EDA PART 3
+2024-12-27 12:43:11,478 - backend_logger - INFO - EDA PART 4
+2024-12-27 12:43:11,478 - backend_logger - INFO - EDA PART 5
+2024-12-27 12:43:11,485 - backend_logger - INFO - EDA PART 6
+2024-12-27 12:43:11,486 - backend_logger - INFO - EDA ended
+2024-12-27 12:43:11,508 - backend_logger - INFO - ...EDA
+2024-12-27 12:43:11,509 - backend_logger - INFO - Файл Georgia.zip успешно разархивирован
+2024-12-27 12:43:11,533 - backend_logger - INFO - Запрошен список экспериментов
+2024-12-27 12:43:13,645 - backend_logger - INFO - Запрошен список экспериментов
+2024-12-27 13:03:54,241 - backend_logger - INFO - Запрошен список экспериментов
+2024-12-27 13:03:58,404 - backend_logger - INFO - Файл Georgia.zip успешно загружен
+2024-12-27 13:03:58,477 - backend_logger - INFO - data/Georgia.zip|data/Georgia
+2024-12-27 13:04:00,094 - backend_logger - INFO - EDA...
+2024-12-27 13:04:00,094 - backend_logger - INFO - EDA is_starting. path = data/Georgia
+2024-12-27 13:04:00,671 - backend_logger - INFO - shape = (1538, 23)
+2024-12-27 13:04:00,764 - backend_logger - INFO - EDA PART 1
+2024-12-27 13:04:00,774 - backend_logger - INFO - EDA PART 2
+2024-12-27 13:04:00,790 - backend_logger - INFO - EDA PART 3
+2024-12-27 13:04:00,792 - backend_logger - INFO - EDA PART 4
+2024-12-27 13:04:00,793 - backend_logger - INFO - EDA PART 5
+2024-12-27 13:04:00,800 - backend_logger - INFO - EDA PART 6
+2024-12-27 13:04:00,801 - backend_logger - INFO - EDA ended
+2024-12-27 13:04:00,828 - backend_logger - INFO - ...EDA
+2024-12-27 13:04:00,828 - backend_logger - INFO - Файл Georgia.zip успешно разархивирован
+2024-12-27 13:04:00,852 - backend_logger - INFO - Запрошен список экспериментов
+2024-12-27 13:04:02,609 - backend_logger - INFO - Запрошен список экспериментов
+2024-12-27 13:15:28,085 - backend_logger - INFO - Запрошен список экспериментов
+2024-12-27 13:15:45,342 - backend_logger - INFO - Запрошен список экспериментов
+2024-12-27 13:15:52,147 - backend_logger - INFO - Запрошен список экспериментов
+2024-12-27 13:15:58,593 - backend_logger - INFO - Файл Georgia.zip успешно загружен
+2024-12-27 13:15:58,711 - backend_logger - INFO - data/Georgia.zip|data/Georgia
+2024-12-27 13:16:00,341 - backend_logger - INFO - EDA...
+2024-12-27 13:16:00,341 - backend_logger - INFO - EDA is_starting. path = data/Georgia
+2024-12-27 13:16:00,921 - backend_logger - INFO - shape = (1538, 23)
+2024-12-27 13:16:01,018 - backend_logger - INFO - EDA PART 1
+2024-12-27 13:16:01,028 - backend_logger - INFO - EDA PART 2
+2024-12-27 13:16:01,045 - backend_logger - INFO - EDA PART 3
+2024-12-27 13:16:01,047 - backend_logger - INFO - EDA PART 4
+2024-12-27 13:16:01,048 - backend_logger - INFO - EDA PART 5
+2024-12-27 13:16:01,055 - backend_logger - INFO - EDA PART 6
+2024-12-27 13:16:01,056 - backend_logger - INFO - EDA ended
+2024-12-27 13:16:01,078 - backend_logger - INFO - ...EDA
+2024-12-27 13:16:01,078 - backend_logger - INFO - Файл Georgia.zip успешно разархивирован
+2024-12-27 13:16:01,103 - backend_logger - INFO - Запрошен список экспериментов
+2024-12-27 13:16:05,441 - backend_logger - INFO - Запрошен список экспериментов
+2024-12-27 13:16:24,960 - backend_logger - INFO - Запрошен список экспериментов
+2024-12-27 13:16:47,770 - backend_logger - INFO - Запрошен список экспериментов
+2024-12-27 13:16:49,978 - backend_logger - INFO - Запрошен список экспериментов
+2024-12-27 13:16:52,381 - backend_logger - INFO - Запрошен список экспериментов
+2024-12-27 13:16:54,790 - backend_logger - INFO - Запрошен список экспериментов
+2024-12-27 13:18:19,519 - backend_logger - INFO - Запрошен список экспериментов
+2024-12-27 13:18:23,091 - backend_logger - INFO - Файл Georgia.zip успешно загружен
+2024-12-27 13:18:23,166 - backend_logger - INFO - data/Georgia.zip|data/Georgia
+2024-12-27 13:18:24,939 - backend_logger - INFO - EDA...
+2024-12-27 13:18:24,939 - backend_logger - INFO - EDA is_starting. path = data/Georgia
+2024-12-27 13:18:25,537 - backend_logger - INFO - shape = (1538, 23)
+2024-12-27 13:18:25,647 - backend_logger - INFO - EDA PART 1
+2024-12-27 13:18:25,657 - backend_logger - INFO - EDA PART 2
+2024-12-27 13:18:25,674 - backend_logger - INFO - EDA PART 3
+2024-12-27 13:18:25,677 - backend_logger - INFO - EDA PART 4
+2024-12-27 13:18:25,677 - backend_logger - INFO - EDA PART 5
+2024-12-27 13:18:25,685 - backend_logger - INFO - EDA PART 6
+2024-12-27 13:18:25,686 - backend_logger - INFO - EDA ended
+2024-12-27 13:18:25,707 - backend_logger - INFO - ...EDA
+2024-12-27 13:18:25,707 - backend_logger - INFO - Файл Georgia.zip успешно разархивирован
+2024-12-27 13:18:25,736 - backend_logger - INFO - Запрошен список экспериментов
+2024-12-27 13:18:30,437 - backend_logger - INFO - Запрошен список экспериментов
+2024-12-27 13:18:35,268 - backend_logger - INFO - Converting_mat_files_to_df...
+2024-12-27 13:18:35,269 - backend_logger - INFO - Preprocess is started
+2024-12-27 13:18:35,313 - backend_logger - ERROR - Ошибка обучения модели: 0
+2024-12-27 13:18:35,317 - backend_logger - INFO - Запрошен список экспериментов

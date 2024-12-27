@@ -15,13 +15,23 @@ st.title("Приложение для анализа сигналов ЭКГ и 
 # Сохранение состояния загруженного файла для обучения
 if "dataset_name" not in st.session_state:
     st.session_state["dataset_name"] = None
+if "eda_performed" not in st.session_state:
+    st.session_state["eda_performed"] = False
+if "df_exploded" not in st.session_state:
+    st.session_state["df_exploded"] = None
+if "df3" not in st.session_state:
+    st.session_state["df3"] = None
+if "top20_diseases" not in st.session_state:
+    st.session_state["top20_diseases"] = None
+if "top15_diseases" not in st.session_state:
+    st.session_state["top15_diseases"] = None
 
 
 # Part 1: Загрузка файла
 uploaded_file = st.file_uploader("Загрузите ZIP-файл для обучения", type=["zip"])
 if uploaded_file is not None and st.session_state["dataset_name"] is None:
     # Отправляем файл на сервер только один раз
-    files = {"file": (uploaded_file.name, uploaded_file.read(), "text/csv")}
+    files = {"file": (uploaded_file.name, uploaded_file.read(), "application/zip")}
     upload_response = requests.post(f"{BACKEND_URL}/upload_dataset", files=files)
 
     if upload_response.status_code == 200:
@@ -34,37 +44,36 @@ if uploaded_file is not None and st.session_state["dataset_name"] is None:
 st.divider()
 st.subheader("Разведочный анализ данных")
 dataset_name = st.session_state["dataset_name"]
-if dataset_name:
-    st.write(f"Загруженный файл: {dataset_name}")
 
-# Проверяем, есть ли загруженные данные в session_state
-if "df_exploded" not in st.session_state:
-    st.session_state["df_exploded"] = None
-if "df3" not in st.session_state:
-    st.session_state["df3"] = None
-if "top20_diseases" not in st.session_state:
-    st.session_state["top20_diseases"] = None
-if "top15_diseases" not in st.session_state:
-    st.session_state["top15_diseases"] = None
+# Проверка наличия загруженного файла
+if st.session_state["dataset_name"]:
+    st.write(f"Загруженный файл: {st.session_state['dataset_name']}")
 
-# Загрузка данных при нажатии кнопки
-if st.button("Провести EDA"):
-    with st.spinner("Обработка данных, пожалуйста, подождите..."):
-        response = requests.get(f"{BACKEND_URL}/get_eda_info", data={"dataset_name": dataset_name.replace(".zip", "")})
-        if response.status_code == 200:
-            result = response.json()
+    # Отображение кнопки только после загрузки файла
+    if not st.session_state["eda_performed"]:
+        if st.button("Провести EDA"):
+            with st.spinner("Обработка данных, пожалуйста, подождите..."):
+                response = requests.get(
+                    f"{BACKEND_URL}/get_eda_info",
+                    data={"dataset_name": st.session_state["dataset_name"].replace(".zip", "")}
+                )
+                if response.status_code == 200:
+                    result = response.json()
 
-            df3 = pd.DataFrame(result["df3"])
-            df_exploded = pd.DataFrame(result["df_exploded"])
-            top20_diseases = result["top_diseases"]
-            top15_diseases = result["top_2_diseases"]
+                    # Сохраняем данные в session_state
+                    st.session_state["df_exploded"] = pd.DataFrame(result["df_exploded"])
+                    st.session_state["df3"] = pd.DataFrame(result["df3"])
+                    st.session_state["top20_diseases"] = result["top_diseases"]
+                    st.session_state["top15_diseases"] = result["top_2_diseases"]
+                    st.session_state["eda_performed"] = True
+                    st.success("EDA успешно выполнен!")
+                else:
+                    st.error(f"Ошибка: {response.status_code} — {response.text}")
+    else:
+        st.success("EDA уже выполнен.")
+else:
+    st.info("Пожалуйста, загрузите файл, чтобы продолжить.")
 
-            st.session_state["df_exploded"] = df_exploded
-            st.session_state["df3"] = df3
-            st.session_state["top20_diseases"] = top20_diseases
-            st.session_state["top15_diseases"] = top15_diseases
-        else:
-            st.error(f"Ошибка: {response.status_code} — {response.text}")
 
 # Проверяем, загружены ли данные
 if st.session_state["df_exploded"] is not None and st.session_state["df3"] is not None\
@@ -154,12 +163,11 @@ if st.session_state["df_exploded"] is not None and st.session_state["df3"] is no
     st.pyplot(plt)
 
     st.info("**На основе загруженных данных возможен прогноз следующих диагнозов:** " + ", ".join(top15_diseases))
-#else:
-#    st.markdown(":red-background[Требуется загрузка csv-файла.]")
+
 
 
 # Part 3: Выбор модели и параметров
-if dataset_name:
+if uploaded_file is not None and st.session_state["dataset_name"] is not None:
     st.divider()
     st.subheader("Обучение модели")
     st.write("Выберите модель для обучения:")
