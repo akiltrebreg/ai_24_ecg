@@ -167,9 +167,9 @@ if st.session_state["df_exploded"] is not None and st.session_state["df3"] is no
 
 
 # Part 3: Выбор модели и параметров
+st.divider()
+st.subheader("Обучение модели")
 if uploaded_file is not None and st.session_state["dataset_name"] is not None:
-    st.divider()
-    st.subheader("Обучение модели")
     st.write("Выберите модель для обучения:")
     model_type = st.selectbox("Модель", ["SVC", "Logistic Regression"])
 
@@ -210,7 +210,8 @@ if uploaded_file is not None and st.session_state["dataset_name"] is not None:
             st.write(f"Имя эксперимента: {exp_name}")
         else:
             st.error(f"Ошибка обучения модели: {train_response.text}")
-
+else:
+    st.info("Пожалуйста, загрузите файл, чтобы обучить модель.")
 
 # Part 4: Список моделей
 # Сохранение состояния загруженного файла для прогноза
