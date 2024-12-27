@@ -55,13 +55,9 @@ if st.button("Провести EDA"):
             result = response.json()
 
             df3 = pd.DataFrame(result["df3"])
-            st.write(df3.shape)
             df_exploded = pd.DataFrame(result["df_exploded"])
-            st.write(df_exploded.shape)
             top20_diseases = result["top_diseases"]
-            st.write(top20_diseases)
             top15_diseases = result["top_2_diseases"]
-            st.write(top15_diseases)
 
             st.session_state["df_exploded"] = df_exploded
             st.session_state["df3"] = df3
@@ -112,7 +108,7 @@ if st.session_state["df_exploded"] is not None and st.session_state["df3"] is no
     # Фильтрация данных
     @st.cache_data
     def filter_data(disease, gender_filter, df):
-        df_filtered = df[df.short_disease_name == disease]
+        df_filtered = df[df.disease_name == disease]
         if gender_filter != "Оба":
             gender = "Male" if gender_filter == "Мужчины" else "Female"
             df_filtered = df_filtered[df_filtered.gender == gender]
@@ -131,7 +127,7 @@ if st.session_state["df_exploded"] is not None and st.session_state["df3"] is no
 
     @st.cache_data
     def filter_data_disease(disease, df):
-        df_filtered = df[df.short_disease_name == disease]
+        df_filtered = df[df.disease_name == disease]
         return df_filtered
 
     df_to_plot_gender = filter_data_disease(selected_disease, df_exploded)
@@ -139,8 +135,8 @@ if st.session_state["df_exploded"] is not None and st.session_state["df3"] is no
     total_men_count = df_exploded[df_exploded.gender == 'Male'].shape[0]
     total_women_count = df_exploded[df_exploded.gender == 'Female'].shape[0]
 
-    men_count = df_to_plot_gender[(df_to_plot_gender.gender == 'Male') & (df_exploded.short_disease_name == selected_disease)].shape[0]
-    women_count = df_to_plot_gender[(df_to_plot_gender.gender == 'Female') & (df_exploded.short_disease_name == selected_disease)].shape[0]
+    men_count = df_to_plot_gender[(df_to_plot_gender.gender == 'Male') & (df_exploded.disease_name == selected_disease)].shape[0]
+    women_count = df_to_plot_gender[(df_to_plot_gender.gender == 'Female') & (df_exploded.disease_name == selected_disease)].shape[0]
 
     total_count = men_count + women_count
 

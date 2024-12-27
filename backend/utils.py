@@ -257,14 +257,14 @@ def create_eda(folder_path: str):
     df3['len_disease'] = df3['labels'].apply(lambda x: len(x))
 
     logger.info("EDA PART 1")
-    df3.drop('signal', axis=1).to_csv(os.path.join(eda_path, "df3.csv"), index=False)
+    df3.drop(columns=['signal', 'age'], axis=1).to_csv(os.path.join(eda_path, "df3.csv"), index=False)
     logger.info("EDA PART 2")
     df_exploded.drop('signal', axis=1).to_csv(os.path.join(eda_path, "df_exploded.csv"), index=False)
     logger.info("EDA PART 3")
     df = df_exploded
     top = 20
     top_2 = 15
-    top_diseases = df.groupby('labels').id.count().sort_values(ascending=False)[:top].reset_index().labels.tolist()
+    top_diseases = df_exploded.groupby('disease_name').id.nunique().sort_values(ascending=False)[:top].reset_index().disease_name.tolist()
     list_top_diseases = pd.DataFrame({'ListValues': top_diseases})
     logger.info("EDA PART 4")
     list_top_diseases.to_csv(os.path.join(eda_path, "top_diseases.csv"), index=False)
@@ -272,16 +272,15 @@ def create_eda(folder_path: str):
     df_preprocessed = df.drop(['id'], axis=1)
     df_preprocessed['gender'] = df_preprocessed['gender'].replace({'Female': 1, 'Male': 0})
     df_preprocessed = df_preprocessed.dropna()
-    df_final = df_preprocessed[df_preprocessed.labels.isin(top_diseases)]
-    df_cropped = df_final[df_final.labels.isin(top_diseases)]
+    df_final = df_preprocessed[df_preprocessed.disease_name.isin(top_diseases)]
+    df_cropped = df_final[df_final.disease_name.isin(top_diseases)]
     subset = list(df_cropped.columns)
     subset.remove('labels')
     subset.remove('short_disease_name')
     subset.remove('signal')
     subset.remove('disease_name')
     df_cropped_2 = df_cropped.drop_duplicates(subset=subset, keep='first')
-    top_2_diseases = df_cropped_2.groupby('labels').one.count().sort_values(ascending=False)[
-                     :top_2].reset_index().labels.tolist()
+    top_2_diseases = df_cropped_2.groupby('disease_name').one.count().sort_values(ascending=False)[:top_2].reset_index().disease_name.tolist()
     list_top_2_diseases = pd.DataFrame({'ListValues': top_2_diseases})
     logger.info("EDA PART 6")
     list_top_2_diseases.to_csv(os.path.join(eda_path, "top_2_diseases.csv"), index=False)
@@ -426,11 +425,13 @@ def preprocess_dataset(df: pd.DataFrame, dataset_name: str):
 
 
 def get_eda_info(dataset_name: str):
-    # path = os.path.join(DATA_PATH, dataset_name + "_eda")
-    path = dataset_name + "_eda"
+    file_path = os.path.abspath(__file__)
+    path_part = "data/" + dataset_name + "_eda"
+    path_parent = Path(file_path).parent
+    path = path_parent / path_part
     logger.info("FIND_EDA... PATH =", path)
-    df3 = pd.read_csv(path + '/df3.csv')
-    df_exploded = pd.read_csv(path + '/df_exploded.csv')
-    top_diseases = pd.read_csv(path + '/top_diseases.csv')['ListValues'].tolist()
-    top_2_diseases = pd.read_csv(path + '/top_2_diseases.csv')['ListValues'].tolist()
+    df3 = pd.read_csv(path / 'df3.csv')
+    df_exploded = pd.read_csv(path / 'df_exploded.csv')
+    top_diseases = pd.read_csv(path / 'top_diseases.csv')['ListValues'].tolist()
+    top_2_diseases = pd.read_csv(path / 'top_2_diseases.csv')['ListValues'].tolist()
     return [df3, df_exploded, top_diseases, top_2_diseases]

@@ -12,6 +12,7 @@ from utils import ALLOWED_EXTENSIONS
 import warnings
 from logger_config import logger
 import training
+import numpy as np
 
 warnings.filterwarnings("ignore")
 
@@ -88,9 +89,11 @@ def experiment_curves(names: Annotated[List[str], Form(...)]):
 @app.get("/get_eda_info")
 def get_eda_info(dataset_name: Annotated[str, Form(...)]):
     df3, df_exploded, top_diseases, top_2_diseases = training.get_eda_info(dataset_name)
+    print(df3.isna().sum())
+    print(df_exploded.isna().sum())
     return {
-            "df3": df3,
-            "df_exploded": df_exploded,
-            "top_diseases": top_diseases,
-            "top_2_diseases": top_2_diseases
-            }
+    "df3": df3.to_dict(orient="records"),  # DataFrame -> Сериализуемый список словарей
+    "df_exploded": df_exploded.to_dict(orient="records"),  # Аналогично
+    "top_diseases": [int(x) if isinstance(x, np.integer) else x for x in top_diseases],
+    "top_2_diseases": [int(x) if isinstance(x, np.integer) else x for x in top_2_diseases]
+    }

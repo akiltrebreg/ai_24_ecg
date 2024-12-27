@@ -145,3 +145,537 @@
 2024-12-26 23:51:32,768 - backend_logger - INFO - EDA ended
 2024-12-26 23:51:32,784 - backend_logger - INFO - ...EDA
 2024-12-26 23:51:32,786 - backend_logger - INFO - Файл Georgia.zip успешно разархивирован
+2024-12-27 08:16:30,491 - backend_logger - INFO - Файл Georgia.zip успешно загружен
+2024-12-27 08:16:30,533 - backend_logger - INFO - data/Georgia.zip|data/Georgia
+2024-12-27 08:16:32,137 - backend_logger - INFO - EDA...
+2024-12-27 08:16:32,137 - backend_logger - INFO - EDA is_starting. path = data/Georgia
+2024-12-27 08:16:32,727 - backend_logger - INFO - shape = (1538, 23)
+2024-12-27 08:16:32,828 - backend_logger - INFO - EDA PART 1
+2024-12-27 08:16:32,842 - backend_logger - INFO - EDA PART 2
+2024-12-27 08:16:32,860 - backend_logger - INFO - EDA PART 3
+2024-12-27 08:16:32,862 - backend_logger - INFO - EDA PART 4
+2024-12-27 08:16:32,863 - backend_logger - INFO - EDA PART 5
+2024-12-27 08:16:32,871 - backend_logger - INFO - EDA PART 6
+2024-12-27 08:16:32,871 - backend_logger - INFO - EDA ended
+2024-12-27 08:16:32,876 - backend_logger - INFO - ...EDA
+2024-12-27 08:16:32,876 - backend_logger - INFO - Файл Georgia.zip успешно разархивирован
+2024-12-27 08:23:22,451 - backend_logger - INFO - Файл Georgia.zip успешно загружен
+2024-12-27 08:23:22,527 - backend_logger - INFO - data/Georgia.zip|data/Georgia
+2024-12-27 08:23:24,255 - backend_logger - INFO - EDA...
+2024-12-27 08:23:24,255 - backend_logger - INFO - EDA is_starting. path = data/Georgia
+2024-12-27 08:23:24,829 - backend_logger - INFO - shape = (1538, 23)
+2024-12-27 08:23:24,917 - backend_logger - INFO - EDA PART 1
+2024-12-27 08:23:24,927 - backend_logger - INFO - EDA PART 2
+2024-12-27 08:23:24,944 - backend_logger - INFO - EDA PART 3
+2024-12-27 08:23:24,946 - backend_logger - INFO - EDA PART 4
+2024-12-27 08:23:24,947 - backend_logger - INFO - EDA PART 5
+2024-12-27 08:23:24,954 - backend_logger - INFO - EDA PART 6
+2024-12-27 08:23:24,955 - backend_logger - INFO - EDA ended
+2024-12-27 08:23:24,959 - backend_logger - INFO - ...EDA
+2024-12-27 08:23:24,959 - backend_logger - INFO - Файл Georgia.zip успешно разархивирован
+2024-12-27 08:23:25,239 - backend_logger - INFO - Файл Georgia.zip успешно загружен
+2024-12-27 08:23:25,319 - backend_logger - INFO - data/Georgia.zip|data/Georgia
+2024-12-27 08:23:26,917 - backend_logger - INFO - EDA...
+2024-12-27 08:23:26,917 - backend_logger - INFO - EDA is_starting. path = data/Georgia
+2024-12-27 08:23:27,256 - backend_logger - INFO - shape = (1538, 23)
+2024-12-27 08:23:27,293 - backend_logger - INFO - EDA PART 1
+2024-12-27 08:23:27,301 - backend_logger - INFO - EDA PART 2
+2024-12-27 08:23:27,318 - backend_logger - INFO - EDA PART 3
+2024-12-27 08:23:27,320 - backend_logger - INFO - EDA PART 4
+2024-12-27 08:23:27,321 - backend_logger - INFO - EDA PART 5
+2024-12-27 08:23:27,328 - backend_logger - INFO - EDA PART 6
+2024-12-27 08:23:27,328 - backend_logger - INFO - EDA ended
+2024-12-27 08:23:27,332 - backend_logger - INFO - ...EDA
+2024-12-27 08:23:27,332 - backend_logger - INFO - Файл Georgia.zip успешно разархивирован
+2024-12-27 08:27:09,478 - backend_logger - INFO - Файл Georgia.zip успешно загружен
+2024-12-27 08:27:09,553 - backend_logger - INFO - data/Georgia.zip|data/Georgia
+2024-12-27 08:27:11,168 - backend_logger - INFO - EDA...
+2024-12-27 08:27:11,168 - backend_logger - INFO - EDA is_starting. path = data/Georgia
+2024-12-27 08:27:11,734 - backend_logger - INFO - shape = (1538, 23)
+2024-12-27 08:27:11,820 - backend_logger - INFO - EDA PART 1
+2024-12-27 08:27:11,830 - backend_logger - INFO - EDA PART 2
+2024-12-27 08:27:11,847 - backend_logger - INFO - EDA PART 3
+2024-12-27 08:27:11,849 - backend_logger - INFO - EDA PART 4
+2024-12-27 08:27:11,849 - backend_logger - INFO - EDA PART 5
+2024-12-27 08:27:11,857 - backend_logger - INFO - EDA PART 6
+2024-12-27 08:27:11,857 - backend_logger - INFO - EDA ended
+2024-12-27 08:27:11,860 - backend_logger - INFO - ...EDA
+2024-12-27 08:27:11,861 - backend_logger - INFO - Файл Georgia.zip успешно разархивирован
+2024-12-27 08:27:12,130 - backend_logger - INFO - Файл Georgia.zip успешно загружен
+2024-12-27 08:27:12,213 - backend_logger - INFO - data/Georgia.zip|data/Georgia
+2024-12-27 08:27:13,805 - backend_logger - INFO - EDA...
+2024-12-27 08:27:13,805 - backend_logger - INFO - EDA is_starting. path = data/Georgia
+2024-12-27 08:27:14,153 - backend_logger - INFO - shape = (1538, 23)
+2024-12-27 08:27:14,189 - backend_logger - INFO - EDA PART 1
+2024-12-27 08:27:14,197 - backend_logger - INFO - EDA PART 2
+2024-12-27 08:27:14,214 - backend_logger - INFO - EDA PART 3
+2024-12-27 08:27:14,216 - backend_logger - INFO - EDA PART 4
+2024-12-27 08:27:14,216 - backend_logger - INFO - EDA PART 5
+2024-12-27 08:27:14,223 - backend_logger - INFO - EDA PART 6
+2024-12-27 08:27:14,224 - backend_logger - INFO - EDA ended
+2024-12-27 08:27:14,227 - backend_logger - INFO - ...EDA
+2024-12-27 08:27:14,227 - backend_logger - INFO - Файл Georgia.zip успешно разархивирован
+2024-12-27 08:28:25,741 - backend_logger - INFO - Файл Georgia.zip успешно загружен
+2024-12-27 08:28:25,817 - backend_logger - INFO - data/Georgia.zip|data/Georgia
+2024-12-27 08:28:27,528 - backend_logger - INFO - EDA...
+2024-12-27 08:28:27,528 - backend_logger - INFO - EDA is_starting. path = data/Georgia
+2024-12-27 08:28:28,314 - backend_logger - INFO - shape = (1538, 23)
+2024-12-27 08:28:28,406 - backend_logger - INFO - EDA PART 1
+2024-12-27 08:28:28,425 - backend_logger - INFO - EDA PART 2
+2024-12-27 08:28:28,443 - backend_logger - INFO - EDA PART 3
+2024-12-27 08:28:28,445 - backend_logger - INFO - EDA PART 4
+2024-12-27 08:28:28,446 - backend_logger - INFO - EDA PART 5
+2024-12-27 08:28:28,453 - backend_logger - INFO - EDA PART 6
+2024-12-27 08:28:28,454 - backend_logger - INFO - EDA ended
+2024-12-27 08:28:28,467 - backend_logger - INFO - ...EDA
+2024-12-27 08:28:28,468 - backend_logger - INFO - Файл Georgia.zip успешно разархивирован
+2024-12-27 08:31:26,648 - backend_logger - INFO - Файл Georgia.zip успешно загружен
+2024-12-27 08:31:26,740 - backend_logger - INFO - data/Georgia.zip|data/Georgia
+2024-12-27 08:31:28,544 - backend_logger - INFO - EDA...
+2024-12-27 08:31:28,544 - backend_logger - INFO - EDA is_starting. path = data/Georgia
+2024-12-27 08:31:29,140 - backend_logger - INFO - shape = (1538, 23)
+2024-12-27 08:31:29,231 - backend_logger - INFO - EDA PART 1
+2024-12-27 08:31:29,250 - backend_logger - INFO - EDA PART 2
+2024-12-27 08:31:29,267 - backend_logger - INFO - EDA PART 3
+2024-12-27 08:31:29,269 - backend_logger - INFO - EDA PART 4
+2024-12-27 08:31:29,270 - backend_logger - INFO - EDA PART 5
+2024-12-27 08:31:29,277 - backend_logger - INFO - EDA PART 6
+2024-12-27 08:31:29,278 - backend_logger - INFO - EDA ended
+2024-12-27 08:31:29,299 - backend_logger - INFO - ...EDA
+2024-12-27 08:31:29,299 - backend_logger - INFO - Файл Georgia.zip успешно разархивирован
+2024-12-27 08:31:29,544 - backend_logger - INFO - Файл Georgia.zip успешно загружен
+2024-12-27 08:31:29,612 - backend_logger - INFO - data/Georgia.zip|data/Georgia
+2024-12-27 08:31:31,206 - backend_logger - INFO - EDA...
+2024-12-27 08:31:31,207 - backend_logger - INFO - EDA is_starting. path = data/Georgia
+2024-12-27 08:31:31,711 - backend_logger - INFO - shape = (1538, 23)
+2024-12-27 08:31:31,747 - backend_logger - INFO - EDA PART 1
+2024-12-27 08:31:31,756 - backend_logger - INFO - EDA PART 2
+2024-12-27 08:31:31,773 - backend_logger - INFO - EDA PART 3
+2024-12-27 08:31:31,775 - backend_logger - INFO - EDA PART 4
+2024-12-27 08:31:31,775 - backend_logger - INFO - EDA PART 5
+2024-12-27 08:31:31,782 - backend_logger - INFO - EDA PART 6
+2024-12-27 08:31:31,783 - backend_logger - INFO - EDA ended
+2024-12-27 08:31:31,805 - backend_logger - INFO - ...EDA
+2024-12-27 08:31:31,805 - backend_logger - INFO - Файл Georgia.zip успешно разархивирован
+2024-12-27 08:36:20,753 - backend_logger - INFO - Файл Georgia.zip успешно загружен
+2024-12-27 08:36:20,828 - backend_logger - INFO - data/Georgia.zip|data/Georgia
+2024-12-27 08:36:22,428 - backend_logger - INFO - EDA...
+2024-12-27 08:36:22,428 - backend_logger - INFO - EDA is_starting. path = data/Georgia
+2024-12-27 08:36:22,997 - backend_logger - INFO - shape = (1538, 23)
+2024-12-27 08:36:23,080 - backend_logger - INFO - EDA PART 1
+2024-12-27 08:36:23,089 - backend_logger - INFO - EDA PART 2
+2024-12-27 08:36:23,106 - backend_logger - INFO - EDA PART 3
+2024-12-27 08:36:23,108 - backend_logger - INFO - EDA PART 4
+2024-12-27 08:36:23,108 - backend_logger - INFO - EDA PART 5
+2024-12-27 08:36:23,116 - backend_logger - INFO - EDA PART 6
+2024-12-27 08:36:23,116 - backend_logger - INFO - EDA ended
+2024-12-27 08:36:23,130 - backend_logger - INFO - ...EDA
+2024-12-27 08:36:23,130 - backend_logger - INFO - Файл Georgia.zip успешно разархивирован
+2024-12-27 08:39:00,783 - backend_logger - INFO - Файл Georgia.zip успешно загружен
+2024-12-27 08:39:00,871 - backend_logger - INFO - data/Georgia.zip|data/Georgia
+2024-12-27 08:39:02,528 - backend_logger - INFO - EDA...
+2024-12-27 08:39:02,528 - backend_logger - INFO - EDA is_starting. path = data/Georgia
+2024-12-27 08:39:03,095 - backend_logger - INFO - shape = (1538, 23)
+2024-12-27 08:39:03,188 - backend_logger - INFO - EDA PART 1
+2024-12-27 08:39:03,207 - backend_logger - INFO - EDA PART 2
+2024-12-27 08:39:03,223 - backend_logger - INFO - EDA PART 3
+2024-12-27 08:39:03,225 - backend_logger - INFO - EDA PART 4
+2024-12-27 08:39:03,226 - backend_logger - INFO - EDA PART 5
+2024-12-27 08:39:03,233 - backend_logger - INFO - EDA PART 6
+2024-12-27 08:39:03,234 - backend_logger - INFO - EDA ended
+2024-12-27 08:39:03,237 - backend_logger - INFO - ...EDA
+2024-12-27 08:39:03,237 - backend_logger - INFO - Файл Georgia.zip успешно разархивирован
+2024-12-27 08:43:13,025 - backend_logger - INFO - Файл Georgia.zip успешно загружен
+2024-12-27 08:43:13,083 - backend_logger - INFO - data/Georgia.zip|data/Georgia
+2024-12-27 08:43:14,849 - backend_logger - INFO - EDA...
+2024-12-27 08:43:14,850 - backend_logger - INFO - EDA is_starting. path = data/Georgia
+2024-12-27 08:43:15,428 - backend_logger - INFO - shape = (1538, 23)
+2024-12-27 08:43:15,520 - backend_logger - INFO - EDA PART 1
+2024-12-27 08:43:15,539 - backend_logger - INFO - EDA PART 2
+2024-12-27 08:43:15,556 - backend_logger - INFO - EDA PART 3
+2024-12-27 08:43:15,558 - backend_logger - INFO - EDA PART 4
+2024-12-27 08:43:15,558 - backend_logger - INFO - EDA PART 5
+2024-12-27 08:43:15,566 - backend_logger - INFO - EDA PART 6
+2024-12-27 08:43:15,567 - backend_logger - INFO - EDA ended
+2024-12-27 08:43:15,570 - backend_logger - INFO - ...EDA
+2024-12-27 08:43:15,571 - backend_logger - INFO - Файл Georgia.zip успешно разархивирован
+2024-12-27 08:43:15,825 - backend_logger - INFO - Файл Georgia.zip успешно загружен
+2024-12-27 08:43:15,904 - backend_logger - INFO - data/Georgia.zip|data/Georgia
+2024-12-27 08:43:17,494 - backend_logger - INFO - EDA...
+2024-12-27 08:43:17,494 - backend_logger - INFO - EDA is_starting. path = data/Georgia
+2024-12-27 08:43:17,831 - backend_logger - INFO - shape = (1538, 23)
+2024-12-27 08:43:17,869 - backend_logger - INFO - EDA PART 1
+2024-12-27 08:43:17,877 - backend_logger - INFO - EDA PART 2
+2024-12-27 08:43:17,894 - backend_logger - INFO - EDA PART 3
+2024-12-27 08:43:17,896 - backend_logger - INFO - EDA PART 4
+2024-12-27 08:43:17,897 - backend_logger - INFO - EDA PART 5
+2024-12-27 08:43:17,904 - backend_logger - INFO - EDA PART 6
+2024-12-27 08:43:17,904 - backend_logger - INFO - EDA ended
+2024-12-27 08:43:17,908 - backend_logger - INFO - ...EDA
+2024-12-27 08:43:17,909 - backend_logger - INFO - Файл Georgia.zip успешно разархивирован
+2024-12-27 08:47:08,312 - backend_logger - INFO - Файл Georgia.zip успешно загружен
+2024-12-27 08:47:08,436 - backend_logger - INFO - data/Georgia.zip|data/Georgia
+2024-12-27 08:47:10,375 - backend_logger - INFO - EDA...
+2024-12-27 08:47:10,376 - backend_logger - INFO - EDA is_starting. path = data/Georgia
+2024-12-27 08:47:11,022 - backend_logger - INFO - shape = (1538, 23)
+2024-12-27 08:47:11,114 - backend_logger - INFO - EDA PART 1
+2024-12-27 08:47:11,124 - backend_logger - INFO - EDA PART 2
+2024-12-27 08:47:11,141 - backend_logger - INFO - EDA PART 3
+2024-12-27 08:47:11,143 - backend_logger - INFO - EDA PART 4
+2024-12-27 08:47:11,143 - backend_logger - INFO - EDA PART 5
+2024-12-27 08:47:11,151 - backend_logger - INFO - EDA PART 6
+2024-12-27 08:47:11,151 - backend_logger - INFO - EDA ended
+2024-12-27 08:47:11,155 - backend_logger - INFO - ...EDA
+2024-12-27 08:47:11,155 - backend_logger - INFO - Файл Georgia.zip успешно разархивирован
+2024-12-27 08:47:11,393 - backend_logger - INFO - Файл Georgia.zip успешно загружен
+2024-12-27 08:47:11,476 - backend_logger - INFO - data/Georgia.zip|data/Georgia
+2024-12-27 08:47:13,072 - backend_logger - INFO - EDA...
+2024-12-27 08:47:13,072 - backend_logger - INFO - EDA is_starting. path = data/Georgia
+2024-12-27 08:47:13,426 - backend_logger - INFO - shape = (1538, 23)
+2024-12-27 08:47:13,463 - backend_logger - INFO - EDA PART 1
+2024-12-27 08:47:13,471 - backend_logger - INFO - EDA PART 2
+2024-12-27 08:47:13,488 - backend_logger - INFO - EDA PART 3
+2024-12-27 08:47:13,490 - backend_logger - INFO - EDA PART 4
+2024-12-27 08:47:13,491 - backend_logger - INFO - EDA PART 5
+2024-12-27 08:47:13,497 - backend_logger - INFO - EDA PART 6
+2024-12-27 08:47:13,498 - backend_logger - INFO - EDA ended
+2024-12-27 08:47:13,502 - backend_logger - INFO - ...EDA
+2024-12-27 08:47:13,502 - backend_logger - INFO - Файл Georgia.zip успешно разархивирован
+2024-12-27 08:50:05,614 - backend_logger - INFO - Файл Georgia.zip успешно загружен
+2024-12-27 08:50:05,692 - backend_logger - INFO - data/Georgia.zip|data/Georgia
+2024-12-27 08:50:07,315 - backend_logger - INFO - EDA...
+2024-12-27 08:50:07,315 - backend_logger - INFO - EDA is_starting. path = data/Georgia
+2024-12-27 08:50:08,086 - backend_logger - INFO - shape = (1538, 23)
+2024-12-27 08:50:08,214 - backend_logger - INFO - EDA PART 1
+2024-12-27 08:50:08,234 - backend_logger - INFO - EDA PART 2
+2024-12-27 08:50:08,264 - backend_logger - INFO - EDA PART 3
+2024-12-27 08:50:08,268 - backend_logger - INFO - EDA PART 4
+2024-12-27 08:50:08,268 - backend_logger - INFO - EDA PART 5
+2024-12-27 08:50:08,276 - backend_logger - INFO - EDA PART 6
+2024-12-27 08:50:08,277 - backend_logger - INFO - EDA ended
+2024-12-27 08:50:08,288 - backend_logger - INFO - ...EDA
+2024-12-27 08:50:08,288 - backend_logger - INFO - Файл Georgia.zip успешно разархивирован
+2024-12-27 08:50:08,627 - backend_logger - INFO - Файл Georgia.zip успешно загружен
+2024-12-27 08:50:08,713 - backend_logger - INFO - data/Georgia.zip|data/Georgia
+2024-12-27 08:50:10,336 - backend_logger - INFO - EDA...
+2024-12-27 08:50:10,336 - backend_logger - INFO - EDA is_starting. path = data/Georgia
+2024-12-27 08:50:10,738 - backend_logger - INFO - shape = (1538, 23)
+2024-12-27 08:50:10,775 - backend_logger - INFO - EDA PART 1
+2024-12-27 08:50:10,784 - backend_logger - INFO - EDA PART 2
+2024-12-27 08:50:10,800 - backend_logger - INFO - EDA PART 3
+2024-12-27 08:50:10,802 - backend_logger - INFO - EDA PART 4
+2024-12-27 08:50:10,803 - backend_logger - INFO - EDA PART 5
+2024-12-27 08:50:10,810 - backend_logger - INFO - EDA PART 6
+2024-12-27 08:50:10,810 - backend_logger - INFO - EDA ended
+2024-12-27 08:50:10,819 - backend_logger - INFO - ...EDA
+2024-12-27 08:50:10,819 - backend_logger - INFO - Файл Georgia.zip успешно разархивирован
+2024-12-27 08:52:13,979 - backend_logger - INFO - Файл Georgia.zip успешно загружен
+2024-12-27 08:52:14,055 - backend_logger - INFO - data/Georgia.zip|data/Georgia
+2024-12-27 08:52:15,654 - backend_logger - INFO - EDA...
+2024-12-27 08:52:15,654 - backend_logger - INFO - EDA is_starting. path = data/Georgia
+2024-12-27 08:52:16,223 - backend_logger - INFO - shape = (1538, 23)
+2024-12-27 08:52:16,307 - backend_logger - INFO - EDA PART 1
+2024-12-27 08:52:16,317 - backend_logger - INFO - EDA PART 2
+2024-12-27 08:52:16,334 - backend_logger - INFO - EDA PART 3
+2024-12-27 08:52:16,336 - backend_logger - INFO - EDA PART 4
+2024-12-27 08:52:16,337 - backend_logger - INFO - EDA PART 5
+2024-12-27 08:52:16,344 - backend_logger - INFO - EDA PART 6
+2024-12-27 08:52:16,345 - backend_logger - INFO - EDA ended
+2024-12-27 08:52:16,348 - backend_logger - INFO - ...EDA
+2024-12-27 08:52:16,348 - backend_logger - INFO - Файл Georgia.zip успешно разархивирован
+2024-12-27 08:52:16,590 - backend_logger - INFO - Файл Georgia.zip успешно загружен
+2024-12-27 08:52:16,673 - backend_logger - INFO - data/Georgia.zip|data/Georgia
+2024-12-27 08:52:18,268 - backend_logger - INFO - EDA...
+2024-12-27 08:52:18,268 - backend_logger - INFO - EDA is_starting. path = data/Georgia
+2024-12-27 08:52:18,609 - backend_logger - INFO - shape = (1538, 23)
+2024-12-27 08:52:18,646 - backend_logger - INFO - EDA PART 1
+2024-12-27 08:52:18,655 - backend_logger - INFO - EDA PART 2
+2024-12-27 08:52:18,672 - backend_logger - INFO - EDA PART 3
+2024-12-27 08:52:18,674 - backend_logger - INFO - EDA PART 4
+2024-12-27 08:52:18,674 - backend_logger - INFO - EDA PART 5
+2024-12-27 08:52:18,682 - backend_logger - INFO - EDA PART 6
+2024-12-27 08:52:18,682 - backend_logger - INFO - EDA ended
+2024-12-27 08:52:18,686 - backend_logger - INFO - ...EDA
+2024-12-27 08:52:18,686 - backend_logger - INFO - Файл Georgia.zip успешно разархивирован
+2024-12-27 09:56:00,652 - backend_logger - INFO - Файл Georgia.zip успешно загружен
+2024-12-27 09:56:00,729 - backend_logger - INFO - data/Georgia.zip|data/Georgia
+2024-12-27 09:56:02,329 - backend_logger - INFO - EDA...
+2024-12-27 09:56:02,329 - backend_logger - INFO - EDA is_starting. path = data/Georgia
+2024-12-27 09:56:02,903 - backend_logger - INFO - shape = (1538, 23)
+2024-12-27 09:56:02,985 - backend_logger - INFO - EDA PART 1
+2024-12-27 09:56:02,994 - backend_logger - INFO - EDA PART 2
+2024-12-27 09:56:03,011 - backend_logger - INFO - EDA PART 3
+2024-12-27 09:56:03,013 - backend_logger - INFO - EDA PART 4
+2024-12-27 09:56:03,013 - backend_logger - INFO - EDA PART 5
+2024-12-27 09:56:03,021 - backend_logger - INFO - EDA PART 6
+2024-12-27 09:56:03,021 - backend_logger - INFO - EDA ended
+2024-12-27 09:56:03,033 - backend_logger - INFO - ...EDA
+2024-12-27 09:56:03,033 - backend_logger - INFO - Файл Georgia.zip успешно разархивирован
+2024-12-27 09:56:03,302 - backend_logger - INFO - Файл Georgia.zip успешно загружен
+2024-12-27 09:56:03,375 - backend_logger - INFO - data/Georgia.zip|data/Georgia
+2024-12-27 09:56:04,968 - backend_logger - INFO - EDA...
+2024-12-27 09:56:04,968 - backend_logger - INFO - EDA is_starting. path = data/Georgia
+2024-12-27 09:56:05,361 - backend_logger - INFO - shape = (1538, 23)
+2024-12-27 09:56:05,397 - backend_logger - INFO - EDA PART 1
+2024-12-27 09:56:05,405 - backend_logger - INFO - EDA PART 2
+2024-12-27 09:56:05,422 - backend_logger - INFO - EDA PART 3
+2024-12-27 09:56:05,424 - backend_logger - INFO - EDA PART 4
+2024-12-27 09:56:05,425 - backend_logger - INFO - EDA PART 5
+2024-12-27 09:56:05,432 - backend_logger - INFO - EDA PART 6
+2024-12-27 09:56:05,432 - backend_logger - INFO - EDA ended
+2024-12-27 09:56:05,442 - backend_logger - INFO - ...EDA
+2024-12-27 09:56:05,443 - backend_logger - INFO - Файл Georgia.zip успешно разархивирован
+2024-12-27 10:07:37,515 - backend_logger - INFO - Файл Georgia.zip успешно загружен
+2024-12-27 10:07:37,591 - backend_logger - INFO - data/Georgia.zip|data/Georgia
+2024-12-27 10:07:39,200 - backend_logger - INFO - EDA...
+2024-12-27 10:07:39,200 - backend_logger - INFO - EDA is_starting. path = data/Georgia
+2024-12-27 10:07:39,769 - backend_logger - INFO - shape = (1538, 23)
+2024-12-27 10:07:39,853 - backend_logger - INFO - EDA PART 1
+2024-12-27 10:07:39,862 - backend_logger - INFO - EDA PART 2
+2024-12-27 10:07:39,879 - backend_logger - INFO - EDA PART 3
+2024-12-27 10:07:40,135 - backend_logger - INFO - Файл Georgia.zip успешно загружен
+2024-12-27 10:07:40,204 - backend_logger - INFO - data/Georgia.zip|data/Georgia
+2024-12-27 10:07:41,803 - backend_logger - INFO - EDA...
+2024-12-27 10:07:41,803 - backend_logger - INFO - EDA is_starting. path = data/Georgia
+2024-12-27 10:07:42,133 - backend_logger - INFO - shape = (1538, 23)
+2024-12-27 10:07:42,170 - backend_logger - INFO - EDA PART 1
+2024-12-27 10:07:42,178 - backend_logger - INFO - EDA PART 2
+2024-12-27 10:07:42,195 - backend_logger - INFO - EDA PART 3
+2024-12-27 10:08:55,273 - backend_logger - INFO - Файл Georgia.zip успешно загружен
+2024-12-27 10:08:55,352 - backend_logger - INFO - data/Georgia.zip|data/Georgia
+2024-12-27 10:08:57,104 - backend_logger - INFO - EDA...
+2024-12-27 10:08:57,104 - backend_logger - INFO - EDA is_starting. path = data/Georgia
+2024-12-27 10:08:57,725 - backend_logger - INFO - shape = (1538, 23)
+2024-12-27 10:08:57,841 - backend_logger - INFO - EDA PART 1
+2024-12-27 10:08:57,851 - backend_logger - INFO - EDA PART 2
+2024-12-27 10:08:57,868 - backend_logger - INFO - EDA PART 3
+2024-12-27 10:08:57,871 - backend_logger - INFO - EDA PART 4
+2024-12-27 10:08:57,871 - backend_logger - INFO - EDA PART 5
+2024-12-27 10:08:57,877 - backend_logger - INFO - EDA PART 6
+2024-12-27 10:08:57,877 - backend_logger - INFO - EDA ended
+2024-12-27 10:08:57,905 - backend_logger - INFO - ...EDA
+2024-12-27 10:08:57,905 - backend_logger - INFO - Файл Georgia.zip успешно разархивирован
+2024-12-27 10:08:58,146 - backend_logger - INFO - Файл Georgia.zip успешно загружен
+2024-12-27 10:08:58,219 - backend_logger - INFO - data/Georgia.zip|data/Georgia
+2024-12-27 10:08:59,822 - backend_logger - INFO - EDA...
+2024-12-27 10:08:59,823 - backend_logger - INFO - EDA is_starting. path = data/Georgia
+2024-12-27 10:09:00,357 - backend_logger - INFO - shape = (1538, 23)
+2024-12-27 10:09:00,394 - backend_logger - INFO - EDA PART 1
+2024-12-27 10:09:00,402 - backend_logger - INFO - EDA PART 2
+2024-12-27 10:09:00,419 - backend_logger - INFO - EDA PART 3
+2024-12-27 10:09:00,421 - backend_logger - INFO - EDA PART 4
+2024-12-27 10:09:00,422 - backend_logger - INFO - EDA PART 5
+2024-12-27 10:09:00,427 - backend_logger - INFO - EDA PART 6
+2024-12-27 10:09:00,427 - backend_logger - INFO - EDA ended
+2024-12-27 10:09:00,453 - backend_logger - INFO - ...EDA
+2024-12-27 10:09:00,453 - backend_logger - INFO - Файл Georgia.zip успешно разархивирован
+2024-12-27 10:10:06,127 - backend_logger - INFO - Файл Georgia.zip успешно загружен
+2024-12-27 10:10:06,204 - backend_logger - INFO - data/Georgia.zip|data/Georgia
+2024-12-27 10:10:07,883 - backend_logger - INFO - EDA...
+2024-12-27 10:10:07,883 - backend_logger - INFO - EDA is_starting. path = data/Georgia
+2024-12-27 10:10:08,584 - backend_logger - INFO - shape = (1538, 23)
+2024-12-27 10:10:08,695 - backend_logger - INFO - EDA PART 1
+2024-12-27 10:10:08,704 - backend_logger - INFO - EDA PART 2
+2024-12-27 10:10:08,722 - backend_logger - INFO - EDA PART 3
+2024-12-27 10:10:08,724 - backend_logger - INFO - EDA PART 4
+2024-12-27 10:10:08,725 - backend_logger - INFO - EDA PART 5
+2024-12-27 10:10:08,730 - backend_logger - INFO - EDA PART 6
+2024-12-27 10:10:08,731 - backend_logger - INFO - EDA ended
+2024-12-27 10:10:08,767 - backend_logger - INFO - ...EDA
+2024-12-27 10:10:08,768 - backend_logger - INFO - Файл Georgia.zip успешно разархивирован
+2024-12-27 10:10:09,094 - backend_logger - INFO - Файл Georgia.zip успешно загружен
+2024-12-27 10:10:09,207 - backend_logger - INFO - data/Georgia.zip|data/Georgia
+2024-12-27 10:10:11,133 - backend_logger - INFO - EDA...
+2024-12-27 10:10:11,133 - backend_logger - INFO - EDA is_starting. path = data/Georgia
+2024-12-27 10:10:11,707 - backend_logger - INFO - shape = (1538, 23)
+2024-12-27 10:10:11,744 - backend_logger - INFO - EDA PART 1
+2024-12-27 10:10:11,752 - backend_logger - INFO - EDA PART 2
+2024-12-27 10:10:11,769 - backend_logger - INFO - EDA PART 3
+2024-12-27 10:10:11,771 - backend_logger - INFO - EDA PART 4
+2024-12-27 10:10:11,771 - backend_logger - INFO - EDA PART 5
+2024-12-27 10:10:11,776 - backend_logger - INFO - EDA PART 6
+2024-12-27 10:10:11,777 - backend_logger - INFO - EDA ended
+2024-12-27 10:10:11,806 - backend_logger - INFO - ...EDA
+2024-12-27 10:10:11,806 - backend_logger - INFO - Файл Georgia.zip успешно разархивирован
+2024-12-27 10:12:15,066 - backend_logger - INFO - Файл Georgia.zip успешно загружен
+2024-12-27 10:12:15,153 - backend_logger - INFO - data/Georgia.zip|data/Georgia
+2024-12-27 10:12:16,899 - backend_logger - INFO - EDA...
+2024-12-27 10:12:16,899 - backend_logger - INFO - EDA is_starting. path = data/Georgia
+2024-12-27 10:12:17,540 - backend_logger - INFO - shape = (1538, 23)
+2024-12-27 10:12:17,632 - backend_logger - INFO - EDA PART 1
+2024-12-27 10:12:17,642 - backend_logger - INFO - EDA PART 2
+2024-12-27 10:12:17,659 - backend_logger - INFO - EDA PART 3
+2024-12-27 10:12:17,662 - backend_logger - INFO - EDA PART 4
+2024-12-27 10:12:17,663 - backend_logger - INFO - EDA PART 5
+2024-12-27 10:12:17,668 - backend_logger - INFO - EDA PART 6
+2024-12-27 10:12:17,668 - backend_logger - INFO - EDA ended
+2024-12-27 10:12:17,699 - backend_logger - INFO - ...EDA
+2024-12-27 10:12:17,700 - backend_logger - INFO - Файл Georgia.zip успешно разархивирован
+2024-12-27 10:12:18,051 - backend_logger - INFO - Файл Georgia.zip успешно загружен
+2024-12-27 10:12:18,122 - backend_logger - INFO - data/Georgia.zip|data/Georgia
+2024-12-27 10:12:19,743 - backend_logger - INFO - EDA...
+2024-12-27 10:12:19,743 - backend_logger - INFO - EDA is_starting. path = data/Georgia
+2024-12-27 10:12:20,279 - backend_logger - INFO - shape = (1538, 23)
+2024-12-27 10:12:20,316 - backend_logger - INFO - EDA PART 1
+2024-12-27 10:12:20,325 - backend_logger - INFO - EDA PART 2
+2024-12-27 10:12:20,342 - backend_logger - INFO - EDA PART 3
+2024-12-27 10:12:20,344 - backend_logger - INFO - EDA PART 4
+2024-12-27 10:12:20,345 - backend_logger - INFO - EDA PART 5
+2024-12-27 10:12:20,350 - backend_logger - INFO - EDA PART 6
+2024-12-27 10:12:20,351 - backend_logger - INFO - EDA ended
+2024-12-27 10:12:20,377 - backend_logger - INFO - ...EDA
+2024-12-27 10:12:20,377 - backend_logger - INFO - Файл Georgia.zip успешно разархивирован
+2024-12-27 10:13:21,615 - backend_logger - INFO - Файл Georgia.zip успешно загружен
+2024-12-27 10:13:21,692 - backend_logger - INFO - data/Georgia.zip|data/Georgia
+2024-12-27 10:13:23,308 - backend_logger - INFO - EDA...
+2024-12-27 10:13:23,308 - backend_logger - INFO - EDA is_starting. path = data/Georgia
+2024-12-27 10:13:24,157 - backend_logger - INFO - shape = (1538, 23)
+2024-12-27 10:13:24,246 - backend_logger - INFO - EDA PART 1
+2024-12-27 10:13:24,265 - backend_logger - INFO - EDA PART 2
+2024-12-27 10:13:24,283 - backend_logger - INFO - EDA PART 3
+2024-12-27 10:13:24,285 - backend_logger - INFO - EDA PART 4
+2024-12-27 10:13:24,286 - backend_logger - INFO - EDA PART 5
+2024-12-27 10:13:24,291 - backend_logger - INFO - EDA PART 6
+2024-12-27 10:13:24,291 - backend_logger - INFO - EDA ended
+2024-12-27 10:13:24,321 - backend_logger - INFO - ...EDA
+2024-12-27 10:13:24,321 - backend_logger - INFO - Файл Georgia.zip успешно разархивирован
+2024-12-27 10:13:24,675 - backend_logger - INFO - Файл Georgia.zip успешно загружен
+2024-12-27 10:13:24,755 - backend_logger - INFO - data/Georgia.zip|data/Georgia
+2024-12-27 10:13:26,357 - backend_logger - INFO - EDA...
+2024-12-27 10:13:26,357 - backend_logger - INFO - EDA is_starting. path = data/Georgia
+2024-12-27 10:13:26,893 - backend_logger - INFO - shape = (1538, 23)
+2024-12-27 10:13:26,930 - backend_logger - INFO - EDA PART 1
+2024-12-27 10:13:26,938 - backend_logger - INFO - EDA PART 2
+2024-12-27 10:13:26,955 - backend_logger - INFO - EDA PART 3
+2024-12-27 10:13:26,957 - backend_logger - INFO - EDA PART 4
+2024-12-27 10:13:26,958 - backend_logger - INFO - EDA PART 5
+2024-12-27 10:13:26,963 - backend_logger - INFO - EDA PART 6
+2024-12-27 10:13:26,963 - backend_logger - INFO - EDA ended
+2024-12-27 10:13:26,990 - backend_logger - INFO - ...EDA
+2024-12-27 10:13:26,990 - backend_logger - INFO - Файл Georgia.zip успешно разархивирован
+2024-12-27 10:16:08,852 - backend_logger - INFO - Файл Georgia.zip успешно загружен
+2024-12-27 10:16:08,937 - backend_logger - INFO - data/Georgia.zip|data/Georgia
+2024-12-27 10:16:10,759 - backend_logger - INFO - EDA...
+2024-12-27 10:16:10,759 - backend_logger - INFO - EDA is_starting. path = data/Georgia
+2024-12-27 10:16:11,545 - backend_logger - INFO - shape = (1538, 23)
+2024-12-27 10:16:11,686 - backend_logger - INFO - EDA PART 1
+2024-12-27 10:16:11,715 - backend_logger - INFO - EDA PART 2
+2024-12-27 10:16:11,742 - backend_logger - INFO - EDA PART 3
+2024-12-27 10:16:11,746 - backend_logger - INFO - EDA PART 4
+2024-12-27 10:16:11,747 - backend_logger - INFO - EDA PART 5
+2024-12-27 10:16:11,755 - backend_logger - INFO - EDA PART 6
+2024-12-27 10:16:11,755 - backend_logger - INFO - EDA ended
+2024-12-27 10:16:11,791 - backend_logger - INFO - ...EDA
+2024-12-27 10:16:11,791 - backend_logger - INFO - Файл Georgia.zip успешно разархивирован
+2024-12-27 10:16:12,125 - backend_logger - INFO - Файл Georgia.zip успешно загружен
+2024-12-27 10:16:12,206 - backend_logger - INFO - data/Georgia.zip|data/Georgia
+2024-12-27 10:16:13,827 - backend_logger - INFO - EDA...
+2024-12-27 10:16:13,827 - backend_logger - INFO - EDA is_starting. path = data/Georgia
+2024-12-27 10:16:14,316 - backend_logger - INFO - shape = (1538, 23)
+2024-12-27 10:16:14,352 - backend_logger - INFO - EDA PART 1
+2024-12-27 10:16:14,360 - backend_logger - INFO - EDA PART 2
+2024-12-27 10:16:14,377 - backend_logger - INFO - EDA PART 3
+2024-12-27 10:16:14,379 - backend_logger - INFO - EDA PART 4
+2024-12-27 10:16:14,380 - backend_logger - INFO - EDA PART 5
+2024-12-27 10:16:14,384 - backend_logger - INFO - EDA PART 6
+2024-12-27 10:16:14,385 - backend_logger - INFO - EDA ended
+2024-12-27 10:16:14,407 - backend_logger - INFO - ...EDA
+2024-12-27 10:16:14,407 - backend_logger - INFO - Файл Georgia.zip успешно разархивирован
+2024-12-27 10:21:01,385 - backend_logger - INFO - Файл Georgia.zip успешно загружен
+2024-12-27 10:21:01,462 - backend_logger - INFO - data/Georgia.zip|data/Georgia
+2024-12-27 10:21:03,399 - backend_logger - INFO - EDA...
+2024-12-27 10:21:03,399 - backend_logger - INFO - EDA is_starting. path = data/Georgia
+2024-12-27 10:21:04,211 - backend_logger - INFO - shape = (1538, 23)
+2024-12-27 10:21:04,304 - backend_logger - INFO - EDA PART 1
+2024-12-27 10:21:04,314 - backend_logger - INFO - EDA PART 2
+2024-12-27 10:21:04,331 - backend_logger - INFO - EDA PART 3
+2024-12-27 10:21:04,334 - backend_logger - INFO - EDA PART 4
+2024-12-27 10:21:04,335 - backend_logger - INFO - EDA PART 5
+2024-12-27 10:21:04,340 - backend_logger - INFO - EDA PART 6
+2024-12-27 10:21:04,340 - backend_logger - INFO - EDA ended
+2024-12-27 10:21:04,345 - backend_logger - INFO - ...EDA
+2024-12-27 10:21:04,345 - backend_logger - INFO - Файл Georgia.zip успешно разархивирован
+2024-12-27 10:21:04,665 - backend_logger - INFO - Файл Georgia.zip успешно загружен
+2024-12-27 10:21:04,738 - backend_logger - INFO - data/Georgia.zip|data/Georgia
+2024-12-27 10:21:06,341 - backend_logger - INFO - EDA...
+2024-12-27 10:21:06,341 - backend_logger - INFO - EDA is_starting. path = data/Georgia
+2024-12-27 10:21:06,693 - backend_logger - INFO - shape = (1538, 23)
+2024-12-27 10:21:06,729 - backend_logger - INFO - EDA PART 1
+2024-12-27 10:21:06,738 - backend_logger - INFO - EDA PART 2
+2024-12-27 10:21:06,754 - backend_logger - INFO - EDA PART 3
+2024-12-27 10:21:06,757 - backend_logger - INFO - EDA PART 4
+2024-12-27 10:21:06,757 - backend_logger - INFO - EDA PART 5
+2024-12-27 10:21:06,762 - backend_logger - INFO - EDA PART 6
+2024-12-27 10:21:06,762 - backend_logger - INFO - EDA ended
+2024-12-27 10:21:06,766 - backend_logger - INFO - ...EDA
+2024-12-27 10:21:06,766 - backend_logger - INFO - Файл Georgia.zip успешно разархивирован
+2024-12-27 10:32:42,493 - backend_logger - INFO - Файл Georgia.zip успешно загружен
+2024-12-27 10:32:42,569 - backend_logger - INFO - data/Georgia.zip|data/Georgia
+2024-12-27 10:32:44,173 - backend_logger - INFO - EDA...
+2024-12-27 10:32:44,173 - backend_logger - INFO - EDA is_starting. path = data/Georgia
+2024-12-27 10:32:44,741 - backend_logger - INFO - shape = (1538, 23)
+2024-12-27 10:32:44,824 - backend_logger - INFO - EDA PART 1
+2024-12-27 10:32:44,833 - backend_logger - INFO - EDA PART 2
+2024-12-27 10:32:44,850 - backend_logger - INFO - EDA PART 3
+2024-12-27 10:32:44,852 - backend_logger - INFO - EDA PART 4
+2024-12-27 10:32:44,853 - backend_logger - INFO - EDA PART 5
+2024-12-27 10:32:44,861 - backend_logger - INFO - EDA PART 6
+2024-12-27 10:32:44,861 - backend_logger - INFO - EDA ended
+2024-12-27 10:32:44,880 - backend_logger - INFO - ...EDA
+2024-12-27 10:32:44,880 - backend_logger - INFO - Файл Georgia.zip успешно разархивирован
+2024-12-27 10:32:45,139 - backend_logger - INFO - Файл Georgia.zip успешно загружен
+2024-12-27 10:32:45,209 - backend_logger - INFO - data/Georgia.zip|data/Georgia
+2024-12-27 10:32:46,809 - backend_logger - INFO - EDA...
+2024-12-27 10:32:46,809 - backend_logger - INFO - EDA is_starting. path = data/Georgia
+2024-12-27 10:32:47,282 - backend_logger - INFO - shape = (1538, 23)
+2024-12-27 10:32:47,319 - backend_logger - INFO - EDA PART 1
+2024-12-27 10:32:47,327 - backend_logger - INFO - EDA PART 2
+2024-12-27 10:32:47,344 - backend_logger - INFO - EDA PART 3
+2024-12-27 10:32:47,346 - backend_logger - INFO - EDA PART 4
+2024-12-27 10:32:47,347 - backend_logger - INFO - EDA PART 5
+2024-12-27 10:32:47,356 - backend_logger - INFO - EDA PART 6
+2024-12-27 10:32:47,357 - backend_logger - INFO - EDA ended
+2024-12-27 10:32:47,361 - backend_logger - INFO - ...EDA
+2024-12-27 10:32:47,361 - backend_logger - INFO - Файл Georgia.zip успешно разархивирован
+2024-12-27 10:34:43,843 - backend_logger - INFO - Файл Georgia.zip успешно загружен
+2024-12-27 10:34:43,946 - backend_logger - INFO - data/Georgia.zip|data/Georgia
+2024-12-27 10:34:45,723 - backend_logger - INFO - EDA...
+2024-12-27 10:34:45,723 - backend_logger - INFO - EDA is_starting. path = data/Georgia
+2024-12-27 10:34:46,314 - backend_logger - INFO - shape = (1538, 23)
+2024-12-27 10:34:46,408 - backend_logger - INFO - EDA PART 1
+2024-12-27 10:34:46,427 - backend_logger - INFO - EDA PART 2
+2024-12-27 10:34:46,444 - backend_logger - INFO - EDA PART 3
+2024-12-27 10:34:46,446 - backend_logger - INFO - EDA PART 4
+2024-12-27 10:34:46,447 - backend_logger - INFO - EDA PART 5
+2024-12-27 10:34:46,462 - backend_logger - INFO - EDA PART 6
+2024-12-27 10:34:46,463 - backend_logger - INFO - EDA ended
+2024-12-27 10:34:46,470 - backend_logger - INFO - ...EDA
+2024-12-27 10:34:46,470 - backend_logger - INFO - Файл Georgia.zip успешно разархивирован
+2024-12-27 10:34:46,739 - backend_logger - INFO - Файл Georgia.zip успешно загружен
+2024-12-27 10:34:46,809 - backend_logger - INFO - data/Georgia.zip|data/Georgia
+2024-12-27 10:34:48,409 - backend_logger - INFO - EDA...
+2024-12-27 10:34:48,410 - backend_logger - INFO - EDA is_starting. path = data/Georgia
+2024-12-27 10:34:48,760 - backend_logger - INFO - shape = (1538, 23)
+2024-12-27 10:34:48,796 - backend_logger - INFO - EDA PART 1
+2024-12-27 10:34:48,804 - backend_logger - INFO - EDA PART 2
+2024-12-27 10:34:48,821 - backend_logger - INFO - EDA PART 3
+2024-12-27 10:34:48,823 - backend_logger - INFO - EDA PART 4
+2024-12-27 10:34:48,824 - backend_logger - INFO - EDA PART 5
+2024-12-27 10:34:48,834 - backend_logger - INFO - EDA PART 6
+2024-12-27 10:34:48,835 - backend_logger - INFO - EDA ended
+2024-12-27 10:34:48,839 - backend_logger - INFO - ...EDA
+2024-12-27 10:34:48,839 - backend_logger - INFO - Файл Georgia.zip успешно разархивирован
+2024-12-27 11:04:11,596 - backend_logger - INFO - Файл Georgia.zip успешно загружен
+2024-12-27 11:04:11,675 - backend_logger - INFO - data/Georgia.zip|data/Georgia
+2024-12-27 11:04:13,296 - backend_logger - INFO - EDA...
+2024-12-27 11:04:13,296 - backend_logger - INFO - EDA is_starting. path = data/Georgia
+2024-12-27 11:04:14,134 - backend_logger - INFO - shape = (1538, 23)
+2024-12-27 11:04:14,234 - backend_logger - INFO - EDA PART 1
+2024-12-27 11:04:14,244 - backend_logger - INFO - EDA PART 2
+2024-12-27 11:04:14,262 - backend_logger - INFO - EDA PART 3
+2024-12-27 11:04:14,265 - backend_logger - INFO - EDA PART 4
+2024-12-27 11:04:14,265 - backend_logger - INFO - EDA PART 5
+2024-12-27 11:04:14,274 - backend_logger - INFO - EDA PART 6
+2024-12-27 11:04:14,274 - backend_logger - INFO - EDA ended
+2024-12-27 11:04:14,276 - backend_logger - INFO - ...EDA
+2024-12-27 11:04:14,276 - backend_logger - INFO - Файл Georgia.zip успешно разархивирован
