@@ -1,6 +1,6 @@
 .idea
 /backend/data
 /backend/experiments
-/backend/logs/backend.log
+/backend/logs/
 /frontend/logs/frontend.log
 processed_logs/

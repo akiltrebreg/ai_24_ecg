@@ -286,7 +286,7 @@ def create_eda(folder_path: str):
     list_top_2_diseases.to_csv(os.path.join(eda_path, "top_2_diseases.csv"), index=False)
     logger.info("EDA ended")
 
-def preprocess_dataset(df: pd.DataFrame, dataset_name: str):
+def preprocess_dataset(df: pd.DataFrame, get_only_result_df = False):
     # eda_path = os.path.join(DATA_PATH, dataset_name + '_eda')
     # if os.path.exists(eda_path):
     #     shutil.rmtree(eda_path)
@@ -411,6 +411,8 @@ def preprocess_dataset(df: pd.DataFrame, dataset_name: str):
     # list_top_2_diseases.to_parquet(os.path.join(eda_path, "top_2_diseases.parquet"), engine='pyarrow', compression='snappy')
     X = df_cropped_2[df_cropped_2.labels.isin(top_2_diseases)].drop(['labels', 'signal', 'disease_name', 'short_disease_name'], axis=1)
     y = df_cropped_2[df_cropped_2.labels.isin(top_2_diseases)]['labels']
+    if get_only_result_df:
+        return [X, y]
     X_train, X_test, y_train, y_test = train_test_split(X,
                                                         y,
                                                         test_size=0.25,

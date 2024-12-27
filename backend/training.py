@@ -1,5 +1,7 @@
 import os
 from logging.handlers import RotatingFileHandler
+from pathlib import Path
+
 import utils
 import pandas as pd
 import joblib
@@ -38,7 +40,7 @@ def train_model(model_type: str, params: dict, dataset_name: str):
     logger.info("Converting_mat_files_to_df...")
     df = utils.make_df_from_mat_files(dataset_name)
     logger.info("Preprocess is started")
-    X_train_std, X_test_std, y_train, y_test, sc, n_train, n_test = utils.preprocess_dataset(df, dataset_name)
+    X_train_std, X_test_std, y_train, y_test, sc, n_train, n_test = utils.preprocess_dataset(df)
     logger.info("Preprocess is finished. Start fitting")
     if model_type == "Logistic Regression":
         model = LogisticRegression(multi_class='ovr', random_state=RAND, max_iter=1000, **params)
@@ -81,6 +83,15 @@ def train_model(model_type: str, params: dict, dataset_name: str):
     })
     curves.to_csv(os.path.join(exp_dir, "curves.csv"), index=False)
     return experiment_id
+
+
+def get_inference(folder_path: str, model_name: str):
+    df = utils.make_df_from_mat_files(Path(folder_path).parts[-1])
+    X, _ = utils.preprocess_dataset(df, True)
+    model_path = os.path.join(os.path.join(Path(folder_path).parent.parent, "experiments"), model_name)
+    model = joblib.load(model_path)
+    return model.predict(X)
+
 
 
 def list_experiments():

@@ -49,6 +49,31 @@ async def upload_dataset(file: Annotated[UploadFile, File(...)]):
     logger.info(f"Файл {filename} успешно разархивирован")
     return {"message": "Файл успешно загружен", "filepath": file_path}
 
+@app.post("/upload_inference")
+async def upload_inference(file: Annotated[UploadFile, File(...)], model_name: Annotated[str, Form(...)]):
+    filename = file.filename
+    if not any(filename.endswith(ext) for ext in ALLOWED_EXTENSIONS):
+        logger.error(f"Попытка загрузить неправильный формат файла: {filename}")
+        raise HTTPException(status_code=400, detail="Неверный формат файла. Допустим: csv")
+    data_dir = os.path.join("data")
+    os.makedirs(data_dir, exist_ok=True)
+    file_path = os.path.join(data_dir, filename)
+    content = await file.read()
+    if len(content) > 200 * 1024 * 1024:
+        logger.error("Размер файла превышает 200 МБ")
+        raise HTTPException(status_code=400, detail="Файл слишком большой")
+    with open(file_path, "wb") as f:
+        f.write(content)
+    logger.info(f"Файл {filename} успешно загружен")
+    folder_path = file_path[:file_path.rfind(".")]
+    print(folder_path)
+    if os.path.exists(folder_path):
+        shutil.rmtree(folder_path)
+    logger.info(file_path + "|" + folder_path)
+    shutil.unpack_archive(file_path, folder_path)
+    logger.info(f"Файл {filename} успешно разархивирован")
+    predicts = training.get_inference(folder_path, model_name)
+    return {"message": "Предсказание успешно завершено", "predicts": predicts}
 
 class TrainRequest(BaseModel):
     model_type: str
@@ -95,3 +120,4 @@ def get_eda_info(dataset_name: Annotated[str, Form(...)]):
     "top_diseases": [int(x) if isinstance(x, np.integer) else x for x in top_diseases],
     "top_2_diseases": [int(x) if isinstance(x, np.integer) else x for x in top_2_diseases]
     }
+
