@@ -18,7 +18,7 @@ if "dataset_name" not in st.session_state:
 
 
 # Part 1: Загрузка файла
-uploaded_file = st.file_uploader("Загрузите zip файл для обучения", type=["zip"])
+uploaded_file = st.file_uploader("Загрузите ZIP-файл для обучения", type=["zip"])
 if uploaded_file is not None and st.session_state["dataset_name"] is None:
     # Отправляем файл на сервер только один раз
     files = {"file": (uploaded_file.name, uploaded_file.read(), "text/csv")}
@@ -195,8 +195,6 @@ if dataset_name:
         }
         train_response = requests.post(f"{BACKEND_URL}/train_model", json=train_data)
 
-
-
         if train_response.status_code == 200:
             st.success("Модель успешно обучена")
             result = train_response.json()
@@ -210,3 +208,41 @@ if dataset_name:
 # Сохранение состояния загруженного файла для прогноза
 if "dataset_name_prediction" not in st.session_state:
     st.session_state["dataset_name_prediction"] = None
+
+st.divider()
+st.subheader("Прогноз по анализу ЭКГ")
+exps_resp = requests.get(f"{BACKEND_URL}/experiments")
+if exps_resp.status_code == 200:
+    if "experiments" in exps_resp.json():
+        exps = exps_resp.json()["experiments"]
+        df = pd.DataFrame(exps)
+        df.columns = ['Model IDs']
+        st.write("Список обученных моделей:")
+        st.dataframe(df)
+    else:
+        st.error("Обученные модели отсутствуют.")
+
+    # Выбор модели
+    selected_model = st.selectbox("Выберите модель для предсказания", exps)
+    if selected_model:
+        st.write("Информация о модели и её гиперпараметры")
+
+    uploaded_file_prediction = st.file_uploader("Загрузите ZIP-файл для прогноза диагноза", type=["zip"])
+    if uploaded_file_prediction is not None and st.session_state["dataset_name_prediction"] is None:
+        # Отправляем файл на сервер только один раз
+        files = {"file": (uploaded_file_prediction.name, uploaded_file_prediction.read(), "text/csv")}
+        #upload_response = requests.post(f"{BACKEND_URL}/upload_dataset", files=files)
+
+        #if upload_response.status_code == 200:
+        #    st.success("Файл успешно загружен")
+        #    st.session_state["dataset_name"] = upload_response.json()["filepath"].split("/")[-1]  # Сохраняем имя файла
+        #else:
+        #    st.error(f"Ошибка загрузки файла: {upload_response.text}")
+
+        if st.button("Получить прогноз по ЭКГ"):
+            # Формируем запрос на обучение
+            st.write("Этап обучения")
+            #result = requests.get(f"{BACKEND_URL}/predict")
+            st.info("Предсказанный диагноз: **такой-то**. Требуется консультация с врачом.")
+else:
+    st.error("Ошибка получения списка обученных моделей")
