@@ -426,7 +426,7 @@ def get_eda_info(dataset_name: str):
     path_part = "data/" + dataset_name + "_eda"
     path_parent = Path(file_path).parent
     path = path_parent / path_part
-    logger.info("FIND_EDA... PATH =", path)
+    logger.info("FIND_EDA... PATH =" + str(path))
     df3 = pd.read_csv(path / 'df3.csv')
     df_exploded = pd.read_csv(path / 'df_exploded.csv')
     top_diseases = pd.read_csv(path / 'top_diseases.csv')['ListValues'].tolist()

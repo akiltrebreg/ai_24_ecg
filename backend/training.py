@@ -109,7 +109,21 @@ def list_experiments():
     exp_dir = "experiments"
     if not os.path.exists(exp_dir):
         return []
-    return [d for d in os.listdir(exp_dir) if os.path.isdir(os.path.join(exp_dir, d))]
+    list_of_experiments = [d for d in os.listdir(exp_dir) if os.path.isdir(os.path.join(exp_dir, d)) and os.listdir(os.path.join(exp_dir, d))]
+    result_dict = {}
+    list_of_metrics = ["accuracy", "f1"]
+    for exp in list_of_experiments:
+        experiment_path = os.path.join(exp_dir, exp)
+        model_file = os.path.join(experiment_path, "model.joblib")
+        metrics_file = os.path.join(experiment_path, "metrics.csv")
+        model = joblib.load(model_file)
+        metrics_df = pd.read_csv(metrics_file)
+        result_metrics = {}
+        for metric in list_of_metrics:
+            result_metrics[metric] = metrics_df[metric][0]
+        result_dict[exp] = [model, result_metrics]
+    return result_dict
+    # return [d for d in os.listdir(exp_dir) if os.path.isdir(os.path.join(exp_dir, d))]
 
 
 def get_experiment_metrics(name: str):

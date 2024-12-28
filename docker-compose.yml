@@ -1,5 +1,3 @@
-version: '3.9'
-
 services:
   backend:
     build: ./backend
@@ -20,13 +18,17 @@ services:
     container_name: frontend_container
     ports:
       - "8501:8501"
+    volumes:
+      - ./frontend/logs:/app/logs
     depends_on:
       - backend
   logstash:
     build: ./logstash
     container_name: logstash_container
     volumes:
-      - ./backend/logs:/backend_logs
-      - ./processed_logs:/processed_logs
+      - ./logstash/sincedb:/usr/share/logstash/sincedb
+      - ./backend/logs:/backend/logs
+      - ./frontend/logs:/frontend/logs
+      - ./processed_logs:/usr/share/processed_logs
     ports:
       - "5000:5000"

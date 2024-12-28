@@ -5,9 +5,12 @@ from logging.handlers import RotatingFileHandler
 from typing import List
 from fastapi import FastAPI, UploadFile, File, HTTPException, Form
 from pydantic import BaseModel
+from sklearn.linear_model import LogisticRegression
+from sklearn.svm import SVC
 from typing_extensions import Annotated
 import utils
-from training import train_model, list_experiments, get_experiment_metrics, get_experiment_curves, get_eda_info
+from training import train_model, list_experiments, get_experiment_metrics, \
+    get_experiment_curves, get_eda_info
 from utils import ALLOWED_EXTENSIONS
 import warnings
 from logger_config import logger
@@ -21,7 +24,7 @@ app = FastAPI()
 
 
 @app.post("/upload_dataset")
-async def upload_dataset(file: Annotated[UploadFile, File(...)]):
+async def upload_dataset(file: Annotated[UploadFile, File(...)]) -> dict:
     filename = file.filename
     if not any(filename.endswith(ext) for ext in ALLOWED_EXTENSIONS):
         logger.error(f"Попытка загрузить неправильный формат файла: {filename}")
@@ -49,7 +52,7 @@ async def upload_dataset(file: Annotated[UploadFile, File(...)]):
     return {"message": "Файл успешно загружен", "filepath": file_path}
 
 @app.post("/upload_inference")
-async def upload_inference(file: Annotated[UploadFile, File(...)], model_name: Annotated[str, Form(...)]):
+async def upload_inference(file: Annotated[UploadFile, File(...)], model_name: Annotated[str, Form(...)]) -> dict:
     filename = file.filename
     if not any(filename.endswith(ext) for ext in ALLOWED_EXTENSIONS):
         logger.error(f"Попытка загрузить неправильный формат файла: {filename}")
@@ -91,31 +94,61 @@ def train_model_endpoint(req: TrainRequest):
 
 
 @app.get("/experiments")
-def get_experiments():
-    exps = list_experiments()
+def get_experiments() -> dict:
+    res = list_experiments()
+    result = []
+    for elem in res:
+        result.append({"id": elem, "params": {}, "metrics": {}})
+        for el in res[elem]:
+            if type(el) == dict:
+                result[-1]['params'] = el
+            else:
+                if isinstance(el, LogisticRegression):
+                    result[-1]["metrics"]["model"] = "Logistic Regression"
+                    result[-1]["metrics"]["solver"] = str(el.solver)
+                    result[-1]["metrics"]["penalty"] = str(el.penalty)
+                    result[-1]["metrics"]["C"] = str(el.C)
+                    result[-1]["metrics"]["class_weight"] = str(el.class_weight)
+                    if hasattr(el, 'l1_ratio') and el.l1_ratio is not None:
+                        result[-1]["metrics"]["l1_ratio"] = str(el.l1_ratio)
+                elif isinstance(el, SVC):
+                    result[-1]["metrics"]["model"] = "SVC"
+                    result[-1]["metrics"]["C"] = str(el.C)
+                    result[-1]["metrics"]["kernel"] = str(el.kernel)
+                    result[-1]["metrics"]["gamma"] = str(el.gamma)
+                    result[-1]["metrics"]["class_weight"] = str(el.class_weight)
     logger.info("Запрошен список экспериментов")
-    return {"experiments": exps}
+    return {"experiments": result}
+
+    # return {"experiments": res} # старый результат
+
 
 
 @app.get("/experiment_metrics")
-def experiment_metrics(name: Annotated[str, Form(...)]):
+def experiment_metrics(name: Annotated[str, Form(...)]) -> dict:
     metrics = get_experiment_metrics(name)
     return metrics
 
 
 @app.get("/experiment_curves")
-def experiment_curves(names: Annotated[List[str], Form(...)]):
+def experiment_curves(names: Annotated[List[str], Form(...)]) -> dict:
     curves = get_experiment_curves(names)
     return curves
 
 
 @app.get("/get_eda_info")
-def get_eda_info(dataset_name: Annotated[str, Form(...)]):
-    df3, df_exploded, top_diseases, top_2_diseases = training.get_eda_info(dataset_name)
+def get_eda_info(dataset_name: Annotated[str, Form(...)]) -> dict:
+    df3, df_exploded, top_diseases, top_2_diseases = training.\
+        get_eda_info(dataset_name)
     return {
-    "df3": df3.to_dict(orient="records"),  # DataFrame -> Сериализуемый список словарей
-    "df_exploded": df_exploded.to_dict(orient="records"),  # Аналогично
-    "top_diseases": [int(x) if isinstance(x, np.integer) else x for x in top_diseases],
-    "top_2_diseases": [int(x) if isinstance(x, np.integer) else x for x in top_2_diseases]
+        "df3": df3.to_dict(orient="records"),  # DataFrame -> сериал. список
+        "df_exploded": df_exploded.to_dict(orient="records"),  # Аналогично
+        "top_diseases": [
+            int(x) if isinstance(x, np.integer) else x
+            for x in top_diseases
+        ],
+        "top_2_diseases": [
+            int(x) if isinstance(x, np.integer) else x
+            for x in top_2_diseases
+        ],
     }
-

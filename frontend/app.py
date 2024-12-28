@@ -7,6 +7,9 @@ import pandas as pd
 import os
 import logging
 from logger_config import logger
+import warnings
+
+warnings.filterwarnings("ignore")
 
 # URL backend
 BACKEND_URL = "http://backend:8000"
