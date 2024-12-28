@@ -86,14 +86,10 @@ def train_model(model_type: str, params: dict, dataset_name: str):
 
 
 def get_inference(folder_path: str, model_name: str):
-    print(f"{Path(folder_path).parts[-1]}")
-    print(f"{folder_path}")
     df = utils.make_df_from_mat_files(folder_path) #utils.make_df_from_mat_files(Path(folder_path).parts[-1])
     X, _ = utils.preprocess_dataset(df, True)
-    print(f"{X}")
     model_path = os.path.join(os.path.join(Path(folder_path).parent.parent, "experiments"), model_name, "model.joblib")
     model = joblib.load(model_path)
-    print(f"{model_path}")
     predictions = model.predict(X)
     predictions = predictions.tolist()
 
