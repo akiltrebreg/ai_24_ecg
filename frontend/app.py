@@ -87,6 +87,93 @@ else:
     logger.warning("Попытка выполнения EDA без загрузки файла")
     st.info("Пожалуйста, загрузите файл, чтобы произвести анализ.")
 
+# Проверяем, загружены ли данные
+if st.session_state["df_exploded"] is not None and st.session_state["df3"] is not None\
+    and st.session_state["top20_diseases"] is not None and st.session_state["top15_diseases"] is not None:
+
+    df_exploded = st.session_state["df_exploded"]
+    df3 = st.session_state["df3"]
+    top20_diseases = st.session_state["top20_diseases"]
+    top15_diseases = st.session_state["top15_diseases"]
+
+    # Отображение описательной статистики
+    st.markdown("Описательная статистика:")
+    st.write(df_exploded.describe())
+
+    # Построение гистограммы
+    fig1, ax1 = plt.subplots(figsize=(10, 5))
+    sns.histplot(df3['len_disease'], kde=True, ax=ax1)
+    ax1.set_xlabel('Количество заболеваний')
+    ax1.set_ylabel('Количество пациентов')
+    ax1.set_title('Гистограмма распределения количества заболеваний у одного пациента')
+    st.pyplot(fig1)
+
+    # Группировка данных
+    st.write('Количество женщин и мужчин среди пациентов:')
+    st.write(df_exploded.groupby('gender').agg({'id': 'nunique'}))
+
+    # Построение ещё одной гистограммы
+    fig2, ax2 = plt.subplots(figsize=(10, 5))
+    sns.histplot(data=df_exploded, x='age', hue='gender', kde=True, ax=ax2)
+    ax2.set_xlabel('Возраст')
+    ax2.set_ylabel('Количество пациентов')
+    ax2.set_title('Гистограмма распределения возраста')
+    st.pyplot(fig2)
+
+    # Интерфейс для выбора заболевания и пола
+    selected_disease = st.selectbox("Выберите заболевание", top20_diseases)
+    gender_filter = st.radio("Выберите пол", ["Оба", "Мужчины", "Женщины"])
+
+    # Фильтрация данных
+    @st.cache_data
+    def filter_data(disease, gender_filter, df):
+        df_filtered = df[df.disease_name == disease]
+        if gender_filter != "Оба":
+            gender = "Male" if gender_filter == "Мужчины" else "Female"
+            df_filtered = df_filtered[df_filtered.gender == gender]
+        return df_filtered
+
+    df_to_plot = filter_data(selected_disease, gender_filter, df_exploded)
+
+    # Построение графика
+    fig3, ax3 = plt.subplots(figsize=(10, 5))
+    sns.histplot(data=df_to_plot, x='age', kde=True, ax=ax3)
+    ax3.set_xlabel('Возраст')
+    ax3.set_ylabel('Количество пациентов')
+    ax3.set_title(f'Гистограмма распределения возраста для {selected_disease} ({gender_filter})')
+    st.pyplot(fig3)
+
+
+    @st.cache_data
+    def filter_data_disease(disease, df):
+        df_filtered = df[df.disease_name == disease]
+        return df_filtered
+
+    df_to_plot_gender = filter_data_disease(selected_disease, df_exploded)
+
+    total_men_count = df_exploded[df_exploded.gender == 'Male'].shape[0]
+    total_women_count = df_exploded[df_exploded.gender == 'Female'].shape[0]
+
+    men_count = df_to_plot_gender[(df_to_plot_gender.gender == 'Male') & (df_exploded.disease_name == selected_disease)].shape[0]
+    women_count = df_to_plot_gender[(df_to_plot_gender.gender == 'Female') & (df_exploded.disease_name == selected_disease)].shape[0]
+
+    total_count = men_count + women_count
+
+    men_ratio = men_count / total_count
+    women_ratio = women_count / total_count
+
+    plt.figure(figsize=(10, 5))
+    sns.barplot(x=['Мужчины', 'Женщины'], y=[men_ratio, women_ratio])
+
+    plt.ylim(0, 1)
+    plt.ylabel('Доля пациентов')
+    plt.xlabel('Пол')
+    plt.title(f'Доля мужчин и женщин для {selected_disease}')
+    plt.show()
+    st.pyplot(plt)
+
+    st.info("**На основе загруженных данных возможен прогноз следующих диагнозов:** " + ", ".join(top15_diseases))
+
 # Part 3: Выбор модели и параметров
 st.divider()
 st.subheader("Обучение модели")
@@ -121,7 +208,7 @@ if uploaded_file is not None and st.session_state["dataset_name"] is not None:
         train_data = {
             "model_type": model_type,
             "params": params,
-            "dataset_name": dataset_name
+            "dataset_name": dataset_name.replace(".zip", "")
         }
         train_response = requests.post(f"{BACKEND_URL}/train_model", json=train_data)
 
@@ -139,11 +226,14 @@ else:
     st.info("Пожалуйста, загрузите файл, чтобы обучить модель.")
 
 
-# Part 4: Список моделей
+# Part 4: Выбор модели и прогноз
 # Сохранение состояния загруженного файла для прогноза
 if "dataset_name_prediction" not in st.session_state:
     st.session_state["dataset_name_prediction"] = None
     logger.info("Инициализировано состояние для хранения имени файла прогноза.")
+
+if "prediction_triggered" not in st.session_state:
+    st.session_state["prediction_triggered"] = False
 
 st.divider()
 st.subheader("Прогноз по анализу ЭКГ")
@@ -155,8 +245,8 @@ if exps_resp.status_code == 200:
         logger.info(f"Найдено {len(exps)} обученных моделей.")
         df = pd.DataFrame(exps)
         df.columns = ['Model IDs']
-        st.write("Список обученных моделей:")
-        st.dataframe(df)
+        #st.write("Список обученных моделей:")
+        #st.dataframe(df)
     else:
         logger.warning("Список обученных моделей пуст.")
         st.error("Обученные модели отсутствуют.")
@@ -167,27 +257,26 @@ if exps_resp.status_code == 200:
 
     uploaded_file_prediction = st.file_uploader("Загрузите ZIP-файл для прогноза диагноза", type=["zip"])
     if uploaded_file_prediction is not None and st.session_state["dataset_name_prediction"] is None:
-        # Отправляем файл на сервер только один раз
         logger.info(f"Файл для прогноза загружен: {uploaded_file_prediction.name}")
-        files = {"file": (uploaded_file_prediction.name, uploaded_file_prediction.read(), "text/csv")}
         st.session_state["dataset_name_prediction"] = uploaded_file_prediction.name
-        disease_names = None
 
-        if st.button("Получить прогноз по ЭКГ"):
-            logger.info("Начат процесс получения прогноза.")
-            # Заглушка для получения результата
-            upload_inference_response = requests.post(f"{BACKEND_URL}/upload_inference", json={"file": uploaded_file_prediction, "model_name": selected_model})
+    if uploaded_file_prediction is not None and st.button("Получить прогноз по ЭКГ"):
+        st.session_state["prediction_triggered"] = True
 
-            if upload_inference_response.status_code == 200:
-                logger.info("Модель %s успешно обучена", selected_model)
-                st.success("Модель успешно обучена")
-                result = upload_inference_response.json()
-                disease_names = result["predicts"]
+    if st.session_state["prediction_triggered"]:
+        logger.info("Начат процесс получения прогноза.")
+        # Подготовка данных для запроса
+        files = {"file": (uploaded_file_prediction.name, uploaded_file_prediction.read(), "application/zip")}
+        response = requests.post(f"{BACKEND_URL}/upload_inference", files=files, data={"model_name": selected_model})
 
-                logger.info("Процесс обучения завершён.")
-                st.info(f"Предсказанный диагноз: {disease_names}. Требуется консультация с врачом.")
-            else:
-                logger.error("Ошибка обучения модели: %s", upload_inference_response.text)
-                st.error(f"Ошибка обучения модели: {upload_inference_response.text}")
+        if response.status_code == 200:
+            logger.info("Предсказание завершено успешно.")
+            result = response.json()
+            disease_names = result["predicts"]
+            disease_names_str = ', '.join(disease_names)
+            st.success(f"Ваш прогноз: {disease_names_str}. Требуется консультация с врачом.")
+        else:
+            logger.error("Ошибка при выполнении предсказания: %s", response.text)
+            st.error(f"Ошибка при выполнении предсказания: {response.text}")
 else:
     st.error("Ошибка получения списка обученных моделей")

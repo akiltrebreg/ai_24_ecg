@@ -303,6 +303,7 @@ def preprocess_dataset(df: pd.DataFrame, get_only_result_df = False):
     df2['labels'] = df2['labels'].apply(lambda x: list(map(int, x.split(','))))
     df2['labels'] = df2['labels'].apply(lambda x: list(set(x)) if isinstance(x, list) else x)  # удаление дубликатов
     df2 = df2.drop(columns={'ecg_filename'})
+
     file_path = os.path.abspath(__file__)
     path = Path(file_path).parent
     file_above = path / "snomed-ct.csv"
@@ -320,9 +321,6 @@ def preprocess_dataset(df: pd.DataFrame, get_only_result_df = False):
     median_value_female = df_exploded[(df_exploded.gender == 'Female') & (df_exploded.age != 0)]['age'].median()
     df_exploded.loc[df_exploded.gender == 'Female', 'age'] = df_exploded.loc[
         df_exploded.gender == 'Female', 'age'].replace(0, median_value_male)
-    df_exploded.groupby(['disease_name', 'short_disease_name']).agg({'id': 'nunique'}).sort_values(by='id',
-                                                                                                   ascending=False)
-    ########################################## ВОТ ЭТОТ НУЖЕН ДЛЯ ГРАФИКОВ И df_exploded ############################
     df3 = df2.copy()
     # print(df_exploded.signal[0])
     # print(type(df_exploded.signal[0][0]))
@@ -330,7 +328,6 @@ def preprocess_dataset(df: pd.DataFrame, get_only_result_df = False):
     # df3.to_hdf(eda_path, key='df3', mode='w')
     # df3.drop('signal', axis = 1).to_csv(os.path.join(eda_path, "df3.csv"), index=False)
     # df_exploded.drop('signal', axis = 1).to_csv(os.path.join(eda_path, "df_exploded.csv"), index=False)
-
     # df3.to_parquet(os.path.join(eda_path, "df3.parquet"), engine='pyarrow', compression='snappy')
     # df_exploded.to_hdf(eda_path, key='df_exploded', mode='a')
     # df_exploded.to_parquet(os.path.join(eda_path, "df_exploded.parquet"), engine='pyarrow', compression='snappy')
@@ -373,6 +370,10 @@ def preprocess_dataset(df: pd.DataFrame, get_only_result_df = False):
     for col_name in col_names:
         df_exploded[f'{col_name}_kurtosis'] = df_exploded['signal'].apply(
             lambda x: feature_extraction.features.kurtosis(x[i]))
+
+    mfcc_cols = [col for col in df_exploded.columns if 'mfcc' in col]
+    #save_param = df_exploded['one_mfcc'][0]
+
     def split_mfcc_columns(df):
         mfcc_columns = [col for col in df.columns if 'mfcc' in col]
         for col in mfcc_columns:
@@ -412,7 +413,9 @@ def preprocess_dataset(df: pd.DataFrame, get_only_result_df = False):
     X = df_cropped_2[df_cropped_2.labels.isin(top_2_diseases)].drop(['labels', 'signal', 'disease_name', 'short_disease_name'], axis=1)
     y = df_cropped_2[df_cropped_2.labels.isin(top_2_diseases)]['labels']
     if get_only_result_df:
-        return [X, y]
+        X = pd.DataFrame(X)
+        y = pd.DataFrame(y)
+        return X, y
     X_train, X_test, y_train, y_test = train_test_split(X,
                                                         y,
                                                         test_size=0.25,

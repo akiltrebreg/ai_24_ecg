@@ -38,7 +38,6 @@ async def upload_dataset(file: Annotated[UploadFile, File(...)]):
     logger.info(f"Файл {filename} успешно загружен")
 
     folder_path = file_path[:file_path.rfind(".")]
-    print(folder_path)
     if os.path.exists(folder_path):
         shutil.rmtree(folder_path)
     logger.info(file_path + "|" + folder_path)
@@ -66,7 +65,6 @@ async def upload_inference(file: Annotated[UploadFile, File(...)], model_name: A
         f.write(content)
     logger.info(f"Файл {filename} успешно загружен")
     folder_path = file_path[:file_path.rfind(".")]
-    print(folder_path)
     if os.path.exists(folder_path):
         shutil.rmtree(folder_path)
     logger.info(file_path + "|" + folder_path)

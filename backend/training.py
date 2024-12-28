@@ -38,7 +38,9 @@ def train_model(model_type: str, params: dict, dataset_name: str):
     if not os.path.exists(data_path):
         raise ValueError("Датасет не найден")
     logger.info("Converting_mat_files_to_df...")
-    df = utils.make_df_from_mat_files(dataset_name)
+    print(f"%%%%%%%%%%%%%%%%%%%% {dataset_name} ########################")
+    df = utils.make_df_from_mat_files(data_path)
+    print(f"################### SHAPE DF {df.shape} ###################")
     logger.info("Preprocess is started")
     X_train_std, X_test_std, y_train, y_test, sc, n_train, n_test = utils.preprocess_dataset(df)
     logger.info("Preprocess is finished. Start fitting")
@@ -86,11 +88,27 @@ def train_model(model_type: str, params: dict, dataset_name: str):
 
 
 def get_inference(folder_path: str, model_name: str):
-    df = utils.make_df_from_mat_files(Path(folder_path).parts[-1])
+    print(f"{Path(folder_path).parts[-1]}")
+    print(f"{folder_path}")
+    df = utils.make_df_from_mat_files(folder_path) #utils.make_df_from_mat_files(Path(folder_path).parts[-1])
+    print(f"^^^^^^^^^^^^ DF SHAPE {df.shape} ^^^^^^^^^^^^^")
     X, _ = utils.preprocess_dataset(df, True)
-    model_path = os.path.join(os.path.join(Path(folder_path).parent.parent, "experiments"), model_name)
+    print(f"{X}")
+    model_path = os.path.join(os.path.join(Path(folder_path).parent.parent, "experiments"), model_name, "model.joblib")
     model = joblib.load(model_path)
-    return model.predict(X)
+    print(f"{model_path}")
+    predictions = model.predict(X)
+    predictions = predictions.tolist()
+
+    file_path = os.path.abspath(__file__)
+    path = Path(file_path).parent
+    file_above = path / "snomed-ct.csv"
+    df_snomed = pd.read_csv(file_above, sep=',')
+    df_snomed = df_snomed.rename(
+        columns={'Dx': 'disease_name', 'SNOMED CT Code': 'labels', 'Abbreviation': 'short_disease_name'})
+    disease_dict = dict(zip(df_snomed['labels'], df_snomed['disease_name']))
+    disease_names = [disease_dict[disease_id] for disease_id in predictions]
+    return disease_names
 
 
 
