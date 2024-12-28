@@ -178,7 +178,7 @@ if st.session_state["df_exploded"] is not None and st.session_state["df3"] is no
 st.divider()
 st.subheader("Обучение модели")
 if uploaded_file is not None and st.session_state["dataset_name"] is not None:
-    st.write("Выберите модель для обучения:")
+    st.write("Выберите модель:")
     model_type = st.selectbox("Модель", ["SVC", "Logistic Regression"])
 
     params = {}
@@ -236,7 +236,7 @@ if "prediction_triggered" not in st.session_state:
     st.session_state["prediction_triggered"] = False
 
 st.divider()
-st.subheader("Прогноз по анализу ЭКГ")
+st.subheader("Прогноз по анализам ЭКГ")
 exps_resp = requests.get(f"{BACKEND_URL}/experiments")
 if exps_resp.status_code == 200:
     logger.info("Успешно получен список обученных моделей с сервера.")
@@ -260,7 +260,7 @@ if exps_resp.status_code == 200:
         logger.info(f"Файл для прогноза загружен: {uploaded_file_prediction.name}")
         st.session_state["dataset_name_prediction"] = uploaded_file_prediction.name
 
-    if uploaded_file_prediction is not None and st.button("Получить прогноз по ЭКГ"):
+    if uploaded_file_prediction is not None and st.button("Получить прогноз"):
         st.session_state["prediction_triggered"] = True
 
     if st.session_state["prediction_triggered"]:

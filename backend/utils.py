@@ -291,6 +291,7 @@ def preprocess_dataset(df: pd.DataFrame, get_only_result_df = False):
     # if os.path.exists(eda_path):
     #     shutil.rmtree(eda_path)
     # os.mkdir(eda_path)
+    logging.info(f"Размер предобрабатываемого датасета: {df.shape}")
     df2 = df.drop(['time', 'prefix'], axis=1)
     col_names = ['one', 'two', 'three', 'aVR', 'aVL', 'aVF', 'V1', 'V2', 'V3', 'V4', 'V5', 'V6']
     for col_name in col_names:
@@ -322,15 +323,7 @@ def preprocess_dataset(df: pd.DataFrame, get_only_result_df = False):
     df_exploded.loc[df_exploded.gender == 'Female', 'age'] = df_exploded.loc[
         df_exploded.gender == 'Female', 'age'].replace(0, median_value_male)
     df3 = df2.copy()
-    # print(df_exploded.signal[0])
-    # print(type(df_exploded.signal[0][0]))
     df3['len_disease'] = df3['labels'].apply(lambda x: len(x))
-    # df3.to_hdf(eda_path, key='df3', mode='w')
-    # df3.drop('signal', axis = 1).to_csv(os.path.join(eda_path, "df3.csv"), index=False)
-    # df_exploded.drop('signal', axis = 1).to_csv(os.path.join(eda_path, "df_exploded.csv"), index=False)
-    # df3.to_parquet(os.path.join(eda_path, "df3.parquet"), engine='pyarrow', compression='snappy')
-    # df_exploded.to_hdf(eda_path, key='df_exploded', mode='a')
-    # df_exploded.to_parquet(os.path.join(eda_path, "df_exploded.parquet"), engine='pyarrow', compression='snappy')
     for i in range(len(col_names)):
         col_name = col_names[i]
         df_exploded[f'{col_name}_spectral_entropy'] = df_exploded['signal'].apply(
@@ -385,7 +378,6 @@ def preprocess_dataset(df: pd.DataFrame, get_only_result_df = False):
             df.drop(columns=[col], inplace=True)
         return df
 
-    print(df_exploded)
     df = split_mfcc_columns(df_exploded)
     top = 20
     top_2 = 15

@@ -38,9 +38,7 @@ def train_model(model_type: str, params: dict, dataset_name: str):
     if not os.path.exists(data_path):
         raise ValueError("Датасет не найден")
     logger.info("Converting_mat_files_to_df...")
-    print(f"%%%%%%%%%%%%%%%%%%%% {dataset_name} ########################")
     df = utils.make_df_from_mat_files(data_path)
-    print(f"################### SHAPE DF {df.shape} ###################")
     logger.info("Preprocess is started")
     X_train_std, X_test_std, y_train, y_test, sc, n_train, n_test = utils.preprocess_dataset(df)
     logger.info("Preprocess is finished. Start fitting")
@@ -91,7 +89,6 @@ def get_inference(folder_path: str, model_name: str):
     print(f"{Path(folder_path).parts[-1]}")
     print(f"{folder_path}")
     df = utils.make_df_from_mat_files(folder_path) #utils.make_df_from_mat_files(Path(folder_path).parts[-1])
-    print(f"^^^^^^^^^^^^ DF SHAPE {df.shape} ^^^^^^^^^^^^^")
     X, _ = utils.preprocess_dataset(df, True)
     print(f"{X}")
     model_path = os.path.join(os.path.join(Path(folder_path).parent.parent, "experiments"), model_name, "model.joblib")
