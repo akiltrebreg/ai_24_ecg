@@ -88,7 +88,9 @@ def train_model(model_type: str, params: dict, dataset_name: str):
 def get_inference(folder_path: str, model_name: str):
     df = utils.make_df_from_mat_files(folder_path) #utils.make_df_from_mat_files(Path(folder_path).parts[-1])
     X, _ = utils.preprocess_dataset(df, True)
-    model_path = os.path.join(os.path.join(Path(folder_path).parent.parent, "experiments"), model_name, "model.joblib")
+    model_path = os.path.join(os.path.join(Path(folder_path).parent.parent, "experiments"),
+                              model_name,
+                              "model.joblib")
     model = joblib.load(model_path)
     predictions = model.predict(X)
     predictions = predictions.tolist()
@@ -98,18 +100,21 @@ def get_inference(folder_path: str, model_name: str):
     file_above = path / "snomed-ct.csv"
     df_snomed = pd.read_csv(file_above, sep=',')
     df_snomed = df_snomed.rename(
-        columns={'Dx': 'disease_name', 'SNOMED CT Code': 'labels', 'Abbreviation': 'short_disease_name'})
+        columns={'Dx': 'disease_name',
+                 'SNOMED CT Code': 'labels',
+                 'Abbreviation': 'short_disease_name'})
     disease_dict = dict(zip(df_snomed['labels'], df_snomed['disease_name']))
     disease_names = [disease_dict[disease_id] for disease_id in predictions]
     return disease_names
-
 
 
 def list_experiments():
     exp_dir = "experiments"
     if not os.path.exists(exp_dir):
         return []
-    list_of_experiments = [d for d in os.listdir(exp_dir) if os.path.isdir(os.path.join(exp_dir, d)) and os.listdir(os.path.join(exp_dir, d))]
+    list_of_experiments = [d for d in os.listdir(exp_dir)
+                           if os.path.isdir(os.path.join(exp_dir, d))
+                           and os.listdir(os.path.join(exp_dir, d))]
     result_dict = {}
     list_of_metrics = ["accuracy", "f1"]
     for exp in list_of_experiments:
@@ -123,7 +128,8 @@ def list_experiments():
             result_metrics[metric] = metrics_df[metric][0]
         result_dict[exp] = [model, result_metrics]
     return result_dict
-    # return [d for d in os.listdir(exp_dir) if os.path.isdir(os.path.join(exp_dir, d))]
+    # return [d for d in os.listdir(exp_dir)
+    #         if os.path.isdir(os.path.join(exp_dir, d))]
 
 
 def get_experiment_metrics(name: str):

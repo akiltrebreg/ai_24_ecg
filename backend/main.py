@@ -26,9 +26,12 @@ app = FastAPI()
 @app.post("/upload_dataset")
 async def upload_dataset(file: Annotated[UploadFile, File(...)]) -> dict:
     filename = file.filename
-    if not any(filename.endswith(ext) for ext in ALLOWED_EXTENSIONS):
-        logger.error(f"Попытка загрузить неправильный формат файла: {filename}")
-        raise HTTPException(status_code=400, detail="Неверный формат файла. Допустим: csv")
+    if not any(filename.endswith(ext)
+               for ext in ALLOWED_EXTENSIONS):
+        logger.error(f"Попытка загрузить неправильный формат файла: "
+                     f"{filename}")
+        raise HTTPException(status_code=400,
+                            detail="Неверный формат файла. Допустим: csv")
     data_dir = os.path.join("data")
     os.makedirs(data_dir, exist_ok=True)
     file_path = os.path.join(data_dir, filename)
@@ -51,12 +54,18 @@ async def upload_dataset(file: Annotated[UploadFile, File(...)]) -> dict:
     logger.info(f"Файл {filename} успешно разархивирован")
     return {"message": "Файл успешно загружен", "filepath": file_path}
 
+
 @app.post("/upload_inference")
-async def upload_inference(file: Annotated[UploadFile, File(...)], model_name: Annotated[str, Form(...)]) -> dict:
+async def upload_inference(
+        file: Annotated[UploadFile, File(...)],
+        model_name: Annotated[str, Form(...)]
+) -> dict:
     filename = file.filename
     if not any(filename.endswith(ext) for ext in ALLOWED_EXTENSIONS):
-        logger.error(f"Попытка загрузить неправильный формат файла: {filename}")
-        raise HTTPException(status_code=400, detail="Неверный формат файла. Допустим: csv")
+        logger.error(f"Попытка загрузить неправильный формат файла: "
+                     f"{filename}")
+        raise HTTPException(status_code=400,
+                            detail="Неверный формат файла. Допустим: csv")
     data_dir = os.path.join("data")
     os.makedirs(data_dir, exist_ok=True)
     file_path = os.path.join(data_dir, filename)
@@ -76,6 +85,7 @@ async def upload_inference(file: Annotated[UploadFile, File(...)], model_name: A
     predicts = training.get_inference(folder_path, model_name)
     return {"message": "Предсказание успешно завершено", "predicts": predicts}
 
+
 class TrainRequest(BaseModel):
     model_type: str
     params: dict
@@ -86,8 +96,14 @@ class TrainRequest(BaseModel):
 def train_model_endpoint(req: TrainRequest):
     try:
         exp_name = train_model(req.model_type, req.params, req.dataset_name)
-        logger.info(f"Модель {req.model_type} успешно обучена. Эксперимент: {exp_name}")
-        return {"message": "Модель успешно обучена", "experiment_name": exp_name}
+        logger.info(
+            f"Модель {req.model_type} успешно обучена. "
+            f"Эксперимент: {exp_name}"
+        )
+        return {
+            "message": "Модель успешно обучена",
+            "experiment_name": exp_name
+        }
     except Exception as e:
         logger.error(f"Ошибка обучения модели: {e}")
         raise HTTPException(status_code=500, detail=str(e))
@@ -100,28 +116,27 @@ def get_experiments() -> dict:
     for elem in res:
         result.append({"id": elem, "params": {}, "metrics": {}})
         for el in res[elem]:
-            if type(el) == dict:
+            if el is dict:
                 result[-1]['params'] = el
-            else:
-                if isinstance(el, LogisticRegression):
-                    result[-1]["metrics"]["model"] = "Logistic Regression"
-                    result[-1]["metrics"]["solver"] = str(el.solver)
-                    result[-1]["metrics"]["penalty"] = str(el.penalty)
-                    result[-1]["metrics"]["C"] = str(el.C)
-                    result[-1]["metrics"]["class_weight"] = str(el.class_weight)
-                    if hasattr(el, 'l1_ratio') and el.l1_ratio is not None:
-                        result[-1]["metrics"]["l1_ratio"] = str(el.l1_ratio)
-                elif isinstance(el, SVC):
-                    result[-1]["metrics"]["model"] = "SVC"
-                    result[-1]["metrics"]["C"] = str(el.C)
-                    result[-1]["metrics"]["kernel"] = str(el.kernel)
-                    result[-1]["metrics"]["gamma"] = str(el.gamma)
-                    result[-1]["metrics"]["class_weight"] = str(el.class_weight)
+                continue
+            if isinstance(el, LogisticRegression):
+                result[-1]["metrics"]["model"] = "Logistic Regression"
+                result[-1]["metrics"]["solver"] = str(el.solver)
+                result[-1]["metrics"]["penalty"] = str(el.penalty)
+                result[-1]["metrics"]["C"] = str(el.C)
+                result[-1]["metrics"]["class_weight"] = str(el.class_weight)
+                if hasattr(el, 'l1_ratio') and el.l1_ratio is not None:
+                    result[-1]["metrics"]["l1_ratio"] = str(el.l1_ratio)
+            elif isinstance(el, SVC):
+                result[-1]["metrics"]["model"] = "SVC"
+                result[-1]["metrics"]["C"] = str(el.C)
+                result[-1]["metrics"]["kernel"] = str(el.kernel)
+                result[-1]["metrics"]["gamma"] = str(el.gamma)
+                result[-1]["metrics"]["class_weight"] = str(el.class_weight)
     logger.info("Запрошен список экспериментов")
     return {"experiments": result}
 
     # return {"experiments": res} # старый результат
-
 
 
 @app.get("/experiment_metrics")
