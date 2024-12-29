@@ -103,25 +103,71 @@ if st.session_state["df_exploded"] is not None and st.session_state["df3"] is no
     st.markdown("Описательная статистика:")
     st.write(df_exploded.describe())
 
-    # Построение гистограммы
-    fig1, ax1 = plt.subplots(figsize=(10, 5))
-    sns.histplot(df3['len_disease'], kde=True, ax=ax1)
-    ax1.set_xlabel('Количество заболеваний')
-    ax1.set_ylabel('Количество пациентов')
-    ax1.set_title('Гистограмма распределения количества заболеваний у одного пациента')
-    st.pyplot(fig1)
+    # Построение гистограммы c количеством заболеваний на одного пациента
+    hist = go.Histogram(
+        x=df3['len_disease'],
+        nbinsx=10,  # Количество бинов
+        marker_color='#00CC96',
+        opacity=0.75
+    )
+
+    fig1 = go.Figure(data=[hist])
+    fig1.update_layout(
+        title="Гистограмма распределения количества заболеваний у одного пациента",
+        xaxis_title="Количество заболеваний",
+        yaxis_title="Количество пациентов",
+        bargap=0.2,  # Промежуток между барами
+    )
+
+    st.plotly_chart(fig1)
 
     # Группировка данных
     st.write('Количество женщин и мужчин среди пациентов:')
     st.write(df_exploded.groupby('gender').agg({'id': 'nunique'}))
 
-    # Построение ещё одной гистограммы
-    fig2, ax2 = plt.subplots(figsize=(10, 5))
-    sns.histplot(data=df_exploded, x='age', hue='gender', kde=True, ax=ax2)
-    ax2.set_xlabel('Возраст')
-    ax2.set_ylabel('Количество пациентов')
-    ax2.set_title('Гистограмма распределения возраста')
-    st.pyplot(fig2)
+    # Построение гистограммы распределения возраста в датасете
+    fig2 = go.Figure()
+
+    for gender in df_exploded['gender'].unique():
+        if gender == 'Female':
+            color = '#FFA15A'
+        else:
+            color = '#6FA5C9'
+
+        fig2.add_trace(
+            go.Histogram(
+                x=df_exploded[df_exploded['gender'] == gender]['age'],
+                name=f"{gender}",
+                marker_color=color,
+                opacity=0.75
+            )
+        )
+
+    fig2.update_layout(
+        title=dict(
+            text="Гистограмма распределения возраста",
+            font=dict(size=16)
+            #x=0.05
+        ),
+        xaxis=dict(
+            title="Возраст",
+            showgrid=False,
+            zeroline=False
+            #linecolor='black'
+        ),
+        yaxis=dict(
+            title="Количество пациентов",
+            showgrid=True,
+            zeroline=False
+            #linecolor='black'
+        ),
+        bargap=0.2,  # Промежуток между столбцами
+        barmode='overlay',  # Наложение столбцов
+        plot_bgcolor='rgba(0,0,0,0)'  # Прозрачный фон
+    )
+
+    # Отображение графика в Streamlit
+    st.plotly_chart(fig2)
 
     # Интерфейс для выбора заболевания и пола
     selected_disease = st.selectbox("Выберите заболевание", top20_diseases)
@@ -139,12 +185,22 @@ if st.session_state["df_exploded"] is not None and st.session_state["df3"] is no
     df_to_plot = filter_data(selected_disease, gender_filter, df_exploded)
 
     # Построение графика
-    fig3, ax3 = plt.subplots(figsize=(10, 5))
-    sns.histplot(data=df_to_plot, x='age', kde=True, ax=ax3)
-    ax3.set_xlabel('Возраст')
-    ax3.set_ylabel('Количество пациентов')
-    ax3.set_title(f'Гистограмма распределения возраста для {selected_disease} ({gender_filter})')
-    st.pyplot(fig3)
+    hist = go.Histogram(
+        x=df_to_plot['age'],
+        nbinsx=15,  # Количество бинов
+        marker_color='#AB63FA',
+        opacity=0.75
+    )
+
+    fig3 = go.Figure(data=[hist])
+    fig3.update_layout(
+        title=f'Гистограмма распределения возраста для {selected_disease} ({gender_filter})',
+        xaxis_title="Возраст",
+        yaxis_title="Количество пациентов",
+        bargap=0.01,  # Промежуток между барами
+    )
+
+    st.plotly_chart(fig3)
 
 
     @st.cache_data
@@ -165,15 +221,32 @@ if st.session_state["df_exploded"] is not None and st.session_state["df3"] is no
     men_ratio = men_count / total_count
     women_ratio = women_count / total_count
 
-    plt.figure(figsize=(10, 5))
-    sns.barplot(x=['Мужчины', 'Женщины'], y=[men_ratio, women_ratio])
+    fig4 = go.Figure()
 
-    plt.ylim(0, 1)
-    plt.ylabel('Доля пациентов')
-    plt.xlabel('Пол')
-    plt.title(f'Доля мужчин и женщин для {selected_disease}')
-    plt.show()
-    st.pyplot(plt)
+    fig4.add_trace(
+        go.Bar(
+            x=['Мужчины', 'Женщины'],
+            y=[men_ratio, women_ratio],
+            marker_color=['#6FA5C9', '#FFA15A'],
+            name='Доля пациентов'
+        )
+    )
+
+    fig4.update_layout(
+        title=f'Доля мужчин и женщин для {selected_disease}',  # Заголовок
+        xaxis=dict(
+            title='Пол',
+            tickmode='array',  # Обработка подписи
+        ),
+        yaxis=dict(
+            title='Доля пациентов',
+            range=[0, 1]  # Ограничение оси Y
+        ),
+        plot_bgcolor='rgba(0,0,0,0)',  # Прозрачный фон
+    )
+
+    # Отображение графика в Streamlit
+    st.plotly_chart(fig4)
 
     st.info("**На основе загруженных данных возможен прогноз следующих диагнозов:** " + ", ".join(top15_diseases))
 
@@ -245,9 +318,10 @@ if exps_resp.status_code == 200:
     logger.info("Успешно получен список обученных моделей с сервера.")
     if "experiments" in exps_resp.json():
         exps = exps_resp.json()["experiments"]
+        print(exps)
         logger.info(f"Найдено {len(exps)} обученных моделей.")
-        df = pd.DataFrame(exps)
-        df.columns = ['Model IDs']
+        #df = pd.DataFrame(exps)
+        #df.columns = ['Model IDs']
         #st.write("Список обученных моделей:")
         #st.dataframe(df)
     else:
@@ -255,9 +329,21 @@ if exps_resp.status_code == 200:
         st.error("Обученные модели отсутствуют.")
 
     # Выбор модели
-    selected_model = st.selectbox("Выберите модель для предсказания", exps)
+    ids = [item["id"] for item in exps]
+    selected_model = st.selectbox("Выберите модель для предсказания", ids)
     logger.info(f"Выбрана модель {selected_model} для прогноза")
 
+    # Находим данные о выбранной модели
+    model_data = next(item for item in exps if item["id"] == selected_model)
+
+    # Отображение данных о модели
+    st.write("#### Информация о выбранной модели")
+    st.write("**Метрики:**")
+    st.json(model_data["metrics"])
+    st.write("**Параметры:**")
+    st.json(model_data["params"])
+
+    st.write("#### Получение прогноза о состоянии здоровья")
     uploaded_file_prediction = st.file_uploader("Загрузите ZIP-файл для прогноза диагноза", type=["zip"])
     if uploaded_file_prediction is not None and st.session_state["dataset_name_prediction"] is None:
         logger.info(f"Файл для прогноза загружен: {uploaded_file_prediction.name}")

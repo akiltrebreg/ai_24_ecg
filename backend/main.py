@@ -113,30 +113,30 @@ def train_model_endpoint(req: TrainRequest):
 def get_experiments() -> dict:
     res = list_experiments()
     result = []
-    for elem in res:
-        result.append({"id": elem, "params": {}, "metrics": {}})
-        for el in res[elem]:
-            if el is dict:
-                result[-1]['params'] = el
-                continue
-            if isinstance(el, LogisticRegression):
-                result[-1]["metrics"]["model"] = "Logistic Regression"
-                result[-1]["metrics"]["solver"] = str(el.solver)
-                result[-1]["metrics"]["penalty"] = str(el.penalty)
-                result[-1]["metrics"]["C"] = str(el.C)
-                result[-1]["metrics"]["class_weight"] = str(el.class_weight)
+    for elem, details in res.items():
+        entry = {"id": elem, "metrics": {}, "params": {}}
+        for el in details:
+            if isinstance(el, dict):
+                entry["metrics"] = el
+            elif isinstance(el, LogisticRegression):
+                entry["params"]["model"] = "Logistic Regression"
+                entry["params"]["solver"] = str(el.solver)
+                entry["params"]["penalty"] = str(el.penalty)
+                entry["params"]["C"] = str(el.C)
+                entry["params"]["class_weight"] = str(el.class_weight)
                 if hasattr(el, 'l1_ratio') and el.l1_ratio is not None:
-                    result[-1]["metrics"]["l1_ratio"] = str(el.l1_ratio)
+                    entry["params"]["l1_ratio"] = str(el.l1_ratio)
             elif isinstance(el, SVC):
-                result[-1]["metrics"]["model"] = "SVC"
-                result[-1]["metrics"]["C"] = str(el.C)
-                result[-1]["metrics"]["kernel"] = str(el.kernel)
-                result[-1]["metrics"]["gamma"] = str(el.gamma)
-                result[-1]["metrics"]["class_weight"] = str(el.class_weight)
+                entry["params"]["model"] = "SVC"
+                entry["params"]["C"] = str(el.C)
+                entry["params"]["kernel"] = str(el.kernel)
+                entry["params"]["gamma"] = str(el.gamma)
+                entry["params"]["class_weight"] = str(el.class_weight)
+
+        result.append(entry)
+
     logger.info("Запрошен список экспериментов")
     return {"experiments": result}
-
-    # return {"experiments": res} # старый результат
 
 
 @app.get("/experiment_metrics")

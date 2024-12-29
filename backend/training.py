@@ -127,6 +127,7 @@ def list_experiments():
         for metric in list_of_metrics:
             result_metrics[metric] = metrics_df[metric][0]
         result_dict[exp] = [model, result_metrics]
+        print(result_dict)
     return result_dict
     # return [d for d in os.listdir(exp_dir)
     #         if os.path.isdir(os.path.join(exp_dir, d))]
