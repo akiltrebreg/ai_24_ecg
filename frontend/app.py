@@ -1,13 +1,10 @@
-import streamlit as st
-import requests
-import plotly.graph_objects as go
-import matplotlib.pyplot as plt
-import seaborn as sns
-import pandas as pd
-import os
-import logging
-from logger_config import logger
 import warnings
+import requests
+import pandas as pd
+import plotly.graph_objects as go
+import streamlit as st
+from logger_config import logger
+
 
 warnings.filterwarnings("ignore")
 
@@ -46,7 +43,7 @@ if uploaded_file is not None and st.session_state["dataset_name"] is None:
                       uploaded_file.read(),
                       "application/zip")}
     upload_response = requests.post(f"{BACKEND_URL}/upload_dataset",
-                                    files=files)
+                                    files=files, timeout=10000)
 
     if upload_response.status_code == 200:
         logger.info("Файл успешно отправлен на сервер: %s", uploaded_file.name)
@@ -82,7 +79,7 @@ if st.session_state["dataset_name"]:
                     data={
                         "dataset_name": st.session_state["dataset_name"]
                         .replace(".zip", "")
-                    }
+                    }, timeout=10000
 
                 )
                 if response.status_code == 200:
@@ -166,23 +163,14 @@ if st.session_state["df_exploded"] is not None and st.session_state["df3"] \
         )
 
     fig2.update_layout(
-        title=dict(
-            text="Гистограмма распределения возраста",
-            font=dict(size=16)
-            # x=0.05
-        ),
-        xaxis=dict(
-            title="Возраст",
-            showgrid=False,
-            zeroline=False
-            # linecolor='black'
-        ),
-        yaxis=dict(
-            title="Количество пациентов",
-            showgrid=True,
-            zeroline=False
-            # linecolor='black'
-        ),
+        title={"text": 'Гистограмма распределения возраста',
+               "font": {"size": 16}},
+        xaxis={"title": 'Возраст',
+               "showgrid": False,
+               "zeroline": False},
+        yaxis={"title": 'Количество пациентов',
+               "showgrid": True,
+               "zeroline": False},
         bargap=0.2,  # Промежуток между столбцами
         barmode='overlay',  # Наложение столбцов
         plot_bgcolor='rgba(0,0,0,0)'  # Прозрачный фон
@@ -197,11 +185,14 @@ if st.session_state["df_exploded"] is not None and st.session_state["df3"] \
 
     # Фильтрация данных
     @st.cache_data
-    def filter_data(disease, gender_filter, df):
+    def filter_data(disease, gender_filter_sp, df):
+        """
+        Filters the dataset based on disease name and gender.
+        """
         df_filtered = df[df.disease_name == disease]
         if gender_filter != "Оба":
-            gender = "Male" if gender_filter == "Мужчины" else "Female"
-            df_filtered = df_filtered[df_filtered.gender == gender]
+            gender_sp = "Male" if gender_filter_sp == "Мужчины" else "Female"
+            df_filtered = df_filtered[df_filtered.gender == gender_sp]
         return df_filtered
 
     df_to_plot = filter_data(selected_disease, gender_filter, df_exploded)
@@ -227,6 +218,9 @@ if st.session_state["df_exploded"] is not None and st.session_state["df3"] \
 
     @st.cache_data
     def filter_data_disease(disease, df):
+        """
+        Filters the dataset based on disease name.
+        """
         df_filtered = df[df.disease_name == disease]
         return df_filtered
 
@@ -260,14 +254,8 @@ if st.session_state["df_exploded"] is not None and st.session_state["df3"] \
 
     fig4.update_layout(
         title=f'Доля мужчин и женщин для {selected_disease}',  # Заголовок
-        xaxis=dict(
-            title='Пол',
-            tickmode='array',  # Обработка подписи
-        ),
-        yaxis=dict(
-            title='Доля пациентов',
-            range=[0, 1]  # Ограничение оси Y
-        ),
+        xaxis={"title": 'Пол', "tickmode": 'array'},
+        yaxis={"title": 'Доля пациентов', "range": [0, 1]},
         plot_bgcolor='rgba(0,0,0,0)',  # Прозрачный фон
     )
 
@@ -327,7 +315,7 @@ if uploaded_file is not None and st.session_state["dataset_name"] is not None:
             "dataset_name": dataset_name.replace(".zip", "")
         }
         train_response = requests.post(f"{BACKEND_URL}/train_model",
-                                       json=train_data)
+                                       json=train_data, timeout=10000)
 
         if train_response.status_code == 200:
             logger.info("Модель %s успешно обучена", model_type)
@@ -355,13 +343,13 @@ if "prediction_triggered" not in st.session_state:
 
 st.divider()
 st.subheader("Прогноз по анализам ЭКГ")
-exps_resp = requests.get(f"{BACKEND_URL}/experiments")
+exps_resp = requests.get(f"{BACKEND_URL}/experiments", timeout=10000)
 if exps_resp.status_code == 200:
     logger.info("Успешно получен список обученных моделей с сервера.")
     if "experiments" in exps_resp.json():
         exps = exps_resp.json()["experiments"]
         print(exps)
-        logger.info(f"Найдено {len(exps)} обученных моделей.")
+        logger.info("Найдено %s обученных моделей.", str(len(exps)))
     else:
         logger.warning("Список обученных моделей пуст.")
         st.error("Обученные модели отсутствуют.")
@@ -369,7 +357,7 @@ if exps_resp.status_code == 200:
     # Выбор модели
     ids = [item["id"] for item in exps]
     selected_model = st.selectbox("Выберите модель для предсказания", ids)
-    logger.info(f"Выбрана модель {selected_model} для прогноза")
+    logger.info("Выбрана модель %s для прогноза", selected_model)
 
     # Находим данные о выбранной модели
     model_data = next(item for item in exps if item["id"] == selected_model)
@@ -387,8 +375,8 @@ if exps_resp.status_code == 200:
                        type=["zip"])
     if uploaded_file_prediction is not None \
             and st.session_state["dataset_name_prediction"] is None:
-        logger.info(f"Файл для прогноза загружен: "
-                    f"{uploaded_file_prediction.name}")
+        logger.info("Файл для прогноза загружен: %s",
+                    uploaded_file_prediction.name)
         st.session_state["dataset_name_prediction"] = \
             uploaded_file_prediction.name
 
@@ -403,7 +391,8 @@ if exps_resp.status_code == 200:
                           "application/zip")}
         response = requests.post(f"{BACKEND_URL}/upload_inference",
                                  files=files,
-                                 data={"model_name": selected_model})
+                                 data={"model_name": selected_model},
+                                 timeout=10000)
 
         if response.status_code == 200:
             logger.info("Предсказание завершено успешно.")
