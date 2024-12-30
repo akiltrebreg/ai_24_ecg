@@ -1,21 +1,24 @@
 import os
-import logging
 import shutil
-from logging.handlers import RotatingFileHandler
+import warnings
 from typing import List
+from typing_extensions import Annotated
 from fastapi import FastAPI, UploadFile, File, HTTPException, Form
 from pydantic import BaseModel
 from sklearn.linear_model import LogisticRegression
 from sklearn.svm import SVC
-from typing_extensions import Annotated
+import numpy as np
 import utils
-from training import train_model, list_experiments, get_experiment_metrics, \
-    get_experiment_curves, get_eda_info
 from utils import ALLOWED_EXTENSIONS
-import warnings
+from training import (
+    train_model,
+    list_experiments,
+    get_experiment_metrics,
+    get_experiment_curves,
+)
 from logger_config import logger
 import training
-import numpy as np
+
 
 warnings.filterwarnings("ignore")
 
@@ -25,11 +28,18 @@ app = FastAPI()
 
 @app.post("/upload_dataset")
 async def upload_dataset(file: Annotated[UploadFile, File(...)]) -> dict:
+    """
+        Handles the upload of a dataset file
+        Args:
+            file (Annotated[UploadFile, File(...)]): The uploaded dataset file
+        Returns:
+            dict
+        """
     filename = file.filename
     if not any(filename.endswith(ext)
                for ext in ALLOWED_EXTENSIONS):
-        logger.error(f"Попытка загрузить неправильный формат файла: "
-                     f"{filename}")
+        logger.error("Попытка загрузить неправильный формат файла: "
+                     "%s", filename)
         raise HTTPException(status_code=400,
                             detail="Неверный формат файла. Допустим: csv")
     data_dir = os.path.join("data")
@@ -41,8 +51,7 @@ async def upload_dataset(file: Annotated[UploadFile, File(...)]) -> dict:
         raise HTTPException(status_code=400, detail="Файл слишком большой")
     with open(file_path, "wb") as f:
         f.write(content)
-    logger.info(f"Файл {filename} успешно загружен")
-
+    logger.info("Файл %s успешно загружен", filename)
     folder_path = file_path[:file_path.rfind(".")]
     if os.path.exists(folder_path):
         shutil.rmtree(folder_path)
@@ -51,7 +60,7 @@ async def upload_dataset(file: Annotated[UploadFile, File(...)]) -> dict:
     logger.info("EDA...")
     utils.create_eda(folder_path)
     logger.info("...EDA")
-    logger.info(f"Файл {filename} успешно разархивирован")
+    logger.info("Файл %s успешно разархивирован", filename)
     return {"message": "Файл успешно загружен", "filepath": file_path}
 
 
@@ -60,10 +69,20 @@ async def upload_inference(
         file: Annotated[UploadFile, File(...)],
         model_name: Annotated[str, Form(...)]
 ) -> dict:
+    """
+        Handles file upload and performs inference using the specified model.
+
+        Args:
+            file: Inference file (csv or allowed archive).
+            model_name: Model name for predictions.
+
+        Returns:
+            dict: Success message and predictions.
+    """
     filename = file.filename
     if not any(filename.endswith(ext) for ext in ALLOWED_EXTENSIONS):
-        logger.error(f"Попытка загрузить неправильный формат файла: "
-                     f"{filename}")
+        logger.error("Попытка загрузить неправильный формат файла: %s",
+                     filename)
         raise HTTPException(status_code=400,
                             detail="Неверный формат файла. Допустим: csv")
     data_dir = os.path.join("data")
@@ -75,13 +94,13 @@ async def upload_inference(
         raise HTTPException(status_code=400, detail="Файл слишком большой")
     with open(file_path, "wb") as f:
         f.write(content)
-    logger.info(f"Файл {filename} успешно загружен")
+    logger.info("Файл %s успешно загружен", filename)
     folder_path = file_path[:file_path.rfind(".")]
     if os.path.exists(folder_path):
         shutil.rmtree(folder_path)
     logger.info(file_path + "|" + folder_path)
     shutil.unpack_archive(file_path, folder_path)
-    logger.info(f"Файл {filename} успешно разархивирован")
+    logger.info("Файл %s успешно разархивирован", filename)
     predicts = training.get_inference(folder_path, model_name)
     return {"message": "Предсказание успешно завершено", "predicts": predicts}
 
@@ -94,23 +113,41 @@ class TrainRequest(BaseModel):
 
 @app.post("/train_model")
 def train_model_endpoint(req: TrainRequest):
+    """
+    Endpoint for training a model.
+
+    Args:
+        req (TrainRequest): The training request containing model type,
+                            parameters, and dataset name.
+
+    Returns:
+        dict: A success message and the name of the experiment.
+    """
     try:
         exp_name = train_model(req.model_type, req.params, req.dataset_name)
         logger.info(
-            f"Модель {req.model_type} успешно обучена. "
-            f"Эксперимент: {exp_name}"
+            "Модель %s успешно обучена. Эксперимент: %s",
+            req.model_type,
+            exp_name,
         )
         return {
             "message": "Модель успешно обучена",
             "experiment_name": exp_name
         }
     except Exception as e:
-        logger.error(f"Ошибка обучения модели: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
+        logger.error("Ошибка обучения модели: %s", e)
+        raise HTTPException(status_code=500, detail=str(e)) from e
 
 
 @app.get("/experiments")
 def get_experiments() -> dict:
+    """
+        Fetches a list of experiments with their metrics and parameters.
+
+        Returns:
+            dict: A dictionary containing a list of experiments with details
+                  like metrics and model parameters.
+    """
     res = list_experiments()
     result = []
     for elem, details in res.items():
@@ -141,23 +178,41 @@ def get_experiments() -> dict:
 
 @app.get("/experiment_metrics")
 def experiment_metrics(name: Annotated[str, Form(...)]) -> dict:
-    metrics = get_experiment_metrics(name)
-    return metrics
+    """Get metrics for an experiment."""
+    return get_experiment_metrics(name)
 
 
 @app.get("/experiment_curves")
 def experiment_curves(names: Annotated[List[str], Form(...)]) -> dict:
-    curves = get_experiment_curves(names)
-    return curves
+    """Get learning curves for experiments."""
+    return get_experiment_curves(names)
 
 
 @app.get("/get_eda_info")
 def get_eda_info(dataset_name: Annotated[str, Form(...)]) -> dict:
-    df3, df_exploded, top_diseases, top_2_diseases = training.\
-        get_eda_info(dataset_name)
+    """
+    Fetches exploratory data analysis information for the specified dataset.
+
+    Args:
+        dataset_name (Annotated[str, Form(...)]):
+        The name of the dataset to analyze.
+
+    Returns:
+        dict: A dictionary containing the following keys:
+            - "df3":
+            A list of records representing the summarized dataset (df3).
+            - "df_exploded":
+            A list of records representing the exploded dataset (df_exploded).
+            - "top_diseases":
+            A list of the top diseases based on the analysis.
+            - "top_2_diseases":
+            A list of the top 2 diseases based on the analysis.
+    """
+    df3, df_exploded, top_diseases, top_2_diseases = \
+        training.get_eda_info(dataset_name)
     return {
-        "df3": df3.to_dict(orient="records"),  # DataFrame -> сериал. список
-        "df_exploded": df_exploded.to_dict(orient="records"),  # Аналогично
+        "df3": df3.to_dict(orient="records"),
+        "df_exploded": df_exploded.to_dict(orient="records"),
         "top_diseases": [
             int(x) if isinstance(x, np.integer) else x
             for x in top_diseases

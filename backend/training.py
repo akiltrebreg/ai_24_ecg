@@ -1,53 +1,62 @@
 import os
-from logging.handlers import RotatingFileHandler
 from pathlib import Path
-
-import utils
-import pandas as pd
-import joblib
 import uuid
-import numpy as np
-from sklearn.model_selection import train_test_split, learning_curve
-from sklearn.linear_model import LogisticRegression
-from sklearn.svm import SVC
-from sklearn.preprocessing import StandardScaler
-from sklearn.metrics import accuracy_score, f1_score
-import logging
 import warnings
 from datetime import datetime, timedelta
+import pandas as pd
+import joblib
+import numpy as np
+from sklearn.model_selection import learning_curve
+from sklearn.linear_model import LogisticRegression
+from sklearn.svm import SVC
+from sklearn.metrics import accuracy_score, f1_score
+import utils
 from logger_config import logger
+
 
 warnings.filterwarnings("ignore")
 
 RAND = 42
 
-"""
-log_path = os.path.join("logs", "backend.log")
-if not os.path.exists("logs"):
-    os.makedirs("logs", exist_ok=True)
-logger = logging.getLogger("backend_logger")
-logger.setLevel(logging.INFO)
-handler = RotatingFileHandler(log_path, maxBytes=5_000_000, backupCount=5)
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-handler.setFormatter(formatter)
-logger.addHandler(handler)
-"""
 
 def train_model(model_type: str, params: dict, dataset_name: str):
+    """
+        Trains a machine learning model with the specified type and parameters.
+
+        Args:
+            model_type (str): The type of the model to train. Supported types:
+                              "Logistic Regression", "SVC".
+            params (dict): The hyperparameters for the model.
+            dataset_name (str): The name of the dataset to use for training.
+
+        Returns:
+            str: The name of the experiment directory where model, scaler,
+                 metrics, and learning curves are saved.
+
+        Raises:
+            ValueError: If the dataset is not found or the model type
+            is invalid.
+    """
     data_path = os.path.join("data", dataset_name)
     if not os.path.exists(data_path):
         raise ValueError("Датасет не найден")
     logger.info("Converting_mat_files_to_df...")
     df = utils.make_df_from_mat_files(data_path)
     logger.info("Preprocess is started")
-    X_train_std, X_test_std, y_train, y_test, sc, n_train, n_test = utils.preprocess_dataset(df)
+    X_train_std, X_test_std, y_train, y_test, sc = \
+        utils.preprocess_dataset(df)
     logger.info("Preprocess is finished. Start fitting")
     if model_type == "Logistic Regression":
-        model = LogisticRegression(multi_class='ovr', random_state=RAND, max_iter=1000, **params)
+        model = LogisticRegression(multi_class='ovr',
+                                   random_state=RAND,
+                                   max_iter=1000,
+                                   **params)
     elif model_type == "SVC":
-        model = SVC(probability=True, random_state=RAND, **params)
+        model = SVC(probability=True,
+                    random_state=RAND,
+                    **params)
     else:
-        raise ValueError(f"Неизвестный тип модели")
+        raise ValueError("Неизвестный тип модели")
     model.fit(X_train_std, y_train)
     logger.info("Fitting is finished. Start predicting")
     y_pred = model.predict(X_test_std)
@@ -65,30 +74,39 @@ def train_model(model_type: str, params: dict, dataset_name: str):
         train_sizes=np.linspace(0.1, 1.0, 5),
         random_state=RAND
     )
-
-    mean_train_scores = np.mean(train_scores, axis=1).tolist()
-    mean_val_scores = np.mean(val_scores, axis=1).tolist()
-    formatted_time = (datetime.now() + timedelta(hours=3)).strftime("%H_%M_%d_%m_%Y")
-    short_id = str(uuid.uuid4())[:8]
-    experiment_id = f"{formatted_time}_{short_id}"
-    exp_dir = os.path.join("experiments", experiment_id)
+    formatted_time = (datetime.now() + timedelta(hours=3))\
+        .strftime("%H_%M_%d_%m_%Y")
+    exp_dir = os.path.join("experiments",
+                           f"{formatted_time}_{str(uuid.uuid4())[:8]}")
     os.makedirs(exp_dir, exist_ok=True)
     joblib.dump(model, os.path.join(exp_dir, "model.joblib"))
     joblib.dump(sc, os.path.join(exp_dir, "scaler.joblib"))
-    pd.DataFrame([metrics]).to_csv(os.path.join(exp_dir, "metrics.csv"), index=False)
+    pd.DataFrame([metrics]).to_csv(
+        os.path.join(exp_dir, "metrics.csv"), index=False)
     curves = pd.DataFrame({
         "train_sizes": train_sizes.tolist(),
-        "train_scores": mean_train_scores,
-        "validation_scores": mean_val_scores
+        "train_scores": np.mean(train_scores, axis=1).tolist(),
+        "validation_scores": np.mean(val_scores, axis=1).tolist()
     })
     curves.to_csv(os.path.join(exp_dir, "curves.csv"), index=False)
-    return experiment_id
+    return f"{formatted_time}_{str(uuid.uuid4())[:8]}"
 
 
 def get_inference(folder_path: str, model_name: str):
-    df = utils.make_df_from_mat_files(folder_path) #utils.make_df_from_mat_files(Path(folder_path).parts[-1])
-    X, _ = utils.preprocess_dataset(df, True)
-    model_path = os.path.join(os.path.join(Path(folder_path).parent.parent, "experiments"),
+    """
+        Performs inference using a specified model on preprocessed data.
+
+        Args:
+            folder_path (str): Path to the folder containing input data files.
+            model_name (str): Name of the model to use for inference.
+
+        Returns:
+            list: A list of predicted disease names.
+    """
+    df = utils.make_df_from_mat_files(folder_path)
+    X = utils.preprocess_dataset(df, True)[0]
+    model_path = os.path.join(os.path.join(
+        Path(folder_path).parent.parent, "experiments"),
                               model_name,
                               "model.joblib")
     model = joblib.load(model_path)
@@ -109,6 +127,13 @@ def get_inference(folder_path: str, model_name: str):
 
 
 def list_experiments():
+    """
+        Lists all experiments with their models and metrics.
+
+        Returns:
+            dict: A dictionary where keys are experiment names, and values are
+                  lists containing the model and metrics.
+    """
     exp_dir = "experiments"
     if not os.path.exists(exp_dir):
         return []
@@ -134,6 +159,15 @@ def list_experiments():
 
 
 def get_experiment_metrics(name: str):
+    """
+        Retrieves metrics for a specific experiment.
+
+        Args:
+            name (str): Name of the experiment.
+
+        Returns:
+            dict: A dictionary of metrics for the experiment.
+    """
     exp_dir = os.path.join("experiments", name)
     if not os.path.exists(exp_dir):
         raise ValueError("Эксперимент не найден")
@@ -143,6 +177,16 @@ def get_experiment_metrics(name: str):
 
 
 def get_experiment_curves(names: list):
+    """
+        Retrieves learning curves for a list of experiments.
+
+        Args:
+            names (list): List of experiment names.
+
+        Returns:
+            dict: A dictionary where keys are experiment names and values are
+                  learning curve data.
+    """
     curves_data = {}
     for n in names:
         exp_dir = os.path.join("experiments", n)
@@ -159,4 +203,13 @@ def get_experiment_curves(names: list):
 
 
 def get_eda_info(dataset_name: str):
+    """
+        Retrieves exploratory data analysis (EDA) information for a dataset.
+
+        Args:
+            dataset_name (str): Name of the dataset.
+
+        Returns:
+            Any: EDA information from the utility function.
+    """
     return utils.get_eda_info(dataset_name)

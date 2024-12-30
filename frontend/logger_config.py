@@ -9,7 +9,11 @@ if not os.path.exists("logs"):
 
 logger = logging.getLogger("frontend_logger")
 logger.setLevel(logging.INFO)
-handler = RotatingFileHandler(log_path, maxBytes=5_000_000, backupCount=5, encoding='utf-8')
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+handler = RotatingFileHandler(log_path,
+                              maxBytes=5_000_000,
+                              backupCount=5,
+                              encoding='utf-8')
+formatter = logging.Formatter('%(asctime)s - %(name)s - '
+                              '%(levelname)s - %(message)s')
 handler.setFormatter(formatter)
 logger.addHandler(handler)

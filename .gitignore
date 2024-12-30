@@ -1,7 +1,5 @@
 .idea
 /backend/data
 /backend/experiments
-/backend/logs/backend.log
-/frontend/logs/frontend.log
-processed_logs/
-/logstash/sincedb/*
+*.log
+/logstash/sincedb/*.sincedb
