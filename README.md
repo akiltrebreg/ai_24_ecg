@@ -103,6 +103,7 @@ $ sudo docker-compose up -d
 > <span style="color: red; font-weight: bold; text-decoration: underline;">ВНИМАНИЕ!</span> Образцы данных для использования приложения приведены в этом блоке:
 - [полный набор данных для EDA и обучения моделей `Georgia.zip`](https://storage.yandexcloud.net/ecg-project/Georgia.zip)
 - [комплект тестовых данных для инференса `test_ecg.zip`](https://storage.yandexcloud.net/ecg-project/test_ecg.zip)
+
 ![](https://storage.yandexcloud.net/ecg-project/11.gif)
 
 #### 2. EDA
