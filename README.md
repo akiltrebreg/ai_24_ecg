@@ -103,7 +103,7 @@ $ sudo docker-compose up -d
 > <span style="color: red; font-weight: bold; text-decoration: underline;">ВНИМАНИЕ!</span> Образцы данных для использования приложения приведены в этом блоке:
 - [полный набор данных для EDA и обучения моделей `Georgia.zip`](https://storage.yandexcloud.net/ecg-project/Georgia.zip)
 - [комплект тестовых данных для инференса `test_ecg.zip`](https://storage.yandexcloud.net/ecg-project/test_ecg.zip)
-![](https://storage.yandexcloud.net/ecg-project/AEA6DBAF-E0FD-4172-A3ED-8F53DA0714AB.MP4)
+![](https://storage.yandexcloud.net/ecg-project/11.gif)
 
 #### 2. EDA
 В разделе `Разведочный анализ данных` нажмите на кнопку `Провести EDA` и наслаждайтесь интерактивными графиками, посвященным описанию загруженного датасета  
